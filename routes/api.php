@@ -17,9 +17,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-// Route::group(['prefix','stat']){
-//     Route::get('/menutype'){
-//         toto@getmenu
-//     }
-
-// }
+Route::group(['prefix' => 'stats'], function () {
+    Route::get('getMenu', 'Stats\MenuController@getMenu');
+    Route::post('setMenu', 'Stats\MenuController@setMenu');
+});
