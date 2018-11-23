@@ -7,7 +7,6 @@ class Message extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_message',
     'id_utilisateur',
     'contenu',
     ];
@@ -17,7 +16,7 @@ class Message extends Model
     *
     * @var string
     */
-    protected $table = 'Message';
+    protected $table = 'message';
 
     /**
      * Clé primaire.

@@ -3,19 +3,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DonneeSuivi extends Model
+class Stats extends Model
 {
     //Tout les champs associés
     protected $fillable = [
     'id_utilisateur',
-    'calcium',
-    'prot',
-    'GL',
-    'FVSM',
-    'MG',
-    'sucre',
-    'score',
-    'create_at',
+    'xp',
+    'tier',
     ];
 
     /**
@@ -23,19 +17,19 @@ class DonneeSuivi extends Model
     *
     * @var string
     */
-    protected $table = 'donnee_suivi';
+    protected $table = 'stats';
 
     /**
      * Clé primaire.
      *
      * @var string
      */
-    protected $primaryKey = 'id_donnee';
+    protected $primaryKey = 'id';
 
     /**
     * Active le timestamped automatique.
     * 
     * @var bool
     */
-    public $timestamps = true;
+    public $timestamps = false;
 }

@@ -21,7 +21,6 @@ class User extends Authenticatable
 
     //Tout les champs associés
     protected $fillable = [
-    'id_utilisateur',
     'nom',
     'prenom',
     'pseudo',
