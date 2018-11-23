@@ -23,7 +23,7 @@ class MessageController extends Controller
     */
     public function getMessage()
     {
-        $contrat = Message::where('id_message', $iduser)->first();
+        $contrat = Message::where('id_utilisateur', $iduser)->first();
         return response()->json($contrat);
     }
     /**

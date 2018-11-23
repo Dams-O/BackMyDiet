@@ -23,7 +23,7 @@ class StatsController extends Controller
     */
     public function getStats()
     {
-        $contrat = Stats::where('id', $iduser)->first();
+        $contrat = Stats::where('id_utilisateur', $iduser)->first();
         return response()->json($contrat);
     }
     /**
