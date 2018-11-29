@@ -13,6 +13,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
+                <th>Pseudo</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
             <tr>
                 <td><strong>{{$user->nom}}</strong></td>
                 <td>{{$user->prenom}}</td>
+                <td>{{$user->pseudo}}</td>
             </tr>
         @endforeach
         </tbody>

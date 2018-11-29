@@ -41,6 +41,6 @@ class StatsController extends Controller
     {
         $users = User::all();
         
-        return view('front.dashboard', $users);
+        return view('front.dashboard', array('users' => $users));
     }
 }
