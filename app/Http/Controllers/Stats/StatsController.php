@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Stats;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use App\Models\Stats;
 
 class StatsController extends Controller
@@ -32,5 +33,14 @@ class StatsController extends Controller
     public function setStats(Request $request)
     {
         $request->saveOrFail();
+    }
+    /**
+     * Affiche dashboard
+    */
+    public function viewDashboard()
+    {
+        $users = User::all();
+        
+        return view('front.dashboard', $users);
     }
 }

@@ -15,10 +15,10 @@ class CreateStatsTable extends Migration
     {
         Schema::create('stats', function (Blueprint $table) {
             $table->increments('id_stats');
-            $table->string('id_util', 45)->unsigned();
-            $table->foreign('id_util')->references('id')->on('utilisateurs')->onDelete('cascade');
-            $table->integer('xp')->nullable();
-            $table->string('string', 255);
+            $table->integer('id_util')->unsigned();
+            $table->foreign('id_util')->references('id_utilisateur')->on('utilisateurs')->onDelete('cascade');
+            $table->integer('xp')->unsigned();
+            $table->string('string');
         });
     }
 
