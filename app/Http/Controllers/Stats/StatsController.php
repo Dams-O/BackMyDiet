@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Stats;
 use App\Http\Controllers\Controller;
 use App\Models\Stats;
 use App\User;
+use App\Models\DonneeSuivi;
 
 class StatsController extends Controller
 {
@@ -41,10 +42,11 @@ class StatsController extends Controller
     {
         $users = User::where('id_utilisateur', $id)->first();
         $stats = Stats::where('id_util', $id)->get();
-        // var_dump($stats);
+        $ds = DonneeSuivi::where('id_util', $id)->get();
+        // var_dump($stats);    
         // exit;
 
         
-        return view('front.profilStats', array('users' => $users, 'stats' => $stats));
+        return view('front.profilStats', array('users' => $users, 'stats' => $stats, 'ds' => $ds));
     }
 }
