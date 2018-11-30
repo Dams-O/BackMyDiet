@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/caca', function () {
+    return view('front.test');
+});
 
 Route::get('viewDashboard', 'UtilisateurController@viewDashboard');
 Route::get('viewProfilStats/{id}', 'Stats\StatsController@viewProfilStats');

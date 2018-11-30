@@ -8,16 +8,12 @@
         <meta name="description" content="@yield('metaDescription')">
         <meta name="author" content="">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <link href="{{URL::asset('assets/front/bower_components/bootstrap/dist/css/bootstrap.min.css', $var_env)}}" rel="stylesheet">
-        <link href="{{URL::asset('assets/front/bower_components/animate.css/animate.min.css', $var_env)}}" rel="stylesheet">
-        <link href="{{URL::asset('assets/front/bower_components/font-awesome/css/font-awesome.min.css', $var_env)}}" rel="stylesheet">
-        <title>App Name - @yield('title')</title>
+        <link href="{{URL::asset('assets/front/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/front/bower_components/animate.css/animate.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/front/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+        <title>App Name</title>
     </head>
     <body>
-        @section('sidebar')
-            This is the master sidebar.
-        @show
-
         <div class="container">
             @yield('content')
         </div>

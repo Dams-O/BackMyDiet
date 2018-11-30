@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>Statistique</title>
-  </head>
-  <body>
+@extends('layout')
+
+@section('content')
     <h1>Statistique</h1>
 
-    <table>
-        <caption>Les statistique</caption>
+    <table class="table table-hover">
         <thead>
-            <tr>
+            <tr class="success">
                 <th>Xp</th>
                 <th>Grade</th>
             </tr>
@@ -18,12 +13,11 @@
         <tbody>
         @foreach ($stats as $stat)
             <tr>
-                <td><strong>{{$stat->xp}}</strong></td>
-                <td>{{$stat->tier}}</td>
+                <td><strong><?php echo $stat->xp; ?></strong></td>
+                <td><?php echo $stat->tier; ?></td>
             </tr>
         @endforeach
         </tbody>
     </table>
 
-  </body>
-</html>
+@endsection

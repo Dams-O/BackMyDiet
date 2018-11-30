@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>Validation de commande</title>
-  </head>
-  <body>
+@extends('layout')
+
+@section('content')
     <h1>Liste des utilisateurs</h1>
 
-    <table>
-        <caption>Les utilisateurs</caption>
+    <table class="table table-hover">   
         <thead>
-            <tr>
+            <tr class="success">
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Pseudo</th>
@@ -19,13 +14,14 @@
         <tbody>
         @foreach ($users as $user)
             <tr>
-                <td><strong><a href="viewProfilStats/{{$user->id_utilisateur}}">{{$user->nom}}</a></strong></td>
-                <td>{{$user->prenom}}</td>
-                <td>{{$user->pseudo}}</td>
+                <td><strong><a href="viewProfilStats/<?php echo $user->id_utilisateur; ?>"><?php echo $user->nom; ?></a></strong></td>
+                <td><?php echo $user->prenom; ?></td>
+                <td><?php echo $user->pseudo; ?></td>
             </tr>
         @endforeach
         </tbody>
     </table>
-
-  </body>
-</html>
+    <button type="button" class="btn btn-success">Validé</button>
+    <button type="button" class="btn btn-primary">Retour</button>
+    <button type="button" class="btn btn-danger">Supprimer</button>
+@endsection

@@ -7,7 +7,7 @@ class DonneeSuivi extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_utilisateur',
+    'id_util',
     'calcium',
     'prot',
     'GL',
