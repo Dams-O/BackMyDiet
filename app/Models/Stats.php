@@ -24,7 +24,7 @@ class Stats extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_stats';
 
     /**
     * Active le timestamped automatique.

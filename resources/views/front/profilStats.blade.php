@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Validation de commande</title>
+    <title>Statistique</title>
   </head>
   <body>
     <h1>Statistique</h1>

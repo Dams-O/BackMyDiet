@@ -18,7 +18,7 @@ class CreateStatsTable extends Migration
             $table->integer('id_util')->unsigned();
             $table->foreign('id_util')->references('id_utilisateur')->on('utilisateurs')->onDelete('cascade');
             $table->integer('xp')->unsigned();
-            $table->string('string');
+            $table->string('tier');
         });
     }
 
