@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('viewDashboard', 'Stats\StatsController@viewDashboard');
+Route::get('viewDashboard', 'UtilisateurController@viewDashboard');
+Route::get('viewProfilStats', 'Stats\StatsController@viewProfilStats');

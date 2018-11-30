@@ -19,7 +19,7 @@
         <tbody>
         @foreach ($users as $user)
             <tr>
-                <td><strong>{{$user->nom}}</strong></td>
+                <td><strong><a href="viewProfilStats/{{$user->id_utilisateur}}">{{$user->nom}}</a></strong></td>
                 <td>{{$user->prenom}}</td>
                 <td>{{$user->pseudo}}</td>
             </tr>

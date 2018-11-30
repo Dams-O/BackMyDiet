@@ -33,4 +33,14 @@ class UtilisateurController extends Controller
     {
         $request->saveOrFail();
     }
+
+    /**
+     * Affiche dashboard
+    */
+    public function viewDashboard()
+    {
+        $users = User::all();
+        
+        return view('front.dashboard', array('users' => $users));
+    }
 }
