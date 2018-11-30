@@ -1,0 +1,38 @@
+header {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  /*.row{
+      border-bottom: 1px solid #2c2c2f;
+  }*/ }
+  header h1 {
+    background: #2b2e36;
+    text-transform: uppercase;
+    font-size: 25px;
+    padding: 7.5px 15px;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    padding: 7.5px 15px;
+    display: inline-block;
+    top: 30px; }
+
+section {
+  margin-bottom: 50px; }
+
+.line {
+  border-bottom: 1px solid #2c2c2f; }
+
+.paiement {
+  background-size: cover;
+  background-position: left top;
+  background-repeat: no-repeat;
+  color: white;
+  text-transform: uppercase;
+  padding: 50px 0;
+  margin-bottom: 70px; }
+  .paiement h2 {
+    margin: 25px 0; }
+  .paiement p {
+    line-height: 25px; }
+
+/*# sourceMappingURL=paiement.css.map */

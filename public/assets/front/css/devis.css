@@ -1,0 +1,147 @@
+header {
+  margin-top: 100px;
+  min-height: 600px;
+  background: url("/images/bandeau_devis.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; }
+  header h1 {
+    color: #444;
+    font-size: 40px;
+    margin: 50px 0px;
+    font-weight: bold;
+    text-shadow: 2px 2px white; }
+  header .zone {
+    background: rgba(255, 255, 255, 0.95);
+    margin: 40px 0;
+    margin-bottom: -40px;
+    padding: 25px;
+    border: 1px solid #ccc; }
+  header .zone-form .control-label {
+    text-align: left; }
+  header .zone-form .form-title {
+    background: #2b2e36;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 7.5px 15px;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    top: -7.5px;
+    padding: 7.5px 15px;
+    margin-top: -40px; }
+  header .zone-form p {
+    position: relative; }
+  header .zone-form p span {
+    padding-right: 15px;
+    position: relative;
+    z-index: 1;
+    font-size: 20px;
+    color: #9193b9;
+    background: #fbfbfb; }
+  header .zone-form p:before {
+    background: #444;
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    width: 100%; }
+  header .zone-form p:before {
+    left: 0; }
+  header .zone-form input {
+    border-radius: 0px;
+    box-shadow: none;
+    margin-bottom: 15px; }
+  header .zone-form .btn-default {
+    font-size: 14px; }
+  header .zone-form .bouton-number {
+    color: #fff;
+    border-color: #9193b9;
+    background-color: #9193b9;
+    font-weight: bold;
+    cursor: pointer; }
+  header .zone-form .input-nombre-affichage {
+    background: #fff;
+    text-align: center;
+    box-shadow: none;
+    border-color: #9193b9; }
+  header #profite {
+    text-align: center; }
+    header #profite span {
+      padding: 10px;
+      font-size: 18px;
+      background: #9193b9;
+      color: white; }
+  header .blocks-tarifs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px; }
+    header .blocks-tarifs .container-tarif {
+      color: #fff;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 5px 25px; }
+    header .blocks-tarifs .container-tarif-fiscal {
+      color: #BF0B1D;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 5px 15px;
+      margin-left: 15px; }
+    header .blocks-tarifs .container-tarif,
+    header .blocks-tarifs .container-tarif-fiscal {
+      text-align: center;
+      font-size: 14px; }
+      header .blocks-tarifs .container-tarif .tarif,
+      header .blocks-tarifs .container-tarif-fiscal .tarif {
+        font-family: "DIN Medium", 'Arial';
+        font-size: 40px; }
+        header .blocks-tarifs .container-tarif .tarif sup,
+        header .blocks-tarifs .container-tarif-fiscal .tarif sup {
+          font-size: 20px;
+          top: -30px; }
+
+.prestations-devis {
+  background: #dedeea; }
+  .prestations-devis img {
+    margin: auto; }
+  .prestations-devis h3 {
+    background: #9193b9;
+    color: white;
+    font-size: 18px;
+    padding: 10px 25px;
+    margin-top: 0px; }
+  .prestations-devis > div {
+    min-height: 200px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column; }
+
+.bg-white h2 span {
+  background: #fff; }
+
+h2 {
+  position: relative;
+  margin: 25px 20px; }
+  h2 span {
+    background: #dedeea;
+    padding: 0 15px;
+    position: relative;
+    z-index: 1;
+    font-size: 20px; }
+  h2:before {
+    background: #444;
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0; }
+
+#section-engagement [class^="icon-menage"] {
+  font-size: 65px;
+  line-height: 125px; }
+
+#section-qualite li {
+  margin: 10px 0; }
+
+/*# sourceMappingURL=devis.css.map */

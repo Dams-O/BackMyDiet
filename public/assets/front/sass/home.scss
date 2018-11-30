@@ -1,0 +1,207 @@
+@import "customVariables";
+header {
+    border-bottom: 7.5px solid #FFF;
+    height: 500px;
+    @media(min-width: 768px) {
+        margin-top: 100px;
+    }
+    .slick-slide {
+        height: 500px;
+    }
+    .carousel-caption {
+        right: 10%;
+        left: 10%;
+        padding-bottom: 30px;
+    }
+    .container-promo-sur-mesure {
+        color: $blanc;
+        .row-promo-sur-mesure {
+            margin-top: 70px;
+            .promo-sur-mesure {
+                text-align: center;
+                height: 110px;
+                @media(min-width: 768px) {
+                    border-top: 1px solid $blanc;
+                    border-left: 1px solid $blanc;
+                    border-right: 1px solid $blanc;
+                }
+                .titre-promo-sur-mesure {
+                    position: relative;
+                    bottom: 15px;
+                    padding: 8px 15px;
+                    font-size: 24px;
+                    border: 1px solid $blanc;
+                    text-transform: uppercase;
+                    background: $lavande;
+                }
+            }
+        }
+        .row-metier-promo-sur-mesure {
+            position: relative;
+            bottom: 45px;
+            .metier-promo-sur-mesure {
+                font-size: 30px;
+                line-height: 30px;
+                @media(min-width: 768px) {
+                    font-size: 50px;
+                    line-height: 50px;
+                }
+                @media(min-width: 991px) {
+                    font-size: 40px;
+                    line-height: 40px;
+                }
+                @media(min-width: 1200px) {
+                    font-size: 50px;
+                    line-height: 50px;
+                }
+            }
+            .prix-promo-sur-mesure {
+                position: relative;
+                left: 10px;
+                padding: 15px 5px;
+                margin-top: -20px;
+                background: $bleuFonce;
+                text-align: center;
+                border: 1px solid $blanc;
+                .a-partir-de {
+                    position: relative;
+                    top: 15px;
+                    font-size: 18px;
+                }
+                .prix-grand {
+                    position: relative;
+                    top: 10px;
+                    left: 12px;
+                    font-size: 120px;
+                    font-weight: bold;
+                }
+                .prix-euro {
+                    position: relative;
+                    bottom: 54px;
+                    left: 30px;
+                    font-size: 50px;
+                    font-weight: bold;
+                }
+                .prix-petit {
+                    position: relative;
+                    top: 12px;
+                    left: -12px;
+                    margin-left: -15px;
+                    font-size: 50px;
+                }
+                @media(max-width: 767px) {
+                    .prix-grand {
+                        font-size: 75px;
+                        left: -5px;
+                    }
+                    .prix-euro {
+                        font-size: 40px;
+                        bottom: 25px;
+                        left: 10px;
+                    }
+                    .prix-petit {
+                        font-size: 25px;
+                        top: 12px;
+                        left: -10px;
+                    }
+                }
+            }
+
+            .btn-default {
+                margin-top: 25px;
+            }
+        }
+        @media(max-width: 767px){
+            background-color: $grisFonce;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            .row-promo-sur-mesure{
+                margin-top: 0px;
+                .promo-sur-mesure {
+                    .titre-promo-sur-mesure {
+                        font-size: 20px;
+                    }
+                }
+            }
+            .row-metier-promo-sur-mesure{
+                padding-bottom: 50px;
+            }
+        }
+    }
+}
+
+.track-slideshow {
+    top: -46px;
+}
+
+.slick-slide {
+    .selecteur-slider {
+        cursor: pointer;
+        padding: 10px 10px;
+        color: #c02027;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        border: 2px dashed #c02027;
+        border-radius: 10px;
+        background: #fff;
+        font-size: 28px;
+        line-height: 34px;
+        @media (max-width: 767px) {
+            font-size: 3.5vw;
+            line-height: 4vw;
+        }
+        @media (min-width: 991px) and (max-width: 1199px) {
+            font-size: 23px;
+            line-height: 29px;
+        }
+    }
+    &.slick-current .selecteur-slider {
+        background: #c02027;
+        color: #fff;
+        border-color: #fff;
+    }
+}
+
+.container-form-temps {
+    background: transparent !important;
+    p:nth-child(1){
+        font-size: 40px;
+    }
+    p:nth-child(2){
+        font-size: 40px;
+        font-weight:bold;
+    }
+    @media(max-width: 767px){
+        p:nth-child(1){
+            font-size: 30px;
+        }
+        p:nth-child(2){
+            font-size: 30px;
+            font-weight:bold;
+        }
+    }
+    .input-form-temps {
+        padding: 50px 0;
+        input[type=text],
+        input[type=email] {
+            text-align: center;
+            height: 42px;
+            background: #fff;
+            color: #555;
+        }
+    }
+    .bouton-number {
+        cursor: pointer;
+        font-size: 24px;
+        font-weight: bold;
+        width: 45px !important;
+        background: $lavande;
+        color: $blanc;
+        transition: background 0.5s;
+        &:hover {
+            background: darken($lavande, 10%);
+        }
+    }
+}

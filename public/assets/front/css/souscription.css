@@ -1,0 +1,86 @@
+body {
+  background-color: #e8e8e8; }
+
+#content {
+  margin-top: 150px;
+  text-align: center; }
+
+.violet-fg {
+  color: #9193b9; }
+
+.violet-bg {
+  background-color: #9193b9;
+  color: white; }
+
+.note {
+  color: #555;
+  font-style: italic; }
+
+#recap-contrat, #moyen-paiement, #signature, #retour {
+  background-color: white;
+  border: 4px solid #9193b9; }
+
+#recap-contrat {
+  padding-top: 0;
+  padding-bottom: 20px; }
+  #recap-contrat a {
+    cursor: pointer; }
+
+#moyen-paiement {
+  margin: 2rem 0 5rem;
+  padding: 10px 0 0; }
+  #moyen-paiement p {
+    color: white;
+    border-radius: 5px;
+    width: 35%;
+    margin: 15px auto 0;
+    padding: 15px 0; }
+  #moyen-paiement button a {
+    color: white; }
+
+#moyen-paiement button, #signature button, #retour button {
+  position: relative;
+  margin: 0 auto;
+  top: 30px; }
+
+#signature {
+  padding: 20px 0 30px;
+  margin-bottom: 5rem; }
+  #signature div:first-child {
+    width: 95%;
+    margin: 0 auto 40px;
+    padding: 15px; }
+  #signature div:first-child p {
+    margin: 0; }
+  #signature div:nth-child(3) {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 40px; }
+  #signature div:nth-child(3) figure {
+    width: 30%; }
+  #signature button {
+    top: 60px; }
+
+figure li {
+  text-align: left; }
+
+input {
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  margin: 15px 0; }
+
+.form-group {
+  margin-bottom: -45px; }
+
+#retour {
+  padding-bottom: 0; }
+  #retour button a {
+    color: white; }
+
+#retour-titre {
+  margin-bottom: 50px; }
+
+/*# sourceMappingURL=souscription.css.map */

@@ -1,0 +1,243 @@
+@import "triangle_breadcrumbs_arrows";
+@import "icon-menage";
+@import "customVariables";
+@import "sideContent";
+@import "datepicker";
+@import "navbar";
+@import "squares";
+
+body {
+    font-family: 'Montserrat';
+    background: $lavande-second;
+}
+
+a {
+    color: $rouge;
+}
+
+a:hover {
+    color: darken($rouge, 10%);
+    text-decoration: none;
+}
+
+.rouge {
+    color: $rouge;
+}
+
+.blanc {
+    color: $blanc;
+}
+
+.lavande {
+    color: $lavande;
+}
+
+.bg-white {
+    background: $blanc;
+}
+
+.margin25{
+    margin-top: 25px;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.center-xs {
+    @media(max-width: 767px) {
+        text-align:center;
+    }
+}
+
+.center-sm {
+    @media(max-width: 990px) {
+        text-align:center;
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn-default {
+    border-radius: 0px;
+    text-transform: uppercase;
+    background: $rouge;
+    padding: 15px 15px;
+    font-size: 18px;
+    color: $blanc;
+    border: 1px solid $blanc;
+    transition: background 0.5s;
+    white-space: normal;
+    &:hover {
+        color: $blanc;
+        background: darken($rouge, 10%);
+    }
+    @media(max-width: 767px){
+        font-size: 14px;
+    }
+}
+
+.btn-link {
+    text-transform: uppercase;
+    padding: 15px 15px;
+    font-size: 18px;
+    border: 3px solid $blanc;
+    color: $rouge;
+}
+
+.badge-info-defaut {
+    padding: 10px 10px;
+    color: $blanc;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 2px dashed $blanc;
+    border-radius: 10px;
+    background: $rouge;
+    font-size: 28px;
+    line-height: 34px;
+    @media(max-width: 767px) {
+        font-size: 3.5vw;
+        line-height: 4vw;
+    }
+    @media(min-width:991px) and (max-width:1199px) {
+        font-size: 23px;
+        line-height: 29px;
+    }
+}
+
+.badge-info-blanc {
+    @extend .badge-info-defaut;
+    color: $rouge;
+    border: 2px dashed $rouge;
+    background: $blanc;
+}
+
+.header-bordure {
+    position: relative;
+    bottom: 52px;
+    .bordure {
+        background: $blanc;
+        height: 3px;
+        position: relative;
+        top: 42px;
+    }
+    h2 {
+        padding: 15px 0;
+        text-align: center;
+        background: $grisFonce;
+        text-transform: uppercase;
+        color: $blanc;
+    }
+}
+
+.simplebox {
+    outline: none;
+    border: none;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.display-none {
+    display: none;
+}
+
+
+.row-badge-info {
+    margin-top: -45px;
+}
+
+section {
+    padding: 50px 0;
+}
+
+.container-succes-moment {
+    .decouvrir-prestation {
+        position: relative;
+        top: 30px;
+    }
+    .square-4 {
+        .btn-default {
+            font-size: 12px;
+            position: absolute;
+            bottom: 25px;
+            left: 10px;
+            display: none;
+            @media(max-width: 520px) {
+                white-space: normal;
+                left: 0px;
+                bottom: 10px;
+            }
+        }
+    }
+    .square-3 {
+        .btn-default {
+            position: absolute;
+            bottom: 25px;
+            left: 12.5px;
+            display: none;
+            @media(max-width: 670px) {
+                white-space: normal;
+                left: 0px;
+                bottom: 10px;
+            }
+            @media(min-width: $screen-md) {
+                bottom: 25px;
+                left: -4.5px;
+            }
+            @media(min-width: $screen-lg) {
+                bottom: 25px;
+                left: 22.5px;
+            }
+        }
+    }
+}
+
+footer {
+    background: $grisFonce;
+    color: $blanc;
+    padding-bottom: 15px;
+    .col-md-3 {
+        padding-right: 50px;
+    }
+    h4 {
+        padding: 10px 0;
+        border-bottom: 1px solid $blanc;
+        @media(min-width: $screen-sm) {
+            margin-top: 65px;
+            margin-bottom: 50px;
+            padding: 20px 0;
+            border-bottom: 1px solid $blanc;
+        }
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 20px;
+        li {
+            margin-bottom: 10px;
+        }
+    }
+    a {
+        color: $blanc;
+    }
+}
+
+#copyright {
+    background: $blanc;
+    padding: 30px 0;
+    a {
+        color: $grisFonce;
+    }
+    .separateur {
+        padding: 0 10px;
+    }
+}

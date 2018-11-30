@@ -1,0 +1,159 @@
+@import "customVariables";
+
+.navbar {
+    &.navbar-fixed-top{
+        z-index:20;
+    }
+    &>.container {
+        .navbar-brand {
+
+            @media(max-width: $screen-xs-max) {
+                width: 100%;
+                padding: 0;
+                position: relative;
+                z-index: 1;
+                img {
+                    margin: auto;
+                }
+            }
+            @media(min-width: $screen-sm) {
+                margin-left: -35px;
+            }
+        }
+    }
+    #telephone {
+        display:flex;
+        padding: 30px 25px;
+        justify-content: space-around;
+        align-items: center;
+
+        i{
+          font-size: 30px; 
+          position: relative;
+          margin: 0 10px;
+        }
+        @media(max-width:$screen-sm-max){
+            display: none;
+        }
+    }
+    @media(max-width: 767px) {
+        background: transparent;
+        border: none;
+    }
+    .navbar-toggle {
+        position: absolute;
+        top: 15px;
+        left: 25px;
+        background-color: #fff;
+        border: none;
+        z-index: 1050;
+        .icon-bar {
+            background-color: $rouge;
+        }
+    }
+    @media(min-width: $screen-sm) {
+        background: $blanc;
+        height: 100px;
+    }
+    .logo-menage-nav {
+        margin: 10px 0 20px 0;
+    }
+    .navbar-form {
+        padding-top: 25px;
+        .input-group {
+            .form-control:first-child {
+                border-radius: 0px;
+            }
+        }
+        .input-group-addon {
+            background: transparent;
+            border: none;
+            .input-icone{
+                font-size:30px;
+                position: relative;
+                top: -5px;
+                left: -10px;
+            }
+        }
+    }
+    .navbar-default .navbar-nav>li>a {
+        color: $grisFonce;
+    }
+    .simplebox {
+        border-bottom: 1px solid $grisFonce;
+        padding: 6px 0;
+        width: 200px !important;
+        @media(min-width: $screen-lg){
+            width: 250px !important;
+        }
+    }
+    li>a {
+        color: $grisFonce !important;
+    }
+    #dropdown-profile{
+        &:hover{
+            cursor:pointer;
+        }
+        &.open > a{
+            background: #fff !important;
+        }
+
+    }
+    .navbar-right {
+        text-transform: uppercase;
+        color: $grisFonce;
+        height: 100px;
+        >li {
+            height: 100px;
+        }
+        a {
+            font-size: 12px;
+            margin-top: 8px;
+            i {
+                font-size: 30px;
+                position: relative;
+                top: 8px;
+                margin: 0 10px;
+            }
+        }
+        .active-menu a {
+            background: $grisFonce;
+            color: $blanc;
+        }
+        .nav-panier {
+            background: $bleuFonce;
+            width: 100px;
+            i {
+                color: $blanc;
+            }
+        }
+    }
+}
+
+#search-slide-menu {
+    background: $blanc;
+    padding: 20px 0;
+    .zone-metier {
+        .square-3 {
+            margin-top: 0px;
+            margin-bottom: 3.33%;
+        }
+    }
+
+    .zone-form {
+        display: inline-block;
+        position: relative;
+        color: $blanc;
+        font-size: 25px;
+    }
+
+    .zone-form img + .content {
+        p{
+            font-size: 55px;
+            text-shadow: 2px 2px black;
+        }
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}

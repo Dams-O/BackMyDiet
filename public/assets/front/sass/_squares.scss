@@ -1,0 +1,132 @@
+@import "customVariables";
+
+.layer{
+    background-color: rgba(0, 0, 0, 0.45);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.square-3 {
+    width: 30%;
+    margin: 1.66%;
+    padding-bottom: 30%;
+    @media(max-width: $screen-sm-max) {
+        width: 45%;
+        margin: 2.5%;
+        padding-bottom: 45%;
+    }
+    @media(max-width: 520px) {
+        width: 70%;
+        margin: 25px 15%;
+        padding-bottom: 70%;
+    }
+}
+
+.sqaure-bg{
+    background-image: url( ../images/succes-moment/nettoyage-vitre.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.square-4 {
+    width: 22%;
+    padding-bottom: 22%;
+    margin: 1.5%;
+    .succes-title {
+        @media(min-width: $screen-lg) {
+            font-size: 25px
+        }
+        @media(min-width: $screen-md) {
+            font-size: 20px
+        }
+    }
+    @media(max-width: $screen-sm-max) {
+        width: 45%;
+        margin: 2.5%;
+        padding-bottom: 45%;
+    }
+}
+
+.square {
+    float: left;
+    position: relative;
+    background-color: #9193b9;
+    color: #FFF;
+    overflow: hidden;
+    text-align: center;
+    &:hover {
+        .btn-default {
+            display: inline-block !important;
+        }
+        .thumb-info-action-icon {
+            right: 0;
+            top: 0;
+        }
+    }
+    .thumb-info-action-icon {
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+        border-style: solid;
+        border-width: 0 100px 100px 0;
+        border-color: transparent #c02027 transparent transparent;
+        display: inline-block;
+        font-size: 25px;
+        height: 0px;
+        line-height: 100px;
+        position: absolute;
+        right: -100px;
+        text-align: center;
+        top: -100px;
+        width: 0px;
+        z-index: 3;
+        i {
+            font-size: 24px;
+            left: 55px;
+            position: relative;
+            top: -20px;
+            color: #FFF;
+        }
+    }
+}
+
+.content {
+    position: absolute;
+    height: 90%;
+    /* = 100% - 2*5% padding */
+    width: 90%;
+    /* = 100% - 2*5% padding */
+    margin: 5%;
+    .succes-title {
+        text-transform: uppercase;
+        font-size: 18px;
+    }
+    .option-title {
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+    .btn-default {
+        padding: 7.5px 15px;
+        border-width: 2px;
+        font-size: 16px;
+    }
+    @media(max-width:767px){
+        .succes-title {
+            font-size: 20px;
+        }
+    }
+}
+
+.table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}

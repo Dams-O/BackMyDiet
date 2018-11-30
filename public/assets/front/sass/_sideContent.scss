@@ -1,0 +1,222 @@
+/* -----------------------------------------------------------------------------
+
+  MASK COMPONENT
+  
+----------------------------------------------------------------------------- */
+
+.c-mask {
+    position: fixed;
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.3s, width 0s 0.3s, height 0s 0.3s;
+}
+
+.c-mask.is-active {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+
+/* -----------------------------------------------------------------------------
+
+  SLIDE AND PUSH MENUS COMPONENT
+  
+----------------------------------------------------------------------------- */
+
+$menu-break-right: 850px;
+$menu-width-right: 800px;
+$menu-height: 60px;
+$menu-break-left: 175px;
+$menu-width-left: 100%;
+
+/**
+ * Menu overview.
+ */
+
+.c-menu {
+    position: fixed;
+    z-index: 2000;
+    background-color: #FEFEFE;
+    transition: transform 0.3s;
+    .square {
+        background-color: #fff;
+        color: $grisFonce;
+        border: 1px solid $grisFonce;
+        .succes-title {
+            font-size: 14px;
+            i {
+                font-size: 40px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+    .navbar-form {
+        padding-top: 25px;
+        position: relative;
+        .input-group {
+            .form-control {
+                border-radius: 0px;
+                border-bottom: 1px solid $grisFonce;
+                background-color: transparent
+            }
+        }
+        .input-group-addon {
+            background: transparent;
+            border: none;
+            .input-icone {
+                font-size: 30px;
+                position: relative;
+                top: -5px;
+                left: -10px;
+            }
+        }
+    }
+}
+
+
+/**
+ * Left and right menus
+ *
+ * Slide and push menus coming in from the left and right inherit a lot of
+ * common styles. We'll start each of them off by doing up the common styles
+ * for each version, followed by individual styles.
+ *
+ * The various versions are governed by modifier classes.
+ */
+
+
+/**
+ * Common modifiers for left/right menus.
+ */
+
+.c-menu--slide-left,
+.c-menu--push-right {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.c-menu--push-right {
+    @media all and (min-width: $menu-break-right) {
+        width: $menu-width-right;
+    }
+}
+
+.c-menu--slide-left {
+    @media all and (min-width: $menu-break-left) {
+        width: $menu-width-left;
+    }
+    img {
+        margin: auto;
+    }
+}
+
+
+/**
+ * Slide/Push Menu Right.
+ */
+
+.c-menu--slide-right,
+.c-menu--push-right {
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    @media all and (min-width: $menu-break-right) {
+        transform: translateX($menu-width-right);
+    }
+}
+
+.c-menu--slide-right.is-active,
+.c-menu--push-right.is-active {
+    transform: translateX(0);
+}
+
+
+/**
+ * Slide/Push Menu Left.
+ */
+
+.c-menu--slide-left,
+.c-menu--push-left {
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    @media all and (min-width: $menu-break-left) {
+        transform: translateX(-$menu-width-left);
+    }
+}
+
+.c-menu--slide-left.is-active,
+.c-menu--push-left.is-active {
+    transform: translateX(0);
+}
+
+
+/**
+ * Wrapper states.
+ *
+ * Various wrapper states occur depending on if a menu is pushing into view, in
+ * which case, the wrapper has to be pushed by the respective distance.
+ */
+
+.o-wrapper.has-push-right {
+    transform: translateX(-100%);
+    @media all and (min-width: $menu-break-right) {
+        transform: translateX(-$menu-width-right);
+    }
+}
+
+
+/**
+ * Body states.
+ *
+ * When a menu is active, we want to hide the overflows on the body to prevent
+ * awkward document scrolling.
+ */
+
+body.has-active-menu {
+    overflow: hidden;
+}
+
+
+/**
+ * Close button resets.
+ */
+
+.c-menu--slide-left {
+    .c-menu__close {
+        display: block;
+        padding: 12px 24px;
+        right: 0px;
+        position: absolute;
+    }
+    
+    .element-menu-mobile {
+        >div {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            -o-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .fermer {
+            font-size: 25px;
+            color: $brand-primary;
+        }
+    }
+}
+
+.c-menu__close:focus {
+    outline: none;
+}

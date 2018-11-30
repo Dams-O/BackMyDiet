@@ -1,0 +1,168 @@
+header {
+  border-bottom: 7.5px solid #FFF;
+  height: 500px; }
+  @media (min-width: 768px) {
+    header {
+      margin-top: 100px; } }
+  header .slick-slide {
+    height: 500px; }
+  header .carousel-caption {
+    right: 10%;
+    left: 10%;
+    padding-bottom: 30px; }
+  header .container-promo-sur-mesure {
+    color: #ffffff; }
+    header .container-promo-sur-mesure .row-promo-sur-mesure {
+      margin-top: 70px; }
+      header .container-promo-sur-mesure .row-promo-sur-mesure .promo-sur-mesure {
+        text-align: center;
+        height: 110px; }
+        @media (min-width: 768px) {
+          header .container-promo-sur-mesure .row-promo-sur-mesure .promo-sur-mesure {
+            border-top: 1px solid #ffffff;
+            border-left: 1px solid #ffffff;
+            border-right: 1px solid #ffffff; } }
+        header .container-promo-sur-mesure .row-promo-sur-mesure .promo-sur-mesure .titre-promo-sur-mesure {
+          position: relative;
+          bottom: 15px;
+          padding: 8px 15px;
+          font-size: 24px;
+          border: 1px solid #ffffff;
+          text-transform: uppercase;
+          background: #9193b9; }
+    header .container-promo-sur-mesure .row-metier-promo-sur-mesure {
+      position: relative;
+      bottom: 45px; }
+      header .container-promo-sur-mesure .row-metier-promo-sur-mesure .metier-promo-sur-mesure {
+        font-size: 30px;
+        line-height: 30px; }
+        @media (min-width: 768px) {
+          header .container-promo-sur-mesure .row-metier-promo-sur-mesure .metier-promo-sur-mesure {
+            font-size: 50px;
+            line-height: 50px; } }
+        @media (min-width: 991px) {
+          header .container-promo-sur-mesure .row-metier-promo-sur-mesure .metier-promo-sur-mesure {
+            font-size: 40px;
+            line-height: 40px; } }
+        @media (min-width: 1200px) {
+          header .container-promo-sur-mesure .row-metier-promo-sur-mesure .metier-promo-sur-mesure {
+            font-size: 50px;
+            line-height: 50px; } }
+      header .container-promo-sur-mesure .row-metier-promo-sur-mesure .prix-promo-sur-mesure {
+        position: relative;
+        left: 10px;
+        padding: 15px 5px;
+        margin-top: -20px;
+        background: #2b2e36;
+        text-align: center;
+        border: 1px solid #ffffff; }
+        header .container-promo-sur-mesure .row-metier-promo-sur-mesure .prix-promo-sur-mesure .a-partir-de {
+          position: relative;
+          top: 15px;
+          font-size: 18px; }
+        header .container-promo-sur-mesure .row-metier-promo-sur-mesure .prix-promo-sur-mesure .prix-grand {
+          position: relative;
+          top: 10px;
+          left: 12px;
+          font-size: 120px;
+          font-weight: bold; }
+        header .container-promo-sur-mesure .row-metier-promo-sur-mesure .prix-promo-sur-mesure .prix-euro {
+          position: relative;
+          bottom: 54px;
+          left: 30px;
+          font-size: 50px;
+          font-weight: bold; }
+        header .container-promo-sur-mesure .row-metier-promo-sur-mesure .prix-promo-sur-mesure .prix-petit {
+          position: relative;
+          top: 12px;
+          left: -12px;
+          margin-left: -15px;
+          font-size: 50px; }
+        @media (max-width: 767px) {
+          header .container-promo-sur-mesure .row-metier-promo-sur-mesure .prix-promo-sur-mesure .prix-grand {
+            font-size: 75px;
+            left: -5px; }
+          header .container-promo-sur-mesure .row-metier-promo-sur-mesure .prix-promo-sur-mesure .prix-euro {
+            font-size: 40px;
+            bottom: 25px;
+            left: 10px; }
+          header .container-promo-sur-mesure .row-metier-promo-sur-mesure .prix-promo-sur-mesure .prix-petit {
+            font-size: 25px;
+            top: 12px;
+            left: -10px; } }
+      header .container-promo-sur-mesure .row-metier-promo-sur-mesure .btn-default {
+        margin-top: 25px; }
+    @media (max-width: 767px) {
+      header .container-promo-sur-mesure {
+        background-color: #2c2c2f;
+        width: 100%;
+        position: absolute;
+        bottom: 0px; }
+        header .container-promo-sur-mesure .row-promo-sur-mesure {
+          margin-top: 0px; }
+          header .container-promo-sur-mesure .row-promo-sur-mesure .promo-sur-mesure .titre-promo-sur-mesure {
+            font-size: 20px; }
+        header .container-promo-sur-mesure .row-metier-promo-sur-mesure {
+          padding-bottom: 50px; } }
+
+.track-slideshow {
+  top: -46px; }
+
+.slick-slide .selecteur-slider {
+  cursor: pointer;
+  padding: 10px 10px;
+  color: #c02027;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 2px dashed #c02027;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 28px;
+  line-height: 34px; }
+  @media (max-width: 767px) {
+    .slick-slide .selecteur-slider {
+      font-size: 3.5vw;
+      line-height: 4vw; } }
+  @media (min-width: 991px) and (max-width: 1199px) {
+    .slick-slide .selecteur-slider {
+      font-size: 23px;
+      line-height: 29px; } }
+.slick-slide.slick-current .selecteur-slider {
+  background: #c02027;
+  color: #fff;
+  border-color: #fff; }
+
+.container-form-temps {
+  background: transparent !important; }
+  .container-form-temps p:nth-child(1) {
+    font-size: 40px; }
+  .container-form-temps p:nth-child(2) {
+    font-size: 40px;
+    font-weight: bold; }
+  @media (max-width: 767px) {
+    .container-form-temps p:nth-child(1) {
+      font-size: 30px; }
+    .container-form-temps p:nth-child(2) {
+      font-size: 30px;
+      font-weight: bold; } }
+  .container-form-temps .input-form-temps {
+    padding: 50px 0; }
+    .container-form-temps .input-form-temps input[type=text],
+    .container-form-temps .input-form-temps input[type=email] {
+      text-align: center;
+      height: 42px;
+      background: #fff;
+      color: #555; }
+  .container-form-temps .bouton-number {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    width: 45px !important;
+    background: #9193b9;
+    color: #ffffff;
+    transition: background 0.5s; }
+    .container-form-temps .bouton-number:hover {
+      background: #7274a5; }
+
+/*# sourceMappingURL=home.css.map */
