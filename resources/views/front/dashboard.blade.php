@@ -22,6 +22,8 @@
         </tbody>
     </table>
     <button type="button" class="btn btn-success">Validé</button>
-    <button type="button" class="btn btn-primary">Retour</button>
     <button type="button" class="btn btn-danger">Supprimer</button>
+    <form action="viewDashboard">
+    <button type="button" class="btn btn-primary">Retour</button>
+    </form>
 @endsection

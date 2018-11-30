@@ -36,17 +36,24 @@
         <tbody>
         @foreach ($ds as $donnee)
             <tr>
-                <td><strong><?php echo $donnee->calcium; ?></strong></td>
+                <td><?php echo $donnee->calcium; ?></td>
                 <td><?php echo $donnee->prot; ?></td>
-                <td><strong><?php echo $donnee->GL; ?></strong></td>
+                <td><?php echo $donnee->GL; ?></td>
                 <td><?php echo $donnee->FVSM; ?></td>
-                <td><strong><?php echo $donnee->MG; ?></strong></td>
+                <td><?php echo $donnee->MG; ?></td>
                 <td><?php echo $donnee->sucre; ?></td>
-                <td><strong><?php echo $donnee->score; ?></strong></td>
+                <td><?php echo $donnee->score; ?></td>
                 <td><?php echo $donnee->create_at; ?></td>
             </tr>
         @endforeach
         </tbody>
     </table>
+
+    
+    <button type="button" class="btn btn-primary">Retour</button>
+
+
+        
+
 
 @endsection
