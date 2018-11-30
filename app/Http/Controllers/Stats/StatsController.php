@@ -38,9 +38,9 @@ class StatsController extends Controller
     */
     public function viewProfilStats($id)
     {
-        $users = User::where("id_utilisateur", $id)->first();
-        $stats = Stats::where("id_util", $id)->first();
+        $users = User::where('id_utilisateur', $id)->first();
+        $stats = Stats::where('id_util', $id)->first();
         
-        return view('front.dashboard', array('users' => $users, 'stats' => $stats));
+        return view('front.profilStats', array('users' => $users, 'stats' => $stats));
     }
 }

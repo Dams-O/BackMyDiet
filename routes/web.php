@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('viewDashboard', 'UtilisateurController@viewDashboard');
-Route::get('viewProfilStats', 'Stats\StatsController@viewProfilStats');
+Route::get('viewProfilStats/{id}', 'Stats\StatsController@viewProfilStats');
