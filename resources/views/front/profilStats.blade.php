@@ -50,7 +50,7 @@
     </table>
 
     
-    <button type="button" class="btn btn-primary">Retour</button>
+    <a class="btn btn-primary"" href="/viewDashboard" role="button">Retour</a>
 
 
         

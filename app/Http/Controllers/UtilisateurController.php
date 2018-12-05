@@ -37,10 +37,19 @@ class UtilisateurController extends Controller
     /**
      * Affiche dashboard
     */
-    public function viewDashboard()
+    public function viewDashboard($nom)
     {
         $users = User::all();
+        if($_POST){
+            echo 1;
+        }
+        else{
+            echo 2;
+        }
+        //$users = User::where('nom', 'Dupond')->get();
         
         return view('front.dashboard', array('users' => $users));
     }
+
+
 }

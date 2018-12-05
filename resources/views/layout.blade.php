@@ -9,6 +9,7 @@
         <meta name="author" content="">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <link href="{{URL::asset('assets/front/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/front/bower_components/bootstrap/dist/css/style.css')}}" rel="stylesheet">
         <link href="{{URL::asset('assets/front/bower_components/animate.css/animate.min.css')}}" rel="stylesheet">
         <link href="{{URL::asset('assets/front/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
         <title>App Name</title>

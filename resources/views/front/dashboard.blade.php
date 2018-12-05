@@ -1,8 +1,20 @@
 @extends('layout')
 
 @section('content')
-    <h1>Liste des utilisateurs</h1>
 
+<div class="row">
+    <div class="col-md-8"><h1>Liste des utilisateurs</h1></div>
+    <div class="col-md-4">
+        <form method="POST" class="form-inline search" action="/viewDashboard">
+            <div class="form-group">
+                <input type="text" class="form-control" name="filtre" placeholder="Nom">
+            </div>
+            
+            <button type="submit" class="btn btn-default">Rechercher</button>
+            
+        </form>
+    </div>
+</div>
     <table class="table table-hover">   
         <thead>
             <tr class="success">
@@ -21,9 +33,5 @@
         @endforeach
         </tbody>
     </table>
-    <button type="button" class="btn btn-success">Validé</button>
-    <button type="button" class="btn btn-danger">Supprimer</button>
-    <form action="viewDashboard">
-    <button type="button" class="btn btn-primary">Retour</button>
-    </form>
+
 @endsection
