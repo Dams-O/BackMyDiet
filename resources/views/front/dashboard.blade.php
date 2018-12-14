@@ -10,10 +10,10 @@
                 <div class="form-group autocomplete">
                 <input id="myInput" type="text" name="myCountry" placeholder="Nom">
                 </div>
-                <button type="submit" class="btn btn-default">Rechercher</button>
             </form>
         </div>
     </div>
+    
 
     <table class="table table-hover">
         <thead>
@@ -34,7 +34,6 @@
         </tbody>
     </table>
 
-
     <script>
         // Création du tableau vide
         var nom = [];
@@ -43,5 +42,8 @@
         @endforeach
     </script>
 
+@endsection
 
+@section('custom-js')
+    <script type="text/javascript" src="{{ URL::asset('js/dashboard.js') }}"></script>
 @endsection

@@ -48,5 +48,13 @@ class UtilisateurController extends Controller
         return view('front.dashboard', array('users' => $usersAll, 'username' => $users));
     }
 
+    public function viewDashboardFiltre($nom)
+        {
+            $user = User::where('nom', $nom)->first();
+
+            return view('front.dashboard', array('users' => $user));
+        }
+    
+
 
 }

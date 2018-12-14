@@ -23,7 +23,7 @@ function autocomplete(inp, arr) {
             b = document.createElement("DIV");
             /*make the matching letters bold:*/
             b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-            b.innerHTML += arr[i].substr(val.length);
+            b.innerHTML += "<a href=\"viewDashboard/" + arr[i].substr(val.length) + "\">"+ arr[i].substr(val.length)+"</a>";
             /*insert a input field that will hold the current array item's value:*/
             b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
@@ -98,4 +98,6 @@ function autocomplete(inp, arr) {
     
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
     autocomplete(document.getElementById("myInput"), nom);
+
+    
   
