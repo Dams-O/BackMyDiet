@@ -39,9 +39,13 @@ class UtilisateurController extends Controller
     */
     public function viewDashboard()
     {
-        $users = User::all();
-        
-        return view('front.dashboard', array('users' => $users));
+        $usersAll = User::all();
+        $users = [];
+        foreach($usersAll as $user)
+        {
+            $users[] = $user->nom;
+        }
+        return view('front.dashboard', array('users' => $usersAll, 'username' => $users));
     }
 
 

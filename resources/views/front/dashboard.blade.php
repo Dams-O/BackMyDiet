@@ -6,15 +6,14 @@
         <div class="col-md-8"><h1>Liste des utilisateurs</h1></div>
         <div class="col-md-4">
 
-            <form class="form-inline">
-                <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Nom">
+            <form class="form-inline" autocomplete="off">
+                <div class="form-group autocomplete">
+                <input id="myInput" type="text" name="myCountry" placeholder="Nom">
                 </div>
                 <button type="submit" class="btn btn-default">Rechercher</button>
             </form>
         </div>
     </div>
-
 
     <table class="table table-hover">
         <thead>
@@ -34,5 +33,15 @@
         @endforeach
         </tbody>
     </table>
+
+
+    <script>
+        // Création du tableau vide
+        var nom = [];
+        @foreach ($username as $user)
+            nom.push("<?php echo $user; ?>");
+        @endforeach
+    </script>
+
 
 @endsection
