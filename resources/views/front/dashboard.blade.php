@@ -8,7 +8,7 @@
 
             <form class="form-inline" autocomplete="off">
                 <div class="form-group autocomplete">
-                <input id="myInput" type="text" name="myCountry" placeholder="Nom">
+                <input id="input-search" type="text" name="input-search" onkeyup="search()" placeholder="Nom">
                 </div>
             </form>
         </div>
@@ -23,7 +23,7 @@
                 <th>Pseudo</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="list-nom">
         @foreach ($users as $user)
             <tr>
                 <td><strong><a href="viewProfilStats/<?php echo $user->id_utilisateur; ?>"><?php echo $user->nom; ?></a></strong></td>
@@ -45,5 +45,5 @@
 @endsection
 
 @section('custom-js')
-    <script type="text/javascript" src="{{ URL::asset('js/dashboard.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 @endsection
