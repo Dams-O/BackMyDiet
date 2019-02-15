@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDonneeSuiviTable extends Migration
+class CreateUtilisateursAffCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreateDonneeSuiviTable extends Migration
      */
     public function up()
     {
-        Schema::create('donnee_suivi', function (Blueprint $table) {
-            $table->increments('id_donnee');
+        Schema::create('utilisateurs_aff_categories', function (Blueprint $table) {
+            $table->increments('id_uac');
             $table->integer('id_util')->unsigned();
             $table->foreign('id_util')->references('id_utilisateur')->on('utilisateurs')->onDelete('cascade');
-            $table->integer('calcium')->unsigned();
-            $table->integer('prot')->unsigned();
-            $table->integer('GL')->unsigned();
-            $table->integer('FVSM')->unsigned();
-            $table->integer('MG')->unsigned();
-            $table->integer('sucre')->unsigned();
-            $table->integer('score')->unsigned();
+            $table->integer('id_categorie')->unsigned();
+            $table->foreign('id_categorie')->references('id_categorie')->on('categories')->onDelete('cascade');
             $table->timestamp('create_at');
+            //$table->timestamp('update_at');
         });
     }
 
@@ -35,6 +31,6 @@ class CreateDonneeSuiviTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('utilisateurs_aff_categories');
     }
 }

@@ -26,14 +26,32 @@ class UtilisateurController extends Controller
         $contrat = Utilisateur::where('id_utilisateur')->first();
         return response()->json($contrat);
     }
+
     /**
-     * Envoie d'une Conversation
+     * Envoie d'un utilisateur Web
+    */
+    public function setUtilisateurWeb(Request $request)
+    {
+        var_dump($request->nom);
+        exit;
+        return view('front.validationformulaire', array());  
+    }
+
+    /**
+     * Envoie d'un utilisateur en passant par le mobile
     */
     public function setUtilisateur(Request $request)
     {
         $request->saveOrFail();
     }
 
+    /**
+     * Renvoie le formulaire web utilisateur
+    */
+    public function formulaireUtilisateur()
+    {
+        return view('front.formulaire', array());      
+    }
     /**
      * Affiche dashboard
     */
