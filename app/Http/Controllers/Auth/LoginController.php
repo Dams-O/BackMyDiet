@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use App\User;
 
 class LoginController extends Controller
 {
@@ -18,7 +18,7 @@ class LoginController extends Controller
     | redirecting them to your home screen. The controller uses a trait
     | to conveniently provide its functionality to your applications.
     |
-    */
+     */
 
     use AuthenticatesUsers;
 
@@ -38,13 +38,16 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
-    
-    public function login(Request $request){
+
+    public function login(Request $request)
+    {
         $utilisateur = User::where('login', $request->input('login'))->first();
-        if(is_null($utilisateur))
-            abort(401, 'Utilisateur inconnu.')
-        if($request->input('password') == $utilisateur->password){
-            
+        if (is_null($utilisateur)) {
+            abort(401, 'Utilisateur inconnu.');
+        }
+
+        if ($request->input('password') == $utilisateur->password) {
+            return true;
         }
     }
 }

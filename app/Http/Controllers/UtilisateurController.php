@@ -16,11 +16,11 @@ class UtilisateurController extends Controller
     | redirecting them to your home screen. The controller uses a trait
     | to conveniently provide its functionality to your applications.
     |
-    */
+     */
 
     /**
      * Renvoie un Utilisateur
-    */
+     */
     public function getUtilisateur()
     {
         $contrat = Utilisateur::where('id_utilisateur')->first();
@@ -29,17 +29,17 @@ class UtilisateurController extends Controller
 
     /**
      * Envoie d'un utilisateur Web
-    */
+     */
     public function setUtilisateurWeb(Request $request)
     {
         var_dump($request->nom);
         exit;
-        return view('front.validationformulaire', array());  
+        return view('front.validationformulaire', array());
     }
 
     /**
      * Envoie d'un utilisateur en passant par le mobile
-    */
+     */
     public function setUtilisateur(Request $request)
     {
         $request->saveOrFail();
@@ -47,32 +47,29 @@ class UtilisateurController extends Controller
 
     /**
      * Renvoie le formulaire web utilisateur
-    */
+     */
     public function formulaireUtilisateur()
     {
-        return view('front.formulaire', array());      
+        return view('front.formulaire', array());
     }
     /**
      * Affiche dashboard
-    */
+     */
     public function viewDashboard()
     {
         $usersAll = User::all();
         $users = [];
-        foreach($usersAll as $user)
-        {
+        foreach ($usersAll as $user) {
             $users[] = $user->nom;
         }
         return view('front.dashboard', array('users' => $usersAll, 'username' => $users));
     }
 
     public function viewDashboardFiltre($nom)
-        {
-            $user = User::where('nom', $nom)->first();
+    {
+        $user = User::where('nom', $nom)->first();
 
-            return view('front.dashboard', array('users' => $user));
-        }
-    
-
+        return view('front.dashboard', array('users' => $user));
+    }
 
 }
