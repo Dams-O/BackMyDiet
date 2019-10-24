@@ -41,6 +41,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        exit;
         $utilisateur = User::where('login', $request->input('login'))->first();
         if (is_null($utilisateur)) {
             abort(401, 'Utilisateur inconnu.');

@@ -17,6 +17,13 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
+Route::post('/test',function(){
+    var_dump('addad'); 
+    return "ok"; 
+});
+
+Route::post('/login', 'LoginController@login');
+
 Route::group(['prefix' => 'stats'], function () {
     Route::get('getMenu', 'Stats\MenuController@getMenu');
     Route::post('setMenu', 'Stats\MenuController@setMenu');

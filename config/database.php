@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'mysql-chapterdeams.alwaysdata.net'),
+            'host' => env('DB_HOST', 'mydiet.ceqymng6ebfz.eu-west-1.rds.amazonaws.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'chapterdeams_mydiet'),
-            'username' => env('DB_USERNAME', '150754'),
-            'password' => env('DB_PASSWORD', 'toto'),
+            'database' => env('DB_DATABASE', 'MyDiet'),
+            'username' => env('DB_USERNAME', 'adminDataMyDiet'),
+            'password' => env('DB_PASSWORD', '8^*f9rWf;PL5'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
