@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUtilisateursAffCategoriesTable extends Migration
+class CreateUsersAffCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateUtilisateursAffCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('utilisateurs_aff_categories', function (Blueprint $table) {
+        Schema::create('users_aff_categories', function (Blueprint $table) {
             $table->increments('id_uac');
             $table->integer('id_util')->unsigned();
-            $table->foreign('id_util')->references('id_utilisateur')->on('utilisateurs')->onDelete('cascade');
+            $table->foreign('id_util')->references('id_user')->on('users')->onDelete('cascade');
             $table->integer('id_categorie')->unsigned();
             $table->foreign('id_categorie')->references('id_categorie')->on('categories')->onDelete('cascade');
             $table->timestamp('create_at');
@@ -31,6 +31,6 @@ class CreateUtilisateursAffCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('utilisateurs_aff_categories');
+        Schema::dropIfExists('users_aff_categories');
     }
 }

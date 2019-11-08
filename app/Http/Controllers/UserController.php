@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
 
-class UtilisateurController extends Controller
+class UserController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Utilisateur Controller
+    | User Controller
     |--------------------------------------------------------------------------
     |
     | This controller handles authenticating users for the application and
@@ -19,18 +19,18 @@ class UtilisateurController extends Controller
      */
 
     /**
-     * Renvoie un Utilisateur
+     * Renvoie un User
      */
-    public function getUtilisateur()
+    public function getUser()
     {
-        $contrat = Utilisateur::where('id_utilisateur')->first();
+        $contrat = User::where('id_user')->first();
         return response()->json($contrat);
     }
 
     /**
-     * Envoie d'un utilisateur Web
+     * Envoie d'un User Web
      */
-    public function setUtilisateurWeb(Request $request)
+    public function setUserWeb(Request $request)
     {
         var_dump($request->nom);
         exit;
@@ -38,17 +38,17 @@ class UtilisateurController extends Controller
     }
 
     /**
-     * Envoie d'un utilisateur en passant par le mobile
+     * Envoie d'un User en passant par le mobile
      */
-    public function setUtilisateur(Request $request)
+    public function setUser(Request $request)
     {
         $request->saveOrFail();
     }
 
     /**
-     * Renvoie le formulaire web utilisateur
+     * Renvoie le formulaire web User
      */
-    public function formulaireUtilisateur()
+    public function formulaireUser()
     {
         return view('front.formulaire', array());
     }
@@ -57,6 +57,7 @@ class UtilisateurController extends Controller
      */
     public function viewDashboard()
     {
+        exit;
         $usersAll = User::all();
         $users = [];
         foreach ($usersAll as $user) {

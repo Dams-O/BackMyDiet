@@ -33,12 +33,12 @@ class User extends Authenticatable
     *
     * @var string
     */
-    protected $table = 'utilisateurs';
+    protected $table = 'users';
 
     /**
      * Clé primaire.
      *
      * @var string
      */
-    protected $primaryKey = 'id_utilisateur';
+    protected $primaryKey = 'id_user';
 }

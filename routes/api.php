@@ -44,7 +44,7 @@ Route::group(['prefix' => 'donneesuiv'], function () {
     Route::post('setDonneeSuivi', 'Stats\DonneeSuiviController@setDonneeSuivi');
 });
 
-Route::group(['prefix' => 'utilisateur'], function () {
-    Route::get('getUtilisateur', 'Auth\UtilisateurController@getUtilisateur');
-    Route::post('setUtilisateur', 'Auth\UtilisateurController@setUtilisateur');
+Route::group(['prefix' => 'user'], function () {
+    Route::get('getUser', 'Auth\UserController@getUser');
+    Route::post('setUser', 'Auth\UserController@setUser');
 });

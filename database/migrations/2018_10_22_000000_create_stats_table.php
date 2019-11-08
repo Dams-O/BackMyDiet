@@ -16,7 +16,7 @@ class CreateStatsTable extends Migration
         Schema::create('stats', function (Blueprint $table) {
             $table->increments('id_stats');
             $table->integer('id_util')->unsigned();
-            $table->foreign('id_util')->references('id_utilisateur')->on('utilisateurs')->onDelete('cascade');
+            $table->foreign('id_util')->references('id_user')->on('users')->onDelete('cascade');
             $table->integer('xp')->unsigned();
             $table->string('tier');
         });

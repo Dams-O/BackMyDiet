@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12 center"><h1>Formulaire</h1></div>
         <div class="col-md-2">
-            <form class="form-inline" method="POST" action="/setUtilisateurWeb">
+            <form class="form-inline" method="POST" action="/setUserWeb">
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input id="nom" type="text" name="nom" placeholder="Nom" required>

@@ -23,7 +23,7 @@ class MenuController extends Controller
     */
     public function getMenu()
     {
-        $contrat = Menu::where('id_utilisateur', $iduser)->first();
+        $contrat = Menu::where('id_user', $iduser)->first();
         return response()->json($contrat);
     }
     /**

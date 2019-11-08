@@ -16,7 +16,7 @@ class CreateDonneeSuiviTable extends Migration
         Schema::create('donnee_suivi', function (Blueprint $table) {
             $table->increments('id_donnee');
             $table->integer('id_util')->unsigned();
-            $table->foreign('id_util')->references('id_utilisateur')->on('utilisateurs')->onDelete('cascade');
+            $table->foreign('id_util')->references('id_user')->on('users')->onDelete('cascade');
             $table->integer('calcium')->unsigned();
             $table->integer('prot')->unsigned();
             $table->integer('GL')->unsigned();

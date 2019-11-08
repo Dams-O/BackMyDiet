@@ -23,7 +23,7 @@ class DonneeSuiviController extends Controller
     */
     public function getDonneeSuivi()
     {
-        $contrat = DonneeSuivi::where('id_utilisateur', $iduser)->first();
+        $contrat = DonneeSuivi::where('id_user', $iduser)->first();
         return response()->json($contrat);
     }
     /**

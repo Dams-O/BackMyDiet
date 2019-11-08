@@ -7,7 +7,7 @@ class Message extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_utilisateur',
+    'id_user',
     'contenu',
     ];
 

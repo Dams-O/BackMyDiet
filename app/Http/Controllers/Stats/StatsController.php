@@ -25,7 +25,7 @@ class StatsController extends Controller
     */
     public function getStats()
     {
-        $contrat = Stats::where('id_utilisateur', $iduser)->first();
+        $contrat = Stats::where('id_user', $iduser)->first();
         return response()->json($contrat);
     }
     /**
@@ -40,7 +40,7 @@ class StatsController extends Controller
     */
     public function viewProfilStats($id)
     {
-        $users = User::where('id_utilisateur', $id)->first();
+        $users = User::where('id_user', $id)->first();
         $stats = Stats::where('id_util', $id)->get();
         $ds = DonneeSuivi::where('id_util', $id)->get();
 

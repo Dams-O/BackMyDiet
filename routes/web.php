@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('formulaire', 'UtilisateurController@formulaireUtilisateur');
-Route::get('viewDashboard', 'UtilisateurController@viewDashboard');
-Route::get('viewDashboard/{nom}', 'UtilisateurController@viewDashboardFiltre');
+Route::get('formulaire', 'UserController@formulaireUser');
+Route::get('viewDashboard', 'UserController@viewDashboard');
+Route::get('viewDashboard/{nom}', 'UserController@viewDashboardFiltre');
 Route::get('viewProfilStats/{id}', 'Stats\StatsController@viewProfilStats');
 Route::get('viewProfilStats/{id}', 'Stats\StatsController@getStats');
-Route::post('setUtilisateurWeb', 'UtilisateurController@setUtilisateurWeb');
+Route::post('setUserWeb', 'UserController@setUserrWeb');
 Route::post('login', 'LoginController@login');

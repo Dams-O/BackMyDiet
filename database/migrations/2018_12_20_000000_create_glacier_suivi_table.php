@@ -16,7 +16,7 @@ class CreateGlacierSuiviTable extends Migration
        Schema::create('glacier_suivi', function (Blueprint $table) {
            $table->increments('id_glaicer');
            $table->integer('id_util')->unsigned();
-           $table->foreign('id_util')->references('id_utilisateur')->on('utilisateurs')->onDelete('cascade');
+           $table->foreign('id_util')->references('id_user')->on('users')->onDelete('cascade');
            $table->string('date', 50);
            $table->integer('calcium');
            $table->integer('prot');
