@@ -57,7 +57,6 @@ class UtilisateurController extends Controller
      */
     public function viewDashboard()
     {
-        exit;
         $usersAll = User::all();
         $users = [];
         foreach ($usersAll as $user) {
