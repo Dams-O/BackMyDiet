@@ -44,10 +44,9 @@
             <header>
                 <nav class="website-nav">
                     <ul>
-                        <li><a class="home-link" href="https://aws.amazon.com/">Home</a></li>
-                        <li><a href="https://aws.amazon.com/what-is-cloud-computing/">About</a></li>
-                        <li><a href="https://aws.amazon.com/solutions/">Services</a></li>
-                        <li><a href="https://aws.amazon.com/contact-us/">Contact</a></li>
+                        <li><a class="home-link" href="viewDashboard">Dashboard</a></li>
+                        <li><a href="formulaire">Formulaire</a></li>
+                        <li><a href="viewProfilStats/{id}">Stats</a></li>
                     </ul>
                 </nav>
             </header>
