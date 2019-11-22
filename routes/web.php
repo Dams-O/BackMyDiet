@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('formulaire', 'UserController@formulaireUser');
+Route::get('login', 'UserController@loginPage');
 Route::get('viewDashboard', 'UserController@viewDashboard');
 Route::get('viewDashboard/{nom}', 'UserController@viewDashboardFiltre');
 Route::get('viewProfilStats/{id}', 'Stats\StatsController@viewProfilStats');

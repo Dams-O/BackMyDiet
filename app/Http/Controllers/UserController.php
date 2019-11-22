@@ -73,4 +73,11 @@ class UserController extends Controller
         return view('front.dashboard', array('users' => $user));
     }
 
+    public function loginPage() 
+    {
+
+       return view('front.loginPage'); 
+
+    }
+
 }
