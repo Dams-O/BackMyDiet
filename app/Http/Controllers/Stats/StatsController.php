@@ -24,12 +24,16 @@ class StatsController extends Controller
     */
     public function getStats()
     {
-        exit;
-        //$contrat = Stats::where('id_user', $iduser)->first();
-        $contrat = Stats::all();
-        
+        $contrat = Stats::first();
         return response()->json($contrat);
     }
+
+    public function getAllStats()
+    {
+        $stats = Stats::all();
+        return response()->json($stats);
+    }
+
     /**
      * Envoie d'une Statistique
     */

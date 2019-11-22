@@ -25,6 +25,11 @@ Route::post('/test',function(){
 Route::post('/login', 'LoginController@login');
 
 Route::get('/getUsers', 'UserController@getAllUsers');
+Route::post('/getUserById', 'UserController@getUserById');
+
+Route::get('/getStats', 'Stats\StatsController@getStats');
+Route::get('/getAllStats', 'Stats\StatsController@getAllStats');
+
 
 Route::group(['prefix' => 'stats'], function () {
     Route::get('getMenu', 'Stats\MenuController@getMenu');

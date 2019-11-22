@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Models\Stats;
 
+use Illuminate\Http\Request;
+
 
 class UserController extends Controller
 {
@@ -26,6 +28,13 @@ class UserController extends Controller
     public function getUser()
     {
         $contrat = User::where('id_user')->first();
+        return response()->json($contrat);
+    }
+
+    public function getUserById(Request $request)
+    {
+        $input = $request->all();
+        $contrat = User::where('id_user', $input["iduser"])->first();
         return response()->json($contrat);
     }
 
