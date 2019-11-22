@@ -5,6 +5,6 @@
         <title>MyDiet - Login</title>
     </head>
     <body>
-        <p>Yeah</p>
+    <p>Yeah <?php echo $fruit ?></p>
     </body>
 </html>

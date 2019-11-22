@@ -26,7 +26,7 @@
 
                     <ul class="userLogin">
                         <li><a href="login">Connection</a></li>
-                        <li><a href="formulaire" class="home-link">Inscription</a></li>
+                        <li><a href="formulaire" class="register">Inscription</a></li>
                     </ul>
                 </nav>
             </header> 

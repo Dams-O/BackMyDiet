@@ -69,8 +69,6 @@ class UserController extends Controller
     public function viewDashboard()
     {
         $usersAll = User::all();
-        var_dump($usersAll);
-        exit;
         $users = [];
         foreach ($usersAll as $user) {
             $users[] = $user->first_name;
@@ -97,7 +95,9 @@ class UserController extends Controller
     public function loginPage() 
     {
 
-       return view('front.loginPage'); 
+       $test = 'tomate';
+       
+       return view('front.loginPage', array('fruit' => $test)); 
 
     }
 

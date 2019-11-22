@@ -16,9 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('login', 'UserController@loginPage');
+Route::post('login', 'LoginController@login');
 Route::get('viewDashboard', 'UserController@viewDashboard');
 Route::get('viewDashboard/{nom}', 'UserController@viewDashboardFiltre');
 Route::get('viewProfilStats/{id}', 'Stats\StatsController@viewProfilStats');
 Route::get('viewProfilStats/{id}', 'Stats\StatsController@getStats');
 Route::post('setUserWeb', 'UserController@setUserrWeb');
-Route::post('login', 'LoginController@login');
+

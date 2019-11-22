@@ -26,7 +26,7 @@
         <tbody id="list-nom">
         @foreach ($users as $user)
             <tr>
-                <td><strong><a href="viewProfilStats/<?php echo $user->id_user; ?>"><?php echo $user->first_name; ?></a></strong></td>
+                <td><strong><a href="viewProfilStats/<?php echo $user->id_user; ?>"><?php echo $user->last_name; ?></a></strong></td>
                 <td><?php echo $user->first_name; ?></td>
                 <td><?php echo $user->pseudo; ?></td>
             </tr>
