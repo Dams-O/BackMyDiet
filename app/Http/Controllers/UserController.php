@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Models\Stats;
+
 
 class UserController extends Controller
 {
@@ -27,6 +29,15 @@ class UserController extends Controller
         return response()->json($contrat);
     }
 
+    /**
+     * Renvoie tout les Users
+     */
+    public function getAllUsers()
+    {
+        $users = User::all();
+        return response()->json($users);
+    }
+    
     /**
      * Envoie d'un User Web
      */
@@ -57,13 +68,23 @@ class UserController extends Controller
      */
     public function viewDashboard()
     {
-        exit;
         $usersAll = User::all();
+        var_dump($usersAll);
+        exit;
         $users = [];
         foreach ($usersAll as $user) {
-            $users[] = $user->nom;
+            $users[] = $user->first_name;
         }
         return view('front.dashboard', array('users' => $usersAll, 'username' => $users));
+    }
+
+    public function getStats()
+    {
+        exit;
+        //$contrat = Stats::where('id_user', $iduser)->first();
+        $contrat = Stats::all();
+        
+        return response()->json($contrat);
     }
 
     public function viewDashboardFiltre($nom)

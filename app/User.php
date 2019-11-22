@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'mdp', 'remember_token',
+        'remember_token',
     ];
 
     //Tout les champs associés
@@ -41,4 +41,11 @@ class User extends Authenticatable
      * @var string
      */
     protected $primaryKey = 'id_user';
+
+    /**
+    * Active le timestamped automatique.
+    * 
+    * @var bool
+    */
+    public $timestamps = true;
 }

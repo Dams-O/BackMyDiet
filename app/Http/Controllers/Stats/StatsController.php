@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Stats;
 
 use App\Http\Controllers\Controller;
 use App\Models\Stats;
-use App\User;
 use App\Models\DonneeSuivi;
 
 class StatsController extends Controller
@@ -25,7 +24,10 @@ class StatsController extends Controller
     */
     public function getStats()
     {
-        $contrat = Stats::where('id_user', $iduser)->first();
+        exit;
+        //$contrat = Stats::where('id_user', $iduser)->first();
+        $contrat = Stats::all();
+        
         return response()->json($contrat);
     }
     /**
