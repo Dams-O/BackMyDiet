@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGlacierSuiviTable extends Migration
+class CreateDataIcecubeTable extends Migration
 {
    /**
     * Run the migrations.
@@ -13,10 +13,10 @@ class CreateGlacierSuiviTable extends Migration
     */
    public function up()
    {
-       Schema::create('glacier_suivi', function (Blueprint $table) {
-           $table->increments('id_glaicer');
-           $table->integer('id_util')->unsigned();
-           $table->foreign('id_util')->references('id_user')->on('users')->onDelete('cascade');
+       Schema::create('data_icecube', function (Blueprint $table) {
+           $table->increments('id_icecube');
+           $table->integer('id_user')->unsigned();
+           $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
            $table->string('date', 50);
            $table->integer('calcium');
            $table->integer('prot');
@@ -37,6 +37,6 @@ class CreateGlacierSuiviTable extends Migration
     */
    public function down()
    {
-       Schema::dropIfExists('glacier_suivi');
+       Schema::dropIfExists('data_icecube');
    }
 }

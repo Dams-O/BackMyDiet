@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDonneeSuiviTable extends Migration
+class CreateDataUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateDonneeSuiviTable extends Migration
      */
     public function up()
     {
-        Schema::create('donnee_suivi', function (Blueprint $table) {
-            $table->increments('id_donnee');
-            $table->integer('id_util')->unsigned();
-            $table->foreign('id_util')->references('id_user')->on('users')->onDelete('cascade');
+        Schema::create('data_user', function (Blueprint $table) {
+            $table->increments('id_data_user');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
             $table->integer('calcium')->unsigned();
             $table->integer('prot')->unsigned();
             $table->integer('GL')->unsigned();
@@ -35,6 +35,6 @@ class CreateDonneeSuiviTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donnee_suivi');
+        Schema::dropIfExists('data_user');
     }
 }

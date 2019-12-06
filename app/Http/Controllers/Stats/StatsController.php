@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Stats;
 use App\Models\DonneeSuivi;
 
+use Illuminate\Http\Request;
+
 class StatsController extends Controller
 {
     /*
@@ -34,6 +36,13 @@ class StatsController extends Controller
         return response()->json($stats);
     }
 
+    public function getStatsById(Request $request)
+    {
+        $input = $request->all();
+        $contrat = Stats::where('id_user', $input["iduser"])->first();
+        return response()->json($contrat);
+    }
+
     /**
      * Envoie d'une Statistique
     */
@@ -47,8 +56,8 @@ class StatsController extends Controller
     public function viewProfilStats($id)
     {
         $users = User::where('id_user', $id)->first();
-        $stats = Stats::where('id_util', $id)->get();
-        $ds = DonneeSuivi::where('id_util', $id)->get();
+        $stats = Stats::where('id_user', $id)->get();
+        $ds = DonneeSuivi::where('id_user', $id)->get();
 
         
         return view('front.profilStats', array('users' => $users, 'stats' => $stats, 'ds' => $ds));
