@@ -22,7 +22,7 @@ Route::post('/test',function(){
     return "ok"; 
 });
 
-Route::post('/login', 'LoginController@login');
+Route::post('/login', 'ConnexionController@loginPost');
 
 Route::get('/getUsers', 'UserController@getAllUsers');
 Route::post('/getUserById', 'UserController@getUserById');

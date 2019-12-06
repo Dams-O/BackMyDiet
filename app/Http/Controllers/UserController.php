@@ -101,13 +101,5 @@ class UserController extends Controller
         return view('front.dashboard', array('users' => $user));
     }
 
-    public function loginPage() 
-    {
-
-       $test = 'tomate';
-       
-       return view('front.loginPage', array('fruit' => $test)); 
-
-    }
-
+   
 }
