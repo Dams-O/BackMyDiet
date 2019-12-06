@@ -29,6 +29,7 @@ Route::post('/getUserById', 'UserController@getUserById');
 
 Route::get('/getStats', 'Stats\StatsController@getStats');
 Route::get('/getAllStats', 'Stats\StatsController@getAllStats');
+Route::post('/getStatsById', 'Stats\StatsController@getStatsById');
 
 
 Route::group(['prefix' => 'stats'], function () {
