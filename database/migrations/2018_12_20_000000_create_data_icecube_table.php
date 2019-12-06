@@ -14,7 +14,7 @@ class CreateDataIcecubeTable extends Migration
    public function up()
    {
        Schema::create('data_icecube', function (Blueprint $table) {
-           $table->increments('id_icecube');
+           $table->increments('id_data_icecube');
            $table->integer('id_user')->unsigned();
            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
            $table->string('date', 50);

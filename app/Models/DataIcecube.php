@@ -3,11 +3,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DataUser extends Model
+class DataIcecube extends Model
 {
     //Tout les champs associés
     protected $fillable = [
     'id_user',
+    'date',
     'calcium',
     'prot',
     'GL',
@@ -23,14 +24,14 @@ class DataUser extends Model
     *
     * @var string
     */
-    protected $table = 'data_user';
+    protected $table = 'data_icecube';
 
     /**
      * Clé primaire.
      *
      * @var string
      */
-    protected $primaryKey = 'id_data_user';
+    protected $primaryKey = 'id_data_icecube';
 
     /**
     * Active le timestamped automatique.

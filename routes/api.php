@@ -37,6 +37,13 @@ Route::get('/getAllFoods', 'FoodLibraryController@getAllFoods');
 Route::post('/getFood', 'FoodLibraryController@getFood');
 Route::post('/getFoodById', 'FoodLibraryController@getFoodById');
 
+Route::get('/getAllDataUsers', 'DataUserController@getAllDataUsers');
+Route::post('/getDataUser', 'DataUserController@getDataUser');
+Route::post('/getDataUserById', 'DataUserController@getDataUserById');
+
+Route::get('/getAllDataIcecubes', 'DataIcecubeController@getAllDataIcecubes');
+Route::post('/getDataIcecube', 'DataIcecubeController@getDataIcecube');
+Route::post('/getDataIcecubeById', 'DataIcecubeController@getDataIcecubeById');
 
 Route::group(['prefix' => 'stats'], function () {
     Route::get('getMenu', 'Stats\MenuController@getMenu');
