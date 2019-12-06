@@ -25,6 +25,7 @@ Route::post('/test',function(){
 Route::post('/login', 'LoginController@login');
 
 Route::get('/getUsers', 'UserController@getAllUsers');
+Route::post('/getUser', 'UserController@getUser');
 Route::post('/getUserById', 'UserController@getUserById');
 
 Route::get('/getStats', 'Stats\StatsController@getStats');

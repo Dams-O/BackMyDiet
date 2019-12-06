@@ -25,10 +25,11 @@ class UserController extends Controller
     /**
      * Renvoie un User
      */
-    public function getUser()
+    public function getUser(Request $request)
     {
-        $contrat = User::where('id_user')->first();
-        return response()->json($contrat);
+        $input = $request->all();
+        $user = User::where('mail',$input["mail"])->where('password',$input["password"])->first();
+        return response()->json($user);
     }
 
     public function getUserById(Request $request)
