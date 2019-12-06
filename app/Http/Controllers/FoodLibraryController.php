@@ -32,4 +32,21 @@ class FoodLibraryController extends Controller
         $foods = FoodLibrary::all();
         return response()->json($foods);
     }
+
+
+    public function createFood(Request $request)
+    {
+        $food = new FoodLibrary();
+        //On left field name in DB and on right field name in Form/view
+        $food->id_category = $request->input('idcategory');
+        $food->name = $request->input('name');
+        $food->save();
+    }
+
+    public function deleteFood(Request $request)
+    {
+        $input = $request->all();
+        $food = FoodLibrary::where('id_food', $input["idfood"])->first();
+        $food->delete();
+    }
 }

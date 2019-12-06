@@ -31,4 +31,29 @@ class DataUserController extends Controller
         $dataUsers = DataUser::all();
         return response()->json($dataUsers);
     }
+
+
+    public function createDataUser(Request $request)
+    {
+        $dataUser = new DataUser();
+        //On left field name in DB and on right field name in Form/view
+        $dataUser->id_user = $request->input('iduser');
+        $dataUser->calcium = $request->input('calcium');
+        $dataUser->prot = $request->input('prot');
+        $dataUser->GL = $request->input('GL');
+        $dataUser->FVSM = $request->input('FVSM');
+        $dataUser->MG = $request->input('MG');
+        $dataUser->sucre = $request->input('sucre');
+        $dataUser->score = $request->input('score');
+        exit;
+        // à corriger 
+        $dataUser->save();
+    }
+
+    public function deleteDataUser(Request $request)
+    {
+        $input = $request->all();
+        $dataUser = DataUser::where('id_data_user', $input["iddatauser"])->first();
+        $dataUser->delete();
+    }
 }

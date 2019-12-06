@@ -43,6 +43,24 @@ class StatsController extends Controller
         return response()->json($stats);
     }
 
+
+    public function createStats(Request $request)
+    {
+        $stats = new Stats();
+        //On left field name in DB and on right field name in Form/view
+        $stats->id_user = $request->input('iduser');
+        $stats->xp = $request->input('xp');
+        $stats->tier = $request->input('tier');
+        $stats->save();
+    }
+
+    public function deleteStats(Request $request)
+    {
+        $input = $request->all();
+        $stats = Stats::where('id_stats', $input["idstats"])->first();
+        $stats->delete();
+    }
+
     /**
      * Envoie d'une Statistique
     */

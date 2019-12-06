@@ -18,8 +18,6 @@ class DataIcecubeController extends Controller
     {
         $input = $request->all();
         $dataIcecube = DataIcecube::where('id_data_icecube', $input["iddataicecube"])->first();
-        var_dump($dataIcecube);
-        exit;
         return response()->json($dataIcecube);
     }
 
@@ -30,5 +28,32 @@ class DataIcecubeController extends Controller
     {
         $dataIcecubes = DataIcecube::all();
         return response()->json($dataIcecubes);
+    }
+
+
+    public function createDataIcecube(Request $request)
+    {
+        $dataIcecube = new DataIcecube();
+        //On left field name in DB and on right field name in Form/view
+        $dataIcecube->id_user = $request->input('iduser');
+        $dataIcecube->date = $request->input('date');
+        $dataIcecube->calcium = $request->input('calcium');
+        $dataIcecube->prot = $request->input('prot');
+        $dataIcecube->GL = $request->input('GL');
+        $dataIcecube->FVSM = $request->input('FVSM');
+        $dataIcecube->MG = $request->input('MG');
+        $dataIcecube->sucre = $request->input('sucre');
+        $dataIcecube->score = $request->input('score');
+        exit;
+        // à corriger
+        $dataIcecube->save();
+    }
+
+
+    public function deleteDataIcecube(Request $request)
+    {
+        $input = $request->all();
+        $dataIcecube = DataIcecube::where('id_data_icecube', $input["iddataicecube"])->first();
+        $dataIcecube->delete();
     }
 }

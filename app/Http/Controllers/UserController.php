@@ -46,6 +46,35 @@ class UserController extends Controller
         $users = User::all();
         return response()->json($users);
     }
+
+
+
+    public function createUser(Request $request)
+    {
+        $user = new User();
+        //On left field name in DB and on right field name in Form/view
+        $user->last_name = $request->input('lastname');
+        $user->first_name = $request->input('firstname');
+        $user->pseudo = $request->input('pseudo');
+        $user->mail = $request->input('mail');
+        $user->password = $request->input('password');
+        $user->remember_token = $request->input('remembertoken');
+        $user->created_at = $request->input('createdat');
+        $user->updated_at = $request->input('updatedat');
+        $user->save();
+    }
+
+
+
+    public function deleteUser(Request $request)
+    {
+        $input = $request->all();
+        var_dump($input);
+        $user = User::where('id_user', $input["iduser"])->first();
+        $user->delete();
+    }
+
+
     
     /**
      * Envoie d'un User Web

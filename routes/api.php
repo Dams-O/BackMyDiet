@@ -27,23 +27,37 @@ Route::post('/login', 'ConnexionController@loginPost');
 Route::get('/getAllUsers', 'UserController@getAllUsers');
 Route::post('/getUser', 'UserController@getUser');
 Route::post('/getUserById', 'UserController@getUserById');
+Route::post('/createUser', 'UserController@createUser');
+Route::post('/deleteUser', 'UserController@deleteUser');
+
+
 
 
 Route::get('/getAllStats', 'Stats\StatsController@getAllStats');
 Route::post('/getStats', 'Stats\StatsController@getStats');
 Route::post('/getStatsById', 'Stats\StatsController@getStatsById');
+Route::post('/createStats', 'Stats\StatsController@createStats');
+Route::post('/deleteStats', 'Stats\StatsController@deleteStats');
+
 
 Route::get('/getAllFoods', 'FoodLibraryController@getAllFoods');
 Route::post('/getFood', 'FoodLibraryController@getFood');
 Route::post('/getFoodById', 'FoodLibraryController@getFoodById');
+Route::post('/createFood', 'FoodLibraryController@createFood');
+Route::post('/deleteFood', 'FoodLibraryController@deleteFood');
+
 
 Route::get('/getAllDataUsers', 'DataUserController@getAllDataUsers');
 Route::post('/getDataUser', 'DataUserController@getDataUser');
 Route::post('/getDataUserById', 'DataUserController@getDataUserById');
+Route::post('/createDataUser', 'DataUserController@createDataUser');
+Route::post('/deleteDataUser', 'DataUserController@deleteDataUser');
 
 Route::get('/getAllDataIcecubes', 'DataIcecubeController@getAllDataIcecubes');
 Route::post('/getDataIcecube', 'DataIcecubeController@getDataIcecube');
 Route::post('/getDataIcecubeById', 'DataIcecubeController@getDataIcecubeById');
+Route::post('/createDataIcecube', 'DataIcecubeController@createDataIcecube');
+Route::post('/deleteDataIcecube', 'DataIcecubeController@deleteDataIcecube');
 
 Route::group(['prefix' => 'stats'], function () {
     Route::get('getMenu', 'Stats\MenuController@getMenu');
