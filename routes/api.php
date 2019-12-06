@@ -24,13 +24,18 @@ Route::post('/test',function(){
 
 Route::post('/login', 'ConnexionController@loginPost');
 
-Route::get('/getUsers', 'UserController@getAllUsers');
+Route::get('/getAllUsers', 'UserController@getAllUsers');
 Route::post('/getUser', 'UserController@getUser');
 Route::post('/getUserById', 'UserController@getUserById');
 
-Route::get('/getStats', 'Stats\StatsController@getStats');
+
 Route::get('/getAllStats', 'Stats\StatsController@getAllStats');
+Route::post('/getStats', 'Stats\StatsController@getStats');
 Route::post('/getStatsById', 'Stats\StatsController@getStatsById');
+
+Route::get('/getAllFoods', 'FoodLibraryController@getAllFoods');
+Route::post('/getFood', 'FoodLibraryController@getFood');
+Route::post('/getFoodById', 'FoodLibraryController@getFoodById');
 
 
 Route::group(['prefix' => 'stats'], function () {

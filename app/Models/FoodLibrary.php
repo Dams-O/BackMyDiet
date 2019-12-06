@@ -3,13 +3,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Stats extends Model
+class FoodLibrary extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_util',
-    'xp',
-    'tier',
+    'id_food',
+    'id_category',
+    'name',
     ];
 
     /**
@@ -17,14 +17,14 @@ class Stats extends Model
     *
     * @var string
     */
-    protected $table = 'stats';
+    protected $table = 'food_library';
 
     /**
      * Clé primaire.
      *
      * @var string
      */
-    protected $primaryKey = 'id_stats';
+    protected $primaryKey = 'id_food';
 
     /**
     * Active le timestamped automatique.

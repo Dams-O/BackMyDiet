@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Stats;
 
 use App\Http\Controllers\Controller;
 use App\Models\Stats;
-use App\Models\DonneeSuivi;
 
 use Illuminate\Http\Request;
 
@@ -24,10 +23,11 @@ class StatsController extends Controller
     /**
      * Renvoie une statistique en lien avec la personne connectée
     */
-    public function getStats()
+    public function getStats(Request $request)
     {
-        $contrat = Stats::first();
-        return response()->json($contrat);
+        $input = $request->all();
+        $stats = Stats::where('id_user',$input["iduser"])->get();
+        return response()->json($stats);
     }
 
     public function getAllStats()
@@ -39,8 +39,8 @@ class StatsController extends Controller
     public function getStatsById(Request $request)
     {
         $input = $request->all();
-        $contrat = Stats::where('id_user', $input["iduser"])->first();
-        return response()->json($contrat);
+        $stats = Stats::where('id_user', $input["iduser"])->first();
+        return response()->json($stats);
     }
 
     /**
