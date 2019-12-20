@@ -16,8 +16,6 @@ class CreateMealCategoriesTable extends Migration
        Schema::create('meal_categories', function (Blueprint $table) {
            $table->increments('id_meal_category');
            $table->string('name', 50);
-           
-
        });
    }
 
