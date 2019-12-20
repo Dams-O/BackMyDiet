@@ -17,14 +17,6 @@ class CreateDataUserTable extends Migration
             $table->increments('id_data_user');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
-            $table->integer('calcium')->unsigned();
-            $table->integer('prot')->unsigned();
-            $table->integer('GL')->unsigned();
-            $table->integer('FVSM')->unsigned();
-            $table->integer('MG')->unsigned();
-            $table->integer('sucre')->unsigned();
-            $table->integer('score')->unsigned();
-            $table->timestamp('create_at');
         });
     }
 
@@ -36,5 +28,6 @@ class CreateDataUserTable extends Migration
     public function down()
     {
         Schema::dropIfExists('data_user');
+
     }
 }
