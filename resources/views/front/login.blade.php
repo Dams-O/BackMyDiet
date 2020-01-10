@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-    <link type="text/css" rel="stylesheet" href="../../../public/css/forms.css" />
+    <link type="text/css" rel="stylesheet" href="css/forms.css" />
         <title>MyDiet - Connection</title>
     </head>
     <body>
@@ -10,13 +10,13 @@
         {{ csrf_field() }}
         <fieldset class="formCont"> 
             <legend>Connection</legend>
-            <label for="user">Nom d'utilisateur:  </label><input class="form" type="text" name="mail" id="user" required placeholder=""/> <br /> <br />
+            <label for="user">Adresse mail:  </label><input class="form" type="email" name="mail" id="user" required placeholder="exemple@gmail.com"/> <br /> <br />
             <label for="pass">Mot de passe:  </label><input class="form" type="password" name="password" id="pass" required /> <br /> <br />
-            <input type="submit" value="Se Connecter" />
+            <input class="submit" type="submit" value="Se Connecter" />
             <?php
             if(isset($failed)) {
                 if($failed == 1) {
-                    echo("<p>Mauvais mot de passe !</p>");
+                    echo("<p class='alert'>Mauvais mot de passe !</p>");
                 }
             }
             ?>

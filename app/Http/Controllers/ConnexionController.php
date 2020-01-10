@@ -15,12 +15,6 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class ConnexionController extends Controller
 {
     use AuthenticatesUsers;
-     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -38,14 +32,18 @@ class ConnexionController extends Controller
 
     public function auth(Request $request){
         $input = $request->all();
-        $user = User::where('user', $input['mail'], 'pass', $input['password'])->first();
-        var_dump($user);
-        exit;
-        Auth::login($user);
-        
-        return view('welcome');
-    }
+        $user = User::where('mail',$input["mail"])->where('password',$input["passwords"])->first();
 
+        if(empty($user)){
+            $failed = 1;
+            return view('front.login')->with('failed', $failed);
+        }
+        else {
+            Auth::login($user);
+            return view('welcome');
+        }
+        
+    }
 
     public function logout(){
         Auth::logout();

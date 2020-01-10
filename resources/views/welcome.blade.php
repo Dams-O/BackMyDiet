@@ -23,12 +23,12 @@
                         <li><a href="viewProfilStats/{id}">Stats</a></li>
                     </ul>
                     <?php
-                  
+                  if (!Auth::check()){
                         echo("<ul class='userLogin'>");
                         echo("<li><a href='login'>Connection</a></li>");
                         echo("<li><a href='formulaire' class='register'>Inscription</a></li>");
                         echo("</ul>");
-                    
+                        }
                     if (Auth::check()){
                         echo("<ul class='userLogin'>");
                         echo("<li><a href='logout'>Déconnexion</a></li>");
