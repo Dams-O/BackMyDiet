@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
-use App\Http\Controllers\Store;
-use Auth;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class InscriptionController extends Controller
@@ -18,16 +16,16 @@ class InscriptionController extends Controller
 
     public function register(Request $request){
         $input = $request->all();
+        $hashed = Hash::make($input['pass']);
         $user = new User; 
         $user->last_name = $input['last_name'];
         $user->first_name = $input['first_name'];
         $user->pseudo = $input['user'];
         $user->mail = $input['mail'];
-        $user->password = $input['pass'];
-        var_dump($user);
-
-        
+        $user->password = $hashed;
         $user->save();
+
+        return view('front.login');
         
     }
 }
