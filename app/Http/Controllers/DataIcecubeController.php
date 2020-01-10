@@ -49,7 +49,12 @@ class DataIcecubeController extends Controller
         $dataIcecube->save();
     }
 
-
+    /**
+     * Delete a DataIceCube
+     * 
+     * 
+     * 
+    */
     public function deleteDataIcecube(Request $request)
     {
         $input = $request->all();

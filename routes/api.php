@@ -24,40 +24,79 @@ Route::post('/test',function(){
 
 Route::post('/login', 'ConnexionController@loginPost');
 
+
+
+// -------- User --------
+
+// '/api/getAllUsers' Retourne toutes les entités User 
 Route::get('/getAllUsers', 'UserController@getAllUsers');
+// '/api/getUser' Retourne une entité User 
 Route::post('/getUser', 'UserController@getUser');
+// '/api/getUserById' Retourne une  entité User en renseignant son ID
 Route::post('/getUserById', 'UserController@getUserById');
+// '/api/createUser' Crée une entité User
 Route::post('/createUser', 'UserController@createUser');
+// '/api/deleteUser' Supprime une entité User
 Route::post('/deleteUser', 'UserController@deleteUser');
 
 
 
+// -------- Stats --------
 
+// '/api/getAllStats' Retourne toutes les entités Stats 
 Route::get('/getAllStats', 'Stats\StatsController@getAllStats');
+// '/api/getStats' Retourne une entité Stats 
 Route::post('/getStats', 'Stats\StatsController@getStats');
+// '/api/getStatsById' Retourne une  entité Stats en renseignant son ID
 Route::post('/getStatsById', 'Stats\StatsController@getStatsById');
+// '/api/createStats' Crée une entité Stats
 Route::post('/createStats', 'Stats\StatsController@createStats');
+// '/api/deleteStats' Supprime une entité Stats
 Route::post('/deleteStats', 'Stats\StatsController@deleteStats');
 
 
+// -------- Food --------
+
+// '/api/getAllFoods' Retourne toutes les entités Food 
 Route::get('/getAllFoods', 'FoodLibraryController@getAllFoods');
+// '/api/getFood' Retourne une entité Food 
 Route::post('/getFood', 'FoodLibraryController@getFood');
+// '/api/getFoodById' Retourne une  entité Food en renseignant son ID
 Route::post('/getFoodById', 'FoodLibraryController@getFoodById');
+// '/api/createFood' Crée une entité Food
 Route::post('/createFood', 'FoodLibraryController@createFood');
+// '/api/deleteFood' Supprime une entité Food
 Route::post('/deleteFood', 'FoodLibraryController@deleteFood');
 
 
+// -------- DataUser --------
+
+// '/api/getAllDataUsers' Retourne toutes les entités DataUsers
 Route::get('/getAllDataUsers', 'DataUserController@getAllDataUsers');
+// '/api/getDataUser' Retourne une entité DataUser
 Route::post('/getDataUser', 'DataUserController@getDataUser');
+// '/api/getDataUserById' Retourne une entité DataUser en renseignant son ID
 Route::post('/getDataUserById', 'DataUserController@getDataUserById');
+// '/api/createDataUser' Crée une entité DataUser
 Route::post('/createDataUser', 'DataUserController@createDataUser');
+// '/api/deleteDataUser' Supprime une entité DataUser
 Route::post('/deleteDataUser', 'DataUserController@deleteDataUser');
 
+
+// -------- DataIceCube --------
+
+// '/api/getAllDataIcecubes' Retourne toutes les entités DataIceCube
 Route::get('/getAllDataIcecubes', 'DataIcecubeController@getAllDataIcecubes');
+// '/api/getDataIcecube' Retourne une entité DataIceCube
 Route::post('/getDataIcecube', 'DataIcecubeController@getDataIcecube');
+// '/api/getDataIcecubeById' Retourne une entité DataIceCube en renseignant son ID
 Route::post('/getDataIcecubeById', 'DataIcecubeController@getDataIcecubeById');
+// '/api/createDataIcecube' Crée une entité DataIceCube
 Route::post('/createDataIcecube', 'DataIcecubeController@createDataIcecube');
+// '/api/deleteDataIcecube' Supprime une entité DataIceCube
 Route::post('/deleteDataIcecube', 'DataIcecubeController@deleteDataIcecube');
+
+
 
 Route::group(['prefix' => 'stats'], function () {
     Route::get('getMenu', 'Stats\MenuController@getMenu');
