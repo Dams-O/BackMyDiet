@@ -3,13 +3,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FoodLibrary extends Model
+class DataIcecube extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_food',
-    'id_category',
-    'name',
+    'id_user',
+    'date',
+    'calcium',
+    'prot',
+    'GL',
+    'FVSM',
+    'MG',
+    'sucre',
+    'score',
+    'create_at',
     ];
 
     /**
@@ -17,19 +24,19 @@ class FoodLibrary extends Model
     *
     * @var string
     */
-    protected $table = 'food_library';
+    protected $table = 'data_icecube';
 
     /**
      * Clé primaire.
      *
      * @var string
      */
-    protected $primaryKey = 'id_food';
+    protected $primaryKey = 'id_data_icecube';
 
     /**
     * Active le timestamped automatique.
     * 
     * @var bool
     */
-    public $timestamps = false;
+    public $timestamps = true;
 }

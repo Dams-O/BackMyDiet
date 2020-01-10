@@ -3,11 +3,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DonneeSuivi extends Model
+class DataUser extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_util',
+    'id_user',
     'calcium',
     'prot',
     'GL',
@@ -23,14 +23,14 @@ class DonneeSuivi extends Model
     *
     * @var string
     */
-    protected $table = 'donnee_suivi';
+    protected $table = 'data_user';
 
     /**
      * Clé primaire.
      *
      * @var string
      */
-    protected $primaryKey = 'id_donnee';
+    protected $primaryKey = 'id_data_user';
 
     /**
     * Active le timestamped automatique.

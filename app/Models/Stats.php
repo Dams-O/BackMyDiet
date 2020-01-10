@@ -7,11 +7,11 @@ class Stats extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_util',
+    'id_user',
     'xp',
     'tier',
     ];
-
+    
     /**
     * Nom de la table.
     *
