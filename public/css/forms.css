@@ -1,5 +1,25 @@
 fieldset.formCont {
-    margin-left: 10em;
-    margin-right: 10em;
+    margin-left: 15em;
+    margin-right: 15em;
     border: solid black 2px;
+    border-radius: 30px;
+
+
+
+    text-align: center;
 }
+
+fieldset.formCont > input.submit {
+    border: 2px solid black;
+    background-color: white;
+}
+
+fieldset > legend {
+    border: 2px black solid;
+    
+}
+
+p.alert {
+    color: red;
+}
+

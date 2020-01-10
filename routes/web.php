@@ -11,6 +11,8 @@
 |
  */
 
+use App\Http\Controllers\InscriptionController;
+
 Route::get('/', function () {
     return view('welcome');
 
@@ -23,5 +25,5 @@ Route::get('viewProfilStats/{id}', 'Stats\StatsController@getStats');
 Route::get('login', 'ConnexionController@login');
 Route::post('auth', 'ConnexionController@auth');
 Route::get('logout', 'ConnexionController@logout');
-
-
+Route::get('formulaire', 'InscriptionController@form');
+Route::post('register', 'InscriptionController@register');
