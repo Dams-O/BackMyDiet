@@ -17,12 +17,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::post('/test',function(){
-    var_dump('addad'); 
-    return "ok"; 
-});
 
-Route::post('/login', 'ConnexionController@loginPost');
 
 Route::get('/getUsers', 'UserController@getAllUsers');
 Route::post('/getUser', 'UserController@getUser');

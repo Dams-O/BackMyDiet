@@ -16,23 +16,31 @@
     </head>
 
     <body>
-            
             <header>
                 <nav class="website-nav">
                     <ul class="navText">
                         <li><a class="home-link" href="viewDashboard">Dashboard</a></li>
                         <li><a href="viewProfilStats/{id}">Stats</a></li>
                     </ul>
+                    <?php
+                  
+                        echo("<ul class='userLogin'>");
+                        echo("<li><a href='login'>Connection</a></li>");
+                        echo("<li><a href='formulaire' class='register'>Inscription</a></li>");
+                        echo("</ul>");
+                    
+                    if (Auth::check()){
+                        echo("<ul class='userLogin'>");
+                        echo("<li><a href='logout'>Déconnexion</a></li>");
+                        echo("</ul>");
 
-                    <ul class="userLogin">
-                        <li><a href="login">Connection</a></li>
-                        <li><a href="formulaire" class="register">Inscription</a></li>
-                    </ul>
+                    }
+                        
+                    ?>
+               
+                    
                 </nav>
             </header> 
         <script src="js/vendor/vegas/vegas/vegas.min.js"></script>
     </body>
-
-    
-
 </html>
