@@ -19,6 +19,11 @@
                     echo("<p class='alert'>Mauvais mot de passe !</p>");
                 }
             }
+            if(isset($sucess)) {
+                if($sucess == 1) {
+                    echo("<p class='alert'>Inscription réussie ! Veuillez vous connecter</p>");
+                }
+            }
             ?>
         </fieldset>
     </form>
