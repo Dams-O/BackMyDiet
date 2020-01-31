@@ -26,10 +26,6 @@ class ConnexionController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
-    public function login(){
-        return view('front.login');
-    }
-
     public function auth(Request $request){
         $input = $request->all();
         $user = User::where('mail',$input["mail"])->where('password',$input["password"])->first();

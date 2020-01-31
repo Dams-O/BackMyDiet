@@ -4,3 +4,13 @@
 #input-search{
     border-radius: 10px;
 }
+
+.textTest {
+    border: 2px solid black;
+}
+
+.formContainer {
+    border: solid black 1px;
+    padding: 10px;
+    border-radius: 10px;
+}
