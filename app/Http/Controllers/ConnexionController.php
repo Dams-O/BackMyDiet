@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Store;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -28,9 +28,29 @@ class ConnexionController extends Controller
 
     public function auth(Request $request){
         $input = $request->all();
-        $user = User::where('mail',$input["mail"])->where('password',$input["password"])->first();
+        $user = User::where('mail',$input["mail"])->first();
+        if(empty($user)) {
+            $failed = 1;
+            return view('front.login')->with('failed', $failed);
+        } else {
+            if(Hash::check($input['password'], $user->password) == false) {
+                $failed = 1;
+                return view('front.login')->with('failed', $failed);
+            } else {
+                $user = User::where('mail',$input["mail"])->where('password', $user->password)->first();
+                Auth::login($user);
+                return view('welcome');
+            }
+        }
 
-        if(empty($user)){
+        
+
+        
+
+        
+
+
+       /* if(empty($user)){
             $failed = 1;
             return view('front.login')->with('failed', $failed);
         }
@@ -38,7 +58,7 @@ class ConnexionController extends Controller
             Auth::login($user);
             return view('welcome');
         }
-        
+        */
     }
 
     public function logout(){

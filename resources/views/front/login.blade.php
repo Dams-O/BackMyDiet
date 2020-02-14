@@ -12,7 +12,7 @@
                         <div class="formContainer">
                             <label for="user">Adresse mail:  </label>
                             <input class="form form-control input" type="email" name="mail" id="email" required placeholder="exemple@gmail.com"/> 
-                            <p class="alert invalid">Veuillez entrer une adresse e-mail valide</p><br /><br />
+                            <p class="alert invalid">Veuillez entrer une adresse e-mail valide</p><br />
                             <label for="pass">Mot de passe:  </label>
                             <input class="form form-control input" type="password" name="password" id="password" required />
                             <p class="alert invalid">Veuillez entrer un mot de passe</p><br />
@@ -25,7 +25,7 @@
                     <?php
                     if(isset($failed)) {
                         if($failed == 1) {
-                            echo("<p class='alert'>Mauvais mot de passe !</p>");
+                            echo("<p class='alert'>Informations erronées !</p>");
                         }
                     }
                     if(isset($sucess)) {
