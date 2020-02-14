@@ -7,7 +7,6 @@ class RecipeSteps extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_recipe_steps',
     'id_recipe',
     'step_number',
     ];
@@ -31,5 +30,5 @@ class RecipeSteps extends Model
     * 
     * @var bool
     */
-    public $timestamps = true;
+    public $timestamps = false;
 }

@@ -7,7 +7,6 @@ class Advice extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_advice',
     'description',
     ];
 
@@ -19,7 +18,7 @@ class Advice extends Model
     protected $table = 'advice';
 
     /**
-     * Clé primaire.
+     * Clé primaire. 
      *
      * @var string
      */
@@ -30,5 +29,5 @@ class Advice extends Model
     * 
     * @var bool
     */
-    public $timestamps = true;
+    public $timestamps = false;
 }

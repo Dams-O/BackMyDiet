@@ -26,7 +26,7 @@ class AdviceController extends Controller
      */
     public function getAllAdvices()
     {
-        $advices = DataIcecube::all();
+        $advices = Advice::all();
         return response()->json($advices);
     }
 
@@ -35,30 +35,24 @@ class AdviceController extends Controller
     {
         $advice = new Advice();
         //On left field name in DB and on right field name in Form/view
-        $dataIcecube->id_user = $request->input('iduser');
-        $dataIcecube->date = $request->input('date');
-        $dataIcecube->calcium = $request->input('calcium');
-        $dataIcecube->prot = $request->input('prot');
-        $dataIcecube->GL = $request->input('GL');
-        $dataIcecube->FVSM = $request->input('FVSM');
-        $dataIcecube->MG = $request->input('MG');
-        $dataIcecube->sucre = $request->input('sucre');
-        $dataIcecube->score = $request->input('score');
-        exit;
-        // à corriger
-        $dataIcecube->save();
+        $advice->id_advice = $request->input('idadvice');
+        $advice->description = $request->input('description');
+
+        $advice->save();
+
+        //à corriger
     }
 
     /**
-     * Delete a DataIceCube
+     * Delete a Advice
      * 
      * 
      * 
     */
-    public function deleteDataIcecube(Request $request)
+    public function deleteAdvice(Request $request)
     {
         $input = $request->all();
-        $dataIcecube = DataIcecube::where('id_data_icecube', $input["iddataicecube"])->first();
-        $dataIcecube->delete();
+        $advice = Advice::where('id_advice', $input["idadvice"])->first();
+        $advice->delete();
     }
 }

@@ -125,6 +125,36 @@ Route::post('/deleteRecipe', 'RecipeController@deleteRecipe');
 
 
 
+// -------- Advice --------
+
+// '/api/getAllAdvices' Retourne toutes les entités Advice 
+Route::get('/getAllAdvices', 'AdviceController@getAllAdvices');
+// '/api/getAdvice' Retourne une entité Advice 
+Route::post('/getAdvice', 'AdviceController@getAdvice');
+// '/api/getAdviceById' Retourne une  entité Advice en renseignant son ID
+Route::post('/getAdviceById', 'AdviceController@getAdviceById');
+// '/api/createAdvice' Crée une entité Advice
+Route::post('/createAdvice', 'AdviceController@createAdvice');
+// '/api/deleteAdvice' Supprime une entité Advice
+Route::post('/deleteAdvice', 'AdviceController@deleteAdvice');
+
+
+
+
+// -------- RecipeSteps --------
+
+// '/api/getAllRecipeSteps' Retourne toutes les entités RecipeSteps 
+Route::get('/getAllRecipeSteps', 'RecipeStepsController@getAllRecipeSteps');
+// '/api/getRecipeSteps' Retourne une entité RecipeSteps 
+Route::post('/getRecipeSteps', 'RecipeStepsController@getRecipeSteps');
+// '/api/getRecipeStepsById' Retourne une  entité RecipeSteps en renseignant son ID
+Route::post('/getRecipeStepsById', 'RecipeStepsController@getRecipeStepsById');
+// '/api/createRecipeSteps' Crée une entité RecipeSteps
+Route::post('/createRecipeSteps', 'RecipeStepsController@createRecipeSteps');
+// '/api/deleteRecipeSteps' Supprime une entité RecipeSteps
+Route::post('/deleteRecipeSteps', 'RecipeStepsController@deleteRecipeSteps');
+
+
 
 Route::group(['prefix' => 'stats'], function () {
     Route::get('getMenu', 'Stats\MenuController@getMenu');
