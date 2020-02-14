@@ -8,10 +8,11 @@
         <meta name="description" content="@yield('metaDescription')">
         <meta name="author" content="">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">  
         <link href="{{URL::asset('assets/front/bower_components/bootstrap/dist/css/style.css')}}" rel="stylesheet">
         <link href="{{URL::asset('assets/front/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
         <script src="{{URL::asset('js/jquery-3.4.1.min.js')}}"></script>
+        <link href="{{URL::asset('css/login.css')}}" rel="stylesheet"> 
         
         
         <title>My Diet</title>

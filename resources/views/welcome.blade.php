@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>MyDiet Pro</title>
       <link href="{{ asset('css/gradients.css') }}" rel="stylesheet" type="text/css">
-      <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ asset('css/nav.css') }}" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -28,6 +28,9 @@
                         echo("<li><a class='home-link' href='viewDashboard'>Dashboard</a></li>");
                         echo("<li><a href='viewProfilStats/{id}'>Stats</a></li>");
                         echo("</ul>");
+                    }
+                    else {
+                        return view("front.login");
                     }
                     ?>
                 </nav>

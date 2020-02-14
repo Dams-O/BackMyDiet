@@ -43,7 +43,7 @@ class ConnexionController extends Controller
 
     public function logout(){
         Auth::logout();
-        return view('welcome');
+        return view('front.login');
         
     }
 
