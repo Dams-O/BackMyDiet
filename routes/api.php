@@ -106,6 +106,26 @@ Route::post('/createMeal', 'MealLibraryController@createMeal');
 // '/api/deleteMeal' Supprime une entité Meal
 Route::post('/deleteMeal', 'MealLibraryController@deleteMeal');
 
+
+
+
+
+// -------- Recipe --------
+
+// '/api/getAllRecipes' Retourne toutes les entités Recipe 
+Route::get('/getAllRecipes', 'RecipeController@getAllRecipes');
+// '/api/getRecipe' Retourne une entité Recipe 
+Route::post('/getRecipe', 'RecipeController@getRecipe');
+// '/api/getRecipeById' Retourne une  entité Recipe en renseignant son ID
+Route::post('/getRecipeById', 'RecipeController@getRecipeById');
+// '/api/createRecipe' Crée une entité Recipe
+Route::post('/createRecipe', 'RecipeController@createRecipe');
+// '/api/deleteRecipe' Supprime une entité Recipe
+Route::post('/deleteRecipe', 'RecipeController@deleteRecipe');
+
+
+
+
 Route::group(['prefix' => 'stats'], function () {
     Route::get('getMenu', 'Stats\MenuController@getMenu');
     Route::post('setMenu', 'Stats\MenuController@setMenu');
