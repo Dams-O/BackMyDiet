@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\DataUser;
+use App\Models\DataUserHasFood;
 
 use Illuminate\Http\Request;
 
-class DataUserController extends Controller
+class DataUserHasFoodController extends Controller
 {
-    public function getDataUser(Request $request)
+    public function getDataUserHasFood(Request $request)
     {
         $input = $request->all();
-        $dataUser = DataUser::where('id_user',$input["iduser"])->first();
-        return response()->json($dataUser);
+        $dataUserHasFood = DataUser::where('id_user',$input["iduser"])->first();
+        return response()->json($dataUserHasFood);
     }
 
-    public function getDataUserById(Request $request)
+    public function getDataUserHasFoodById(Request $request)
     {
         $input = $request->all();
         $dataUser = DataUser::where('id_data_user', $input["iddatauser"])->first();

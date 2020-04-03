@@ -23,6 +23,19 @@ class DataUserController extends Controller
         return response()->json($dataUser);
     }
 
+
+
+      /**
+     * Renvoie tous les DataUsers d'un User
+     */
+    public function getAllDataUsersByUser(Request $request)
+    {
+        $input = $request->all();
+        $dataUsers = DataUser::where('id_user', $input["iduser"])->get();
+        return response()->json($dataUsers);
+    }
+
+
     /**
      * Renvoie tous les DataUsers
      */
