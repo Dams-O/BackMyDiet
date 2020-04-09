@@ -53,14 +53,14 @@ class UserController extends Controller
     {
         $user = new User();
         //On left field name in DB and on right field name in Form/view
-        $user->last_name = $request->input('lastname');
+        $user->last_name = "Titi";//$request->input('lastname');
         $user->first_name = $request->input('firstname');
         $user->pseudo = $request->input('pseudo');
         $user->mail = $request->input('mail');
         $user->password = $request->input('password');
-        $user->remember_token = $request->input('remembertoken');
+        /*$user->remember_token = $request->input('remembertoken');
         $user->created_at = $request->input('createdat');
-        $user->updated_at = $request->input('updatedat');
+        $user->updated_at = $request->input('updatedat');*/
         $user->save();
     }
 
