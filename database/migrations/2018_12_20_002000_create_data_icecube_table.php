@@ -24,8 +24,7 @@ class CreateDataIcecubeTable extends Migration
            $table->integer('MG');
            $table->integer('sucre');
            $table->integer('score');
-           $table->timestamp('create_at');
-
+           $table->timestamps();
        });
    }
 

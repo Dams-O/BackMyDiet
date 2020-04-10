@@ -37,7 +37,7 @@ class DataIcecubeController extends Controller
         //On left field name in DB and on right field name in Form/
         //$dataIcecube->id_data_icecube = $request->input('iddataicecube');
         $dataIcecube->id_user = $request->input('iduser');
-        $dataIcecube->date = $request->input('date');
+        //$dataIcecube->date = $request->input('date');
         $dataIcecube->calcium = $request->input('calcium');
         $dataIcecube->prot = $request->input('prot');
         $dataIcecube->GL = $request->input('GL');
