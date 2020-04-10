@@ -34,7 +34,8 @@ class DataIcecubeController extends Controller
     public function createDataIcecube(Request $request)
     {
         $dataIcecube = new DataIcecube();
-        //On left field name in DB and on right field name in Form/view
+        //On left field name in DB and on right field name in Form/
+        //$dataIcecube->id_data_icecube = $request->input('iddataicecube');
         $dataIcecube->id_user = $request->input('iduser');
         $dataIcecube->date = $request->input('date');
         $dataIcecube->calcium = $request->input('calcium');
@@ -44,7 +45,6 @@ class DataIcecubeController extends Controller
         $dataIcecube->MG = $request->input('MG');
         $dataIcecube->sucre = $request->input('sucre');
         $dataIcecube->score = $request->input('score');
-        exit;
         // à corriger
         $dataIcecube->save();
     }

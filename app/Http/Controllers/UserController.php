@@ -114,15 +114,7 @@ class UserController extends Controller
         return view('front.dashboard', array('users' => $usersAll, 'username' => $users));
     }
 
-    public function getStats()
-    {
-        exit;
-        //$contrat = Stats::where('id_user', $iduser)->first();
-        $contrat = Stats::all();
-        
-        return response()->json($contrat);
-    }
-
+    
     public function viewDashboardFiltre($nom)
     {
         $user = User::where('nom', $nom)->first();

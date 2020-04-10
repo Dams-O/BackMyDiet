@@ -8,7 +8,6 @@ class DataIcecube extends Model
     //Tout les champs associés
     protected $fillable = [
     'id_user',
-    'date',
     'calcium',
     'prot',
     'GL',
@@ -16,7 +15,6 @@ class DataIcecube extends Model
     'MG',
     'sucre',
     'score',
-    'create_at',
     ];
 
     /**
@@ -38,5 +36,5 @@ class DataIcecube extends Model
     * 
     * @var bool
     */
-    public $timestamps = false;
+    public $timestamps = true;
 }
