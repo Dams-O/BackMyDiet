@@ -66,6 +66,8 @@ Route::post('/deleteFood', 'FoodLibraryController@deleteFood');
 
 // -------- DataUser --------
 
+// '/api/getAllDataUsersByUser' Retourne toutes les entités DataUsers d'un User
+Route::post('/getAllDataUsersByUser', 'DataUserController@getAllDataUsersByUser');
 // '/api/getAllDataUsers' Retourne toutes les entités DataUsers
 Route::get('/getAllDataUsers', 'DataUserController@getAllDataUsers');
 // '/api/getDataUser' Retourne une entité DataUser

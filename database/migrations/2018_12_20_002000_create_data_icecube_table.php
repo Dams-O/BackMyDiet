@@ -17,7 +17,6 @@ class CreateDataIcecubeTable extends Migration
            $table->increments('id_data_icecube');
            $table->integer('id_user')->unsigned();
            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
-           $table->string('date', 50);
            $table->integer('calcium');
            $table->integer('prot');
            $table->integer('GL');
@@ -25,8 +24,7 @@ class CreateDataIcecubeTable extends Migration
            $table->integer('MG');
            $table->integer('sucre');
            $table->integer('score');
-           $table->timestamp('create_at');
-
+           $table->timestamps();
        });
    }
 

@@ -69,7 +69,7 @@ class MealLibraryController extends Controller
         //On left field name in DB and on right field name in Form/view
         $meal->id_meal_category = $request->input('idmealcategory');
         $meal->name = $request->input('name');
-        exit; //à corriger
+      //à corriger
         $meal->save();
     }
 

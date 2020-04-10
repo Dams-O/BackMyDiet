@@ -53,14 +53,14 @@ class UserController extends Controller
     {
         $user = new User();
         //On left field name in DB and on right field name in Form/view
-        $user->last_name = $request->input('lastname');
+        $user->last_name = "Titi";//$request->input('lastname');
         $user->first_name = $request->input('firstname');
         $user->pseudo = $request->input('pseudo');
         $user->mail = $request->input('mail');
         $user->password = $request->input('password');
-        $user->remember_token = $request->input('remembertoken');
+        /*$user->remember_token = $request->input('remembertoken');
         $user->created_at = $request->input('createdat');
-        $user->updated_at = $request->input('updatedat');
+        $user->updated_at = $request->input('updatedat');*/
         $user->save();
     }
 
@@ -114,15 +114,7 @@ class UserController extends Controller
         return view('front.dashboard', array('users' => $usersAll, 'username' => $users));
     }
 
-    public function getStats()
-    {
-        exit;
-        //$contrat = Stats::where('id_user', $iduser)->first();
-        $contrat = Stats::all();
-        
-        return response()->json($contrat);
-    }
-
+    
     public function viewDashboardFiltre($nom)
     {
         $user = User::where('nom', $nom)->first();

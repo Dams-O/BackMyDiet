@@ -7,7 +7,6 @@ class Recipe extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_recipe',
     'picture',
     'title',
     'hashtag',
