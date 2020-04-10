@@ -35,12 +35,10 @@ class AdviceController extends Controller
     {
         $advice = new Advice();
         //On left field name in DB and on right field name in Form/view
-        $advice->id_advice = $request->input('idadvice');
         $advice->description = $request->input('description');
 
         $advice->save();
 
-        //à corriger
     }
 
     /**
