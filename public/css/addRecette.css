@@ -1,0 +1,22 @@
+input {
+    background-color: transparent;
+    text-align: center;
+    color: Black;
+    text-decoration: none;
+    border: none;
+    width: 350px;
+    height: 40px;
+
+
+}
+
+img.input-background {
+    width: 350px;
+    height: 40px;
+
+}
+
+.image-upload > input
+{
+    display: none;
+}

@@ -31,3 +31,7 @@ Route::post('auth', 'ConnexionController@auth');
 Route::get('logout', 'ConnexionController@logout');
 Route::get('form', 'InscriptionController@form');
 Route::post('register', 'InscriptionController@register');
+Route::get('addFood', 'MealLibraryController@addFoodPage');
+Route::post('foodCompletion', 'MealLibraryController@search');
+Route::get('recette', 'RecetteController@showPage');
+
