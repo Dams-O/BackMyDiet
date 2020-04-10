@@ -10,7 +10,7 @@ class Recipe extends Model
     'picture',
     'title',
     'hashtag',
-    'id_meal_library',
+    'id_meal',
     'id_meal_category',
     'preparation_time',
     'cooking_time',
