@@ -33,5 +33,5 @@ Route::get('form', 'InscriptionController@form');
 Route::post('register', 'InscriptionController@register');
 Route::get('addFood', 'MealLibraryController@addFoodPage');
 Route::post('foodCompletion', 'MealLibraryController@search');
-Route::get('recette', 'RecetteController@showPage');
+Route::get('addRecette', 'RecetteController@showPage');
 

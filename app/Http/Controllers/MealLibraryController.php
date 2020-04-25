@@ -9,14 +9,10 @@ use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class MealLibraryController extends Controller
-{w
+{
 
     public function addFoodPage() {
-        if(!Auth::check()){ // if the user is disconnected, return the login page
-            return view('front.login');
-        } else {
-            return view('addFood');
-        }
+        return view('addFood');
     }
 
     public function search(Request $request) {
