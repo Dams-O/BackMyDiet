@@ -45,7 +45,6 @@ class DataIcecubeController extends Controller
         $dataIcecube->MG = $request->input('MG');
         $dataIcecube->sucre = $request->input('sucre');
         $dataIcecube->score = $request->input('score');
-        // à corriger
         $dataIcecube->save();
     }
 

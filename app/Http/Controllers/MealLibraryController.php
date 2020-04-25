@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\MealLibrary;
+use App\Models\MealLibraryHasFood;
+
+
+
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -65,8 +69,20 @@ class MealLibraryController extends Controller
         //On left field name in DB and on right field name in Form/view
         $meal->id_meal_category = $request->input('idmealcategory');
         $meal->name = $request->input('name');
-      //à corriger
         $meal->save();
+
+        // On récupère l'Id du MealLibrary créé
+        //$idmeal = $meal->id_meal;
+        /* On récupère le MealLibrary associé à cet ID
+        $meal2 = MealLibrary::where('id_meal',$idmeal)->first();
+        $idmeal2 = $meal2->id_meal; */
+
+        $mealhf = new MealLibraryHasFood();
+        // $mealhf->id_meal = $idmeal2;
+        $mealhf->id_meal = $meal->id_meal; 
+        $mealhf->id_food = $request->input('idfood');
+        $mealhf->save();
+
     }
 
     public function deleteMeal(Request $request)

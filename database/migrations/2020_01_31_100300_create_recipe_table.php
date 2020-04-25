@@ -18,8 +18,8 @@ class CreateRecipeTable extends Migration
             $table->string('picture', 150);
             $table->string('title', 50);
             $table->string('hashtag', 50); 
-            $table->integer('id_meal_library')->unsigned();
-            $table->foreign('id_meal_library')->references('id_meal')->on('meal_libraries')->onDelete('cascade');
+            $table->integer('id_meal')->unsigned();
+            $table->foreign('id_meal')->references('id_meal')->on('meal_libraries')->onDelete('cascade');
             $table->integer('id_meal_category')->unsigned();
             $table->foreign('id_meal_category')->references('id_meal_category')->on('meal_categories')->onDelete('cascade');
             $table->integer('preparation_time')->unsigned();
