@@ -16,7 +16,7 @@ use App\Http\Controllers\InscriptionController;
 Route::get('/', function () {
 
     if (!Auth::check()){
-        return view('front/login');
+        return view('front.login');
         }
     else{
         return view('welcome');
@@ -34,4 +34,5 @@ Route::post('register', 'InscriptionController@register');
 Route::get('addFood', 'MealLibraryController@addFoodPage');
 Route::post('foodCompletion', 'MealLibraryController@search');
 Route::get('addRecette', 'RecetteController@showPage');
+Route::get('forget', 'ConnexionController@passRecoveryPage');
 

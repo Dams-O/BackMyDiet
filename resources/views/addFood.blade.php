@@ -18,10 +18,13 @@
         background-position: 50% 50%;
         background-size: 1950px;
         background-color: #D4AFA7;
+        font-family: Montserrat-Bold;
     }
-  span.input-title {
-    font-size: 30px 
-  }
+
+    span.input-title {
+      font-size: 30px 
+    
+    }
 
     input.big{
       background:url(../img/background-input.png) no-repeat left center;
@@ -40,7 +43,26 @@
       margin-top: 200px; 
     }
 
+    img#logo{
+      width: 100px;
+    }
 
+    .hidden-radio {
+        display: none;
+    }
+
+    .select{
+        display: none;
+    }
+
+    img.type{
+        width: 100px;
+    }
+
+    input {
+      outline: none;
+    }
+    
   </style>
   <div id="headerWrap">
       <nav class="navbar navbar-light navbar-expand-md navigation-clean">
@@ -77,7 +99,7 @@
                     <input class="hidden-radio" id="huile" type="radio" name="type" value="graisse" required />
                   </div>
                   <div class="form-group">
-                    <input type="image" width="100" value="submit" src="{{URL::asset('img/addFood/check-rose.png')}}" alt="submit Button" />
+                    <input  type="image" width="100" value="submit" src="{{URL::asset('img/addFood/check-rose.png')}}" alt="submit Button" />
                   </div>
               </form>
           </div>

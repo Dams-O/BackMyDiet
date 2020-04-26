@@ -12,8 +12,6 @@
         <link href="{{URL::asset('assets/front/bower_components/bootstrap/dist/css/style.css')}}" rel="stylesheet">
         <link href="{{URL::asset('assets/front/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
         <script src="{{URL::asset('js/jquery-3.4.1.min.js')}}"></script>
-        <link href="{{URL::asset('css/login.css')}}" rel="stylesheet"> 
-        <link rel="stylesheet" href="{{URL::asset('css/addRecette.css')}}" />
         <title>My Diet</title>
     </head>
     <body>
@@ -21,6 +19,5 @@
             @yield('content')
     
         @yield('custom-js')
-        <script src="{{URL::asset('js/loading.js')}}"></script>
     </body>
 </html>
