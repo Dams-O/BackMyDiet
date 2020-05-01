@@ -75,9 +75,9 @@
 
             <div id="recoveryTitleContainer">
                 <span id="recoveryTitle">Un oubli ?</span><br />
-                <span id="sub-recoveryTitle">On te renvoi ton mot de passe</span>
+                <span id="sub-recoveryTitle">On te renvoie ton mot de passe</span>
             </div>
-            <form autocomplete="off" class="text-center"method="POST" action="auth">
+            <form autocomplete="off" class="text-center"method="POST" action="recovery">
                 <div class="form-group">                      
                     <input class="field" type="email" name="mail" id="email" required placeholder="Email"/> 
                 </div>

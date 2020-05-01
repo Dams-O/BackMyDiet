@@ -35,4 +35,5 @@ Route::get('addFood', 'MealLibraryController@addFoodPage');
 Route::post('foodCompletion', 'MealLibraryController@search');
 Route::get('addRecette', 'RecetteController@showPage');
 Route::get('forget', 'ConnexionController@passRecoveryPage');
+Route::get('menuType', 'RecetteController@showMenuPage');
 
