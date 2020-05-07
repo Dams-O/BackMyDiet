@@ -20,6 +20,11 @@
         background-position: 50% 45%;
         background-attachment: fixed;
      }
+     #critTitle {
+         font-family: Montserrat-Reg;
+         font-size: 20px;
+         color: grey;
+     }
     .foodImg { width: 100px; }
     .addButton {
         width: 30px;
@@ -47,7 +52,7 @@
     .addFood { margin-left: 200px; }
     .criteres span, .criteres div { margin-top: 30px; }
     .criteres div input { display: none; }
-    .criteres div > span{ margin-right: 120px; }
+    .criteres div > span{ margin-right: 120px; font-family: Montserrat-Reg; font-weight: bold; color: grey;}
     .criteres div  img { width: 30px; } 
     div.decal { margin-right: 50px; }
     div.content { margin-top: 100px; }
@@ -85,12 +90,12 @@
         <div class="vignettes d-inline-flex flex-row justify-content-center flex-wrap">
             <div class="background criteres d-flex flex-column">
                 <span id="critTitle">Selon vous</span>
-                <div><span>Critère 1</span><label class="critLbl" for="crit1"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit1" type="checkbox" class="critCheck" name="critere" value="crit1" /></div> 
-                <div><span>Critère 2</span><label class="critLbl" for="crit2"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit2" type="checkbox" class="critCheck" name="critere" value="crit2" /></div> 
-                <div><span>Critère 3</span><label class="critLbl" for="crit3"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit3" type="checkbox" class="critCheck" name="critere" value="crit3" /></div> 
-                <div><span>Critère 4</span><label class="critLbl" for="crit4"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit4" type="checkbox" class="critCheck" name="critere" value="crit4" /></div> 
-                <div><span>Critère 5</span><label class="critLbl" for="crit5"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit5" type="checkbox" class="critCheck" name="critere" value="crit5" /></div> 
-                <div><span>Critère 6</span><label class="critLbl" for="crit6"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit6" type="checkbox" class="critCheck" name="critere" value="crit6" /></div> 
+                <div><span>Critère 1</span><label class="critLbl" for="crit1"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit1" type="checkbox" class="check" name="critere" value="crit1" /></div> 
+                <div><span>Critère 2</span><label class="critLbl" for="crit2"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit2" type="checkbox" class="check" name="critere" value="crit2" /></div> 
+                <div><span>Critère 3</span><label class="critLbl" for="crit3"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit3" type="checkbox" class="check" name="critere" value="crit3" /></div> 
+                <div><span>Critère 4</span><label class="critLbl" for="crit4"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit4" type="checkbox" class="check" name="critere" value="crit4" /></div> 
+                <div><span>Critère 5</span><label class="critLbl" for="crit5"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit5" type="checkbox" class="check" name="critere" value="crit5" /></div> 
+                <div><span>Critère 6</span><label class="critLbl" for="crit6"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit6" type="checkbox" class="check" name="critere" value="crit6" /></div> 
             </div>
 
             <div class="background foodAdd d-flex flex-row flex-wrap justify-content-center">
@@ -148,41 +153,7 @@
     </form>
 </div>
 
-<script>
-    let checkbox = document.querySelectorAll('.critCheck');
-    let moins = document.querySelectorAll('.addButton.moins');
-    let plus = document.querySelectorAll('.addButton.plus');
+<script src="{{URL::asset('js/checkbox.js')}}" ></script>
 
-    $(moins).click(function(clickedMinus){
-        let button = clickedMinus.target;
-        let inputToLess = button.nextElementSibling;
-        let value = inputToLess.value;
-        inputToLess.value = parseInt(value) - 1;
-    });
-
-    $(plus).click(function(clickedPlus){
-        let button = clickedPlus.target;
-        let inputToPlus = button.previousElementSibling;
-        let value = inputToPlus.value;
-        if(value < 99) {
-            inputToPlus.value = parseInt(value) + 1;   
-        }
-    });
-
-    $(checkbox).change(function(clicked){
-        let theLabel = clicked.currentTarget.labels;
-        let theCheckbox = theLabel[0].control;
-        let first = theLabel[0].firstChild;
-        let last = theLabel[0].lastChild;
-        if($(theCheckbox).prop("checked") == true) {
-            $(first).hide();
-            $(last).show();
-        } else {
-            $(last).hide();
-            $(first).show();
-        }
-    });
-
-</script>
 
 @endsection
