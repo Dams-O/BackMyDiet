@@ -44,17 +44,13 @@ class MealLibraryController extends Controller
         $meal->name = $request->input('name');
         $meal->save();
 
-        // On récupère l'Id du MealLibrary créé
-        //$idmeal = $meal->id_meal;
-        /* On récupère le MealLibrary associé à cet ID
-        $meal2 = MealLibrary::where('id_meal',$idmeal)->first();
-        $idmeal2 = $meal2->id_meal; */
 
         $mealhf = new MealLibraryHasFood();
-        // $mealhf->id_meal = $idmeal2;
         $mealhf->id_meal = $meal->id_meal; 
         $mealhf->id_food = $request->input('idfood');
         $mealhf->save();
+
+        //Todo boucle 
 
     }
 

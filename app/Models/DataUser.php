@@ -8,6 +8,7 @@ class DataUser extends Model
     //Tout les champs associés
     protected $fillable = [
     'id_user',
+    'id_meal_category'
     ];
 
     /**
