@@ -67,6 +67,10 @@ class ConnexionController extends Controller
         
     }
 
+    public function passRecoveryPage(){
+        return view('front.passRecovery');
+    }
+
 
 
     

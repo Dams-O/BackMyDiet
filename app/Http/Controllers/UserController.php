@@ -122,5 +122,13 @@ class UserController extends Controller
         return view('front.dashboard', array('users' => $user));
     }
 
+    public function showSearchPage() {
+        return view('search');
+    }
+
+    public function showProfilPage() {
+        return view('profil');
+    }
+
    
 }
