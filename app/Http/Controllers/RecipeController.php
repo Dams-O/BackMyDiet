@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Recipe;
+use App\Models\RecipeHasFood;
+
 
 use Illuminate\Http\Request;
 
@@ -56,14 +58,20 @@ class RecipeController extends Controller
         $recipe->picture = $request->input('picture');
         $recipe->title = $request->input('title');
         $recipe->hashtag = $request->input('hashtag');
-        $recipe->id_meal = $request->input('idmeallibrary');
+        $recipe->id_meal = $request->input('idmeal');
         $recipe->id_meal_category = $request->input('idmealcategory');
         $recipe->preparation_time = $request->input('preparationtime');
         $recipe->cooking_time = $request->input('cookingtime');
         $recipe->parts_number = $request->input('partsnumber');
         $recipe->save();
 
-        //à corriger
+
+
+        $recipeHF = new RecipeHasFood();
+        $recipeHF->id_recipe = $recipe->id_recipe; 
+        $recipeHF->id_food = $request->input('idfood');
+        $recipeHF->description = $request->input('description');
+        $recipeHF->save();
     }
 
 

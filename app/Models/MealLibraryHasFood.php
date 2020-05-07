@@ -7,7 +7,7 @@ class MealLibraryHasFood extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_meal_library',
+    'id_meal',
     'id_food',
     ];
 

@@ -7,7 +7,6 @@ class RecipeHasFood extends Model
 {
     //Tout les champs associés
     protected $fillable = [
-    'id_recipe_hf',
     'id_recipe',
     'id_food',
     'description',
