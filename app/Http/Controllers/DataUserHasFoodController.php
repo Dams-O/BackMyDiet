@@ -9,42 +9,29 @@ use Illuminate\Http\Request;
 
 class DataUserHasFoodController extends Controller
 {
-    public function getDataUserHasFood(Request $request)
-    {
-        $input = $request->all();
-        $dataUserHasFood = DataUser::where('id_user',$input["iduser"])->first();
-        return response()->json($dataUserHasFood);
-    }
 
     public function getDataUserHasFoodById(Request $request)
     {
         $input = $request->all();
-        $dataUser = DataUser::where('id_data_user', $input["iddatauser"])->first();
-        return response()->json($dataUser);
+        $dataUserhf = DataUserHasFood::where('id_data_user_hf', $input["iddatauserhf"])->first();
+        return response()->json($dataUserhf);
     }
 
     /**
-     * Renvoie tous les DataUsers
+     * Renvoie tous les DataUserHasFood
      */
-    public function getAllDataUsers()
+    public function getAllDataUserHasFood()
     {
-        $dataUsers = DataUser::all();
-        return response()->json($dataUsers);
+        $dataUserhf = DataUserHasFood::all();
+        return response()->json($dataUserhf);
     }
 
 
-    public function createDataUser(Request $request)
-    {
-        $dataUser = new DataUser();
-        //On left field name in DB and on right field name in Form/view
-        $dataUser->id_user = $request->input('iduser');
-        $dataUser->save();
-    }
 
-    public function deleteDataUser(Request $request)
+    public function deleteDataUserHasFood(Request $request)
     {
         $input = $request->all();
-        $dataUser = DataUser::where('id_data_user', $input["iddatauser"])->first();
-        $dataUser->delete();
+        $dataUserhf = DataUserHasFood::where('id_data_user_hf', $input["iddatauserhf"])->first();
+        $dataUserhf->delete();
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\DataUser;
+use App\Models\DataUserHasFood;
+
 
 use Illuminate\Http\Request;
 
@@ -51,7 +53,16 @@ class DataUserController extends Controller
         $dataUser = new DataUser();
         //On left field name in DB and on right field name in Form/view
         $dataUser->id_user = $request->input('iduser');
+        $dataUser->id_meal_category = $request->input('idmealcategory');
         $dataUser->save();
+
+
+        $dataUserHF = new DataUserHasFood();
+        $dataUserHF->id_data_user = $dataUser->id_data_user; 
+        $dataUserHF->id_food = $request->input('idfood');
+        var_dump($dataUserHF->id_data_user);
+        var_dump($dataUserHF->id_food);
+        $dataUserHF->save();
     }
 
     public function deleteDataUser(Request $request)

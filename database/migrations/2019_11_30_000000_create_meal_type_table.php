@@ -14,7 +14,7 @@ class CreateMealTypeTable extends Migration
     public function up()
     {
         Schema::create('meal_type', function (Blueprint $table) {
-            $table->increments('id_data_user');
+            $table->increments('id_meal_type');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
             $table->integer('id_meal_category')->unsigned();

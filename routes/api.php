@@ -80,6 +80,21 @@ Route::post('/createDataUser', 'DataUserController@createDataUser');
 Route::post('/deleteDataUser', 'DataUserController@deleteDataUser');
 
 
+
+
+// -------- DataUserHasFood --------
+
+// '/api/getAllDataUserHasFood' Retourne toutes les entités DataUserHasFood 
+Route::get('/getAllDataUserHasFood', 'DataUserHasFoodController@getAllDataUserHasFood');
+// '/api/getDataUserHasFoodById' Retourne une  entité MealLibraryHasFood en renseignant son ID
+Route::post('/getDataUserHasFoodById', 'DataUserHasFoodController@getDataUserHasFoodById');
+// '/api/deleteDataUserHasFood' Supprime une entité MealLibraryHasFood
+Route::post('/deleteDataUserHasFood', 'DataUserHasFoodController@deleteDataUserHasFood');
+
+
+
+
+
 // -------- DataIceCube --------
 
 // '/api/getAllDataIcecubes' Retourne toutes les entités DataIceCube
@@ -112,6 +127,19 @@ Route::post('/deleteMeal', 'MealLibraryController@deleteMeal');
 
 
 
+// -------- MealLibraryHasFood --------
+
+// '/api/getAllMealLibraryHasFood' Retourne toutes les entités MealLibraryHasFood 
+Route::get('/getAllMealLibraryHasFood', 'MealLibraryHasFoodController@getAllMealLibraryHasFood');
+// '/api/getMealLibraryHasFoodById' Retourne une  entité MealLibraryHasFood en renseignant son ID
+Route::post('/getMealLibraryHasFoodById', 'MealLibraryHasFoodController@getMealLibraryHasFoodById');
+// '/api/deleteMealLibraryHasFood' Supprime une entité MealLibraryHasFood
+Route::post('/deleteMealLibraryHasFood', 'MealLibraryHasFoodController@deleteMealLibraryHasFood');
+
+
+
+
+
 // -------- Recipe --------
 
 // '/api/getAllRecipes' Retourne toutes les entités Recipe 
@@ -124,6 +152,20 @@ Route::post('/getRecipeById', 'RecipeController@getRecipeById');
 Route::post('/createRecipe', 'RecipeController@createRecipe');
 // '/api/deleteRecipe' Supprime une entité Recipe
 Route::post('/deleteRecipe', 'RecipeController@deleteRecipe');
+
+
+
+// -------- RecipeHasFood --------
+
+// '/api/getAllRecipeHasFood' Retourne toutes les entités RecipeHasFood 
+Route::get('/getAllRecipeHasFood', 'RecipeHasFoodController@getAllRecipeHasFood');
+// '/api/getRecipeHasFoodById' Retourne une  entité RecipeHasFood en renseignant son ID
+Route::post('/getRecipeHasFoodById', 'RecipeHasFoodController@getRecipeHasFoodById');
+// '/api/deleteRecipeHasFood' Supprime une entité RecipeHasFood
+Route::post('/deleteRecipeHasFood', 'RecipeHasFoodController@deleteRecipeHasFood');
+
+
+
 
 
 
