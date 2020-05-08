@@ -15,7 +15,10 @@
     }
 
     body{
-        background-color: brown;
+        background: url(img/profil/fond.jpg) no-repeat center;
+        background-size: 100%;
+        background-position: 50% 10%;
+        color: white;
     }
     img#logo { width: 100px; }
     .volet img{
@@ -32,6 +35,9 @@
     span.volet-title {
         z-index: 150;
         cursor: pointer;
+        font-family: Montserrat-Reg;
+        color: red;
+        font-size: 20px;
     }
 
     .sixPast img, .onePast img {
@@ -89,9 +95,26 @@
         padding-top: 35px;
         z-index: 100;
     }
+    .followContain {
+        font-family: Montserrat-Reg;
+        margin-top: 20px;
+        margin-bottom: 180px;
+    }
+    #continueImg{
+        width: 50px;
+    }
 
+    div#textBtn a {
+        margin-left: 20px;
+    }
 
+    .statusCheck {
+        width: 30px;
+    }
 
+    #lvl {
+        margin-left: 40px; 
+    }
 </style>
 <div id="headerWrap">
     <nav class="navbar navbar-light navbar-expand-md navigation-clean">
@@ -124,40 +147,47 @@
                     <span id="email">adressemail@gmail.com</span>
                     <div class="followContain d-flex flex-column">
                         <img src="" alt="" />
-                        <span id="followStatus">Abonné</span>
+                        <div id="followStatus">
+                            <img class="statusCheck" style="display: none" src="{{URL::asset('img/profil/off.png')}}" alt="" />
+                            <img class="statusCheck" src="{{URL::asset('img/profil/on.png')}}" alt="" />
+                            <span>Abonné</span>
+                        </div>
                         <span id="lvl">Novice</span>
                     </div>
-                    <span id="textBtn">Modifier le menu type</span>
+                    <div id="textBtn">
+                        <span>Modifier le menu type</span>
+                        <a href="menuType"><img id="continueImg" src="{{URL::asset('img/profil/continue.png')}}" alt="" /></a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="profContain diagram">
             <div class="volet-title-container d-flex justify-content-around">
-                <span class="volet-title bgVolet">Les 6 derniers mois</span>
-                <span class="volet-title bgVolet">Le mois dernier</span>
-                <span class="volet-title bgVolet">Ce mois-ci</span>
+                <span class="volet-title bgVolet1">Les 6 derniers mois</span>
+                <span class="volet-title bgVolet2">Le mois dernier</span>
+                <span class="volet-title bgVolet3">Ce mois-ci</span>
             </div>
             <div class="volet-content">
-                <div class="volet-content">
+                <div class="volet-content-1">
                     <!--Contenu page ici -->
                 </div>
-                <div class="volet-content">
+                <div class="volet-content-2">
                     <!--Contenu page ici -->
                 </div>
-                <div class="volet-content">
+                <div class="volet-content-3">
                     <!--Contenu page ici -->
                 </div>
             </div>
             <div class="volet sixPast">
-                <img class="bgVolet" src="{{URL::asset('img/profil/gauche.png')}}" alt="" />
+                <img class="bgVolet firstVolet" src="{{URL::asset('img/profil/gauche.png')}}" alt="" />
                 
             </div>
             <div class="volet onePast">
-                <img class="bgVolet" src="{{URL::asset('img/profil/milieu.png')}}" alt="" />
+                <img class="bgVolet middleVolet" src="{{URL::asset('img/profil/milieu.png')}}" alt="" />
                 
             </div>
             <div class="volet thisMonth">
-                <img class="bgVolet" src="{{URL::asset('img/profil/droite.png')}}" alt="" />
+                <img class="bgVolet lastVolet" src="{{URL::asset('img/profil/droite.png')}}" alt="" />
                 
             </div>
         </div>
@@ -167,9 +197,10 @@
 
 <script>
     let titleVolet = document.querySelectorAll('.volet-title');
+    let volets = document.querySelectorAll('.bgVolet');
 
     $(titleVolet).click(function(clicked){
-        console.log(clicked);
+        console.log($(clicked).attr());
     });
 </script>
 
