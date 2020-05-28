@@ -39,7 +39,7 @@ class ConnexionController extends Controller
             } else {
                 $user = User::where('mail',$input["mail"])->where('password', $user->password)->first();
                 Auth::login($user);
-                return view('welcome');
+                return view('profil')->with('user', $user);
             }
         }
 

@@ -138,13 +138,13 @@
                         <img src="" alt="" />
                     </div>
                     <div class="infos d-flex flex-column">
-                        <span id="userName">John Doe</span>
-                        <span id="pseudo">Jonny</span>
+                        <span id="userName"><?php echo $user->first_name . ' ' . $user->last_name ?></span>
+                        <span id="pseudo"><?php echo $user->pseudo ?></span>
                         <span id="age">50 ans</span>
                     </div>
                 </div>
                 <div class="accountInfo">
-                    <span id="email">adressemail@gmail.com</span>
+                    <span id="email"><?php echo $user->mail ?></span>
                     <div class="followContain d-flex flex-column">
                         <img src="" alt="" />
                         <div id="followStatus">
