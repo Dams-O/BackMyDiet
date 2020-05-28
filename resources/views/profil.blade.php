@@ -51,6 +51,8 @@
     }
 
     .userImg {
+        background: url(img/defUserPic.jpg) center no-repeat;
+        background-size: 100%;
         width: 200px;
         height: 200px;
         border: solid black 1px;
@@ -115,6 +117,8 @@
     #lvl {
         margin-left: 40px; 
     }
+
+    
 </style>
 <div id="headerWrap">
     <nav class="navbar navbar-light navbar-expand-md navigation-clean">
@@ -135,7 +139,6 @@
             <div class="name">
                 <div class="theUser d-flex align-items-end">
                     <div class="userImg">
-                        <img src="" alt="" />
                     </div>
                     <div class="infos d-flex flex-column">
                         <span id="userName"><?php echo $user->first_name . ' ' . $user->last_name ?></span>

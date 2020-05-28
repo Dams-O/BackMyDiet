@@ -19,7 +19,7 @@ Route::get('/', function () {
         return view('front.login');
         }
     else{
-        return view('welcome');
+        return view('profil');
     }
 });
 
