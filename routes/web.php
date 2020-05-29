@@ -32,7 +32,7 @@ Route::get('logout', 'ConnexionController@logout');
 Route::get('form', 'InscriptionController@form');
 Route::post('register', 'InscriptionController@register');
 Route::get('addFood', 'MealLibraryController@addFoodPage');
-Route::get('addFoodForm', 'FoodLibraryController@createFood');
+Route::post('addFoodForm', 'FoodLibraryController@createFood');
 Route::post('foodCompletion', 'MealLibraryController@search');
 Route::get('addRecette', 'RecetteController@showPage');
 Route::get('forget', 'ConnexionController@passRecoveryPage');

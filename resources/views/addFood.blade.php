@@ -78,7 +78,7 @@
   </div>
         <div class="container">
             <div class="foodFormContainer">
-              <form class="text-center" action="addFoodForm" method="POST">
+              <form class="text-center" method="POST" action="addFoodForm">
               {{ csrf_field() }}
                   <div class="form-group">
                       <span class="input-title">On ajoute quoi ?</span> <br />
