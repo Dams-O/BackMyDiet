@@ -38,10 +38,9 @@ class FoodLibraryController extends Controller
     {
         $food = new FoodLibrary();
         //On left field name in DB and on right field name in Form/view
-        $food->id_category = 1;
-        $food->name = $request->input('foodName');
+        $food->id_category = $request->input('idcategory');
+        $food->name = $request->input('name');
         $food->save();
-        return view('profil');
     }
 
     public function deleteFood(Request $request)
