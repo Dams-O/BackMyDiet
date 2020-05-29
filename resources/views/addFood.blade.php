@@ -79,6 +79,7 @@
         <div class="container">
             <div class="foodFormContainer">
               <form class="text-center" action="addFoodForm" method="POST">
+              {{ csrf_field() }}
                   <div class="form-group">
                       <span class="input-title">On ajoute quoi ?</span> <br />
                       <input id="food" class="big" type="text" required name="foodName" />

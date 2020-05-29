@@ -66,6 +66,8 @@ class DataUserController extends Controller
     public function createDataUser(Request $request)
     {
         $dataUser = new DataUser();
+        $input = $request->all();
+        var_dump($input);exit;
         //On left field name in DB and on right field name in Form/view
         $dataUser->id_user = $request->input('iduser');
         $dataUser->id_meal_category = $request->input('idmealcategory');
