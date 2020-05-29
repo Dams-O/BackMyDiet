@@ -74,6 +74,8 @@ Route::get('/getAllDataUsers', 'DataUserController@getAllDataUsers');
 Route::post('/getDataUser', 'DataUserController@getDataUser');
 // '/api/getDataUserById' Retourne une entité DataUser en renseignant son ID
 Route::post('/getDataUserById', 'DataUserController@getDataUserById');
+// '/api/getDataUserById' Retourne les entités DataUser en renseignant son ID et le jour
+Route::post('/getDataUserByIdADay', 'DataUserController@getDataUserByIdADay');
 // '/api/createDataUser' Crée une entité DataUser
 Route::post('/createDataUser', 'DataUserController@createDataUser');
 // '/api/deleteDataUser' Supprime une entité DataUser

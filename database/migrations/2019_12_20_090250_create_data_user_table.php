@@ -19,6 +19,7 @@ class CreateDataUserTable extends Migration
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
             $table->integer('id_meal_category')->unsigned();
             $table->foreign('id_meal_category')->references('id_meal_category')->on('meal_categories')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
