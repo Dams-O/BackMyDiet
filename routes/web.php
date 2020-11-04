@@ -1,17 +1,24 @@
 <?php
 
+use App\Http\Controllers\ConnexionController;
+use App\Http\Controllers\FoodLibraryController;
+use App\Http\Controllers\InscriptionController;
+use App\Http\Controllers\MealLibraryController;
+use App\Http\Controllers\RecetteController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
- */
-
-use App\Http\Controllers\InscriptionController;
+*/
 
 Route::get('/', function () {
 
@@ -23,20 +30,16 @@ Route::get('/', function () {
     }
 });
 
-Route::get('viewDashboard', 'UserController@viewDashboard');
-Route::get('viewDashboard/{nom}', 'UserController@viewDashboardFiltre');
-Route::get('viewProfilStats/{id}', 'Stats\StatsController@viewProfilStats');
-Route::get('viewProfilStats/{id}', 'Stats\StatsController@getStats');
-Route::post('auth', 'ConnexionController@auth');
-Route::get('logout', 'ConnexionController@logout');
-Route::get('form', 'InscriptionController@form');
-Route::post('register', 'InscriptionController@register');
-Route::get('addFood', 'MealLibraryController@addFoodPage');
-Route::post('addFoodForm', 'FoodLibraryController@createFood');
-Route::post('foodCompletion', 'MealLibraryController@search');
-Route::get('addRecette', 'RecetteController@showPage');
-Route::get('forget', 'ConnexionController@passRecoveryPage');
-Route::get('menuType', 'RecetteController@showMenuPage');
-Route::get('search', 'UserController@showSearchPage');
-Route::get('profil', 'UserController@showProfilPage');
-
+// à update en laravel
+Route::post('auth', [ConnexionController::class, 'auth']);
+Route::get('logout', [ConnexionController::class, 'logout']);
+Route::get('form', [InscriptionController::class, 'form']);
+Route::post('register', [InscriptionController::class, 'register']);
+Route::get('addFood', [MealLibraryController::class, 'addFoodPage']);
+Route::post('addFoodForm', [FoodLibraryController::class, 'createFood']);
+Route::post('foodCompletion', [MealLibraryController::class, 'search']);
+Route::get('addRecette', [RecetteController::class, 'showPage']);
+Route::get('forget', [ConnexionController::class, 'passRecoveryPage']);
+Route::get('menuType', [RecetteController::class, 'showMenuPage']);
+Route::get('search', [UserController::class, 'showSearchPage']);
+Route::get('profil', [UserController::class, 'showProfilPage']);

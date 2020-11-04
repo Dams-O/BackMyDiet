@@ -141,13 +141,13 @@
                     <div class="userImg">
                     </div>
                     <div class="infos d-flex flex-column">
-                        <span id="userName"><?php echo $user->first_name . ' ' . $user->last_name ?></span>
-                        <span id="pseudo"><?php echo $user->pseudo ?></span>
+                    <span id="userName">{{ $user->last_name }} {{$user->first_name}}</span>
+                    <span id="pseudo">{{ $user->pseudo }}</span>
                         <span id="age">50 ans</span>
                     </div>
                 </div>
                 <div class="accountInfo">
-                    <span id="email"><?php echo $user->mail ?></span>
+                <span id="email">{{ $user->name }}</span>
                     <div class="followContain d-flex flex-column">
                         <img src="" alt="" />
                         <div id="followStatus">

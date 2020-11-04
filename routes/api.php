@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +15,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:api');
-
-
-
-
+});
 
 // -------- User --------
 
 // '/api/getAllUsers' Retourne toutes les entités User 
-Route::get('/getAllUsers', 'UserController@getAllUsers');
+Route::get('/getAllUsers', [UserController::class, 'getAllUsers']);
 // '/api/getUser' Retourne une entité User 
 Route::post('/getUser', 'UserController@getUser');
 // '/api/getUserById' Retourne une  entité User en renseignant son ID

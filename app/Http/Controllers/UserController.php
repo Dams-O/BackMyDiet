@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
 
+use Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 use Illuminate\Http\Request;
 
 
@@ -128,7 +131,13 @@ class UserController extends Controller
     }
 
     public function showProfilPage() {
-        return view('profil');
+
+        if (!Auth::check()){
+            return view('front.login');
+            }
+        else{
+            return view('profil');
+        }
     }
 
    
