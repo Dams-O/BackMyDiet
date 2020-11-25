@@ -131,6 +131,6 @@
                     }
                 }
             ?> 
-            
-<script src="{{URL::asset('js/stay-login.js')}}"></script>
+<!--             
+<script src="{{URL::asset('js/stay-login.js')}}"></script> -->
 @endsection
