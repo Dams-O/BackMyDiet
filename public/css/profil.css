@@ -1,0 +1,107 @@
+body{
+    background: url(../img/profil/fond.jpg) no-repeat center;
+    background-size: 100%;
+    background-position: 50% 10%;
+    color: white;
+    overflow-x: hidden;
+}
+.profil_volet img{
+    width: 60%;
+    height: auto;
+    position: absolute;
+    z-index: 99;
+    left: 38%;
+}
+
+.profil_mainContain {
+    padding-left: 2%;
+    width: 50%;
+}
+
+span.profil_volet-title {
+    z-index: 150;
+    cursor: pointer;
+    font-family: Montserrat-Reg;
+    color: red;
+    font-size: 20px;
+}
+
+.profil_sixPast img, .profil_onePast img {
+    opacity: 0.1;
+}
+
+.profil_volet-title-container {
+    left:36%;
+    position: absolute;
+    margin-top: 20px; 
+    width: 760px;
+    font-size: 20px;
+}
+
+.profil_userImg {
+    background: url(../img/defUserPic.jpg) center no-repeat;
+    background-size: 100%;
+    width: 200px;
+    height: 200px;
+    border-radius: 80px;
+
+}
+
+.profil_theUser {
+    font-family: Montserrat-Reg;
+    font-size: 40px;
+}
+
+#profil_userName {
+    font-family: Montserrat-Bold;
+    position: absolute;
+    margin-top: -60px;
+}
+
+.profil_name {
+    margin: 80px 0 0 0;
+}
+
+.profil_infos {
+    padding-left: 50px;
+    flex-wrap: nowrap;
+}
+
+.profil_accountInfo {
+    font-size: 30px;
+}
+
+#profil_lvl {
+    font-size: 20px;
+}
+
+.profil_volet-content {
+    position: absolute;
+}
+
+.profil_volet-content {
+    width: 800px;
+    height: 100%;
+    padding-top: 35px;
+    z-index: 100;
+}
+.profil_followContain {
+    font-family: Montserrat-Reg;
+    margin-top: 20px;
+    margin-bottom: 180px;
+}
+#profil_continueImg{
+    width: 50px;
+}
+
+div#profil_textBtn a {
+    margin-left: 20px;
+}
+
+.profil_statusCheck {
+    width: 30px;
+}
+
+#profil_lvl {
+    margin-left: 40px; 
+}
