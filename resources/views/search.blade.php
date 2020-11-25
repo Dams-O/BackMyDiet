@@ -20,8 +20,8 @@
         background-attachment: fixed;
     }
     img#logo { width: 100px; }
-    ul.resultList {list-style: none; margin: 0; padding: 0; }
-    input#searchField {
+    ul.search_resultList {list-style: none; margin: 0; padding: 0; }
+    input#search_Field {
         padding: 0;
         outline: none;
         border: none;
@@ -36,13 +36,13 @@
         display: none;
     }
 
-    form.searchResult > div {
+    form.search_Result > div {
         width: 500px;
     }
     label img { width: 30px; } 
 
 
-    div.formContain {
+    div.search_formContain {
         z-index: 99;
         height: 100%;
         width: 830px;
@@ -53,7 +53,7 @@
 
     }
 
-    ul.resultList > li {
+    ul.search_resultList > li {
         z-index: 100;
         width: 750px;
         display: flex;
@@ -88,11 +88,11 @@
 
 <div class="content d-flex flex-column align-items-center text-center">
     <span class="searchTitle">Vous cherchez quelqu'un ?</span><br />
-    <div class="formContain" />
-        <input id="searchField" type="text" />
-        <form class="searchResult text-center" method="GET" action="#">
+    <div class="search_formContain"/>
+        <input id="search_Field" type="text" />
+        <form class="search_Result text-center" method="GET" action="#">
             <div class="d-inline-flex justify-content-center form-group">
-                <ul class="resultList">
+                <ul class="search_resultList">
                     <li>
                         <span class="pseudo">Pseudo</span>
                         <span class="name">John Doe</span>
