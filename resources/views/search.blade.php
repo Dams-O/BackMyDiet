@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('custom_css')
-<link rel="stylesheet" href="{{URL::asset('css/search.css')}}">
+<link rel="stylesheet" href="{{URL::asset('css/pages/search.css')}}">
 @endsection
 
 

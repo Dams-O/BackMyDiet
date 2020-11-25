@@ -1,103 +1,10 @@
 @extends('layout.layout')
 
+@section('custom_css')
+<link rel="stylesheet" href="{{ URL::asset("css/pages/login.css") }}" />
+@endsection
+
 @section('content')
-            <style>
-                @font-face{
-                    font-family: "Montserrat-Reg";
-                    src: url(../fonts/Montserrat-Regular.ttf);
-                }
-
-                @font-face{
-                    font-family: "Montserrat-Bold";
-                    src: url(../fonts/Montserrat-Bold.ttf);
-                }
-
-                body {
-                    padding: 50px;
-                    background: url(../img/login/forme.png) no-repeat right center;
-                    background-size: 500px;
-                    background-position: 100% 0%;
-                }
-
-                input{
-                    outline: none
-                }
-
-                input.big {
-                    color: black;
-                    text-decoration: none;
-                    border: none;
-                    width: 500px;
-                    height: 50px;
-                    margin-bottom: 10px;
-                    padding-left: 50px;
-                }
-
-                input.mail{
-                    background:url(../img/login/email-icon.png), url(../img/login/login-input-barre.png);
-                    background-position: 5% 45%, left center;
-                    background-repeat: no-repeat, no-repeat;
-                    background-color: transparent;
-                    background-size: 20px, 500px;
-                }
-                input.pass {
-                    background:url(../img/login/pass-icon.png), url(../img/login/login-input-barre.png);
-                    background-position: 5% 45%, left center;
-                    background-repeat: no-repeat, no-repeat;
-                    background-color: transparent;
-                    background-size: 20px, 500px;
-                }
-
-                #loginTitle {
-                    font-family: Montserrat-Bold;
-                    font-size: 80px
-                }
-
-                #sub-loginTitle {
-                    font-family: Montserrat-Reg;
-                    font-size: 30px
-                }
-
-                #loginTitleContainer {
-                   margin-bottom: 50px; 
-                }
-
-                .radioRemember {
-                    font-family: Montserrat-Reg;
-                    padding-left: 100px;
-                    color: lightgrey;
-                }
-
-                .radioRemember > label {
-                    margin-right: 10px;
-                }
-
-                .radioRemember > input {
-                   display: none;
-                }
-
-                .radioRemember > label > img {
-                    width: 20px;
-                }
-
-                #submitLog{
-                    width: 250px;
-                    height: 30px;
-                    background: url(../img/login/connect-icon.png) no-repeat right center;
-                    background-size: 40px;
-                    font-family: Montserrat-Bold;
-                    font-size: 20px;
-                    border: none;
-                    background-color: transparent;
-                    padding: 0;
-                }
-
-                #forgetLink {
-                    color: lightgrey;
-                    text-decoration: none;
-                }
-            </style>
-
             <div id="loginTitleContainer">
                 <span id="loginTitle">Bonjour</span><br />
                 <span id="sub-loginTitle">Tu peux te connecter</span>

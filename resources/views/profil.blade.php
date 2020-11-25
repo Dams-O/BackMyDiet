@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('custom_css')
-<link rel="stylesheet" href="{{URL::asset('css/profil.css')}}"/>
+<link rel="stylesheet" href="{{URL::asset('css/pages/profil.css')}}"/>
 @endsection
 
 @section('content')
