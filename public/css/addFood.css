@@ -1,0 +1,14 @@
+body {
+    background: url(../img/addFood/fond.jpg) no-repeat center;
+    background-position: 50% 50%;
+    background-size: 1950px;
+    background-color: #D4AFA7;
+}
+
+span.input-title {
+    font-size: 30px 
+  }
+
+  .foodFormContainer {
+    margin-top: 200px; 
+  }

@@ -1,0 +1,60 @@
+body { 
+    background: url(../img/menu/fond.jpg) no-repeat center bottom;
+    background-size: 100%; 
+    background-position: 50% 45%;
+    background-attachment: fixed;
+ }
+
+ #critTitle {
+    font-family: Montserrat-Reg;
+    font-size: 20px;
+    color: grey;
+}
+.foodImg { width: 100px; }
+.addButton {
+   width: 30px;
+   cursor: pointer;
+}
+
+div.inSelect input::-webkit-outer-spin-button, div.inSelect input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+div.inSelect input {
+    width: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-align: center;
+    font-family: Montserrat-Bold;
+}
+
+.background {
+    background: url(../img/menu/forme.png) no-repeat bottom left;
+    background-size: 100% 100%;
+    width: 350px;
+    height: 500px;
+}
+
+.criteres { margin-right: 200px; }
+    .addFood { margin-left: 200px; }
+    .criteres span, .criteres div { margin-top: 30px; }
+    .criteres div input { display: none; }
+    .criteres div > span{ margin-right: 120px; font-family: Montserrat-Reg; font-weight: bold; color: grey;}
+    .criteres div  img { width: 30px; } 
+    div.decal { margin-right: 50px; }
+    div.content { margin-top: 100px; }
+
+    input.submit{
+        font-family: Montserrat-Bold;
+        color: white;
+        font-size: 20px;
+        text-align: left;
+        border: none;
+        background-color: transparent;
+        background: url(../img/menu/check-validate.png) no-repeat right center;
+        background-size: 50px; 
+        background-position: 100px;
+        width: 180px;
+        height: 50px;
+    }

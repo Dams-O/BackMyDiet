@@ -1,0 +1,35 @@
+@font-face{
+    font-family: "Montserrat-Reg";
+    src: url(../../../../fonts/Montserrat-Regular.ttf);
+  }
+
+  @font-face{
+    font-family: "Montserrat-Bold";
+    src: url(../../../../fonts/Montserrat-Bold.ttf);
+  }
+
+img#logo{
+    width: 100px;
+}
+
+.input-title {
+    color: white;
+}
+
+
+.hidden-radio {
+    display: none;
+}
+
+.select{
+    display: none;
+}
+
+img.type{
+    width: 100px;
+}
+
+body
+{
+    font-family: Montserrat-Bold;
+}
