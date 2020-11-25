@@ -1,0 +1,57 @@
+body {
+    background: url(../img/search/fond.jpg) no-repeat center center;
+    background-size: 100%;
+    background-position-y: 10%; 
+    background-attachment: fixed;
+}
+ul.search_resultList {list-style: none; margin: 0; padding: 0; }
+input#search_Field {
+    padding: 0;
+    outline: none;
+    border: none;
+    background: url(../img/background-input.png) no-repeat center center;
+    background-size: 100% 100%;
+    text-align: center;
+    width: 100%;
+    height: 90px;
+}
+
+input[type=checkbox]{
+    display: none;
+}
+
+form.search_Result > div {
+    width: 500px;
+}
+label img { width: 30px; } 
+
+
+div.search_formContain {
+    z-index: 99;
+    height: 100%;
+    width: 830px;
+    background: url(../img/search/searchField.png) no-repeat top center;
+    background-size: 95% 95%;
+    background-position: 50% 17px;
+    opacity: 0.8;
+
+}
+
+ul.search_resultList > li {
+    z-index: 100;
+    width: 750px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search_Title {
+    font-family: Montserrat-Bold;
+    color: white;
+    font-size: 30px;
+}
+
+form {
+    font-family: Montserrat-Reg;
+    font-weight: bold;
+    color: grey;
+}
