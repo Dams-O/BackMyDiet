@@ -33,8 +33,6 @@ Route::get('/', function () {
 // à update en laravel
 Route::post('auth', [ConnexionController::class, 'auth']);
 Route::get('logout', [ConnexionController::class, 'logout']);
-Route::get('form', [InscriptionController::class, 'form']);
-Route::post('register', [InscriptionController::class, 'register']);
 Route::get('addFood', [MealLibraryController::class, 'addFoodPage']);
 Route::post('addFoodForm', [FoodLibraryController::class, 'createFood']);
 Route::post('foodCompletion', [MealLibraryController::class, 'search']);
