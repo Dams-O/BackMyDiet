@@ -25,11 +25,11 @@
         width: 800px;
         position: absolute;
         z-index: 99;
+        left: 45%;
     }
 
     .profil_mainContain {
         width: 50%;
-        padding-left: 20%;
     }
 
     span.profil_volet-title {
@@ -45,6 +45,7 @@
     }
 
     .profil_volet-title-container {
+        left:44%;
         position: absolute;
         margin-top: 20px; 
         width: 760px;
