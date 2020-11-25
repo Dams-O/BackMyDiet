@@ -19,16 +19,19 @@
         background-size: 100%;
         background-position: 50% 10%;
         color: white;
+        overflow-x: hidden;
     }
     img#logo { width: 100px; }
     .profil_volet img{
-        width: 800px;
+        width: 60%;
+        height: auto;
         position: absolute;
         z-index: 99;
-        left: 45%;
+        left: 38%;
     }
 
     .profil_mainContain {
+        padding-left: 2%;
         width: 50%;
     }
 
@@ -45,10 +48,11 @@
     }
 
     .profil_volet-title-container {
-        left:44%;
+        left:36%;
         position: absolute;
         margin-top: 20px; 
         width: 760px;
+        font-size: 20px;
     }
 
     .profil_userImg {
@@ -56,8 +60,8 @@
         background-size: 100%;
         width: 200px;
         height: 200px;
-        border: solid black 1px;
         border-radius: 80px;
+
     }
 
     .profil_theUser {
@@ -118,7 +122,6 @@
     #profil_lvl {
         margin-left: 40px; 
     }
-
     
 </style>
     <div id="headerWrap">
