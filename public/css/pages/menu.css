@@ -1,5 +1,5 @@
 body { 
-    background: url(../img/menu/fond.jpg) no-repeat center bottom;
+    background: url(../../img/menu/fond.jpg) no-repeat center bottom;
     background-size: 100%; 
     background-position: 50% 45%;
     background-attachment: fixed;
@@ -30,7 +30,7 @@ div.inSelect input {
 }
 
 .background {
-    background: url(../img/menu/forme.png) no-repeat bottom left;
+    background: url(../../img/menu/forme.png) no-repeat bottom left;
     background-size: 100% 100%;
     width: 350px;
     height: 500px;
@@ -52,7 +52,7 @@ div.inSelect input {
         text-align: left;
         border: none;
         background-color: transparent;
-        background: url(../img/menu/check-validate.png) no-repeat right center;
+        background: url(../../img/menu/check-validate.png) no-repeat right center;
         background-size: 50px; 
         background-position: 100px;
         width: 180px;

@@ -1,5 +1,5 @@
 body{
-    background: url(../img/profil/fond.jpg) no-repeat center;
+    background: url(../../img/profil/fond.jpg) no-repeat center;
     background-size: 100%;
     background-position: 50% 10%;
     color: white;
@@ -42,7 +42,7 @@ span.profil_volet-title {
 }
 
 .profil_userImg {
-    background: url(../img/defUserPic.jpg) center no-repeat;
+    background: url(../../img/defUserPic.jpg) center no-repeat;
     background-size: 100%;
     width: 200px;
     height: 200px;
