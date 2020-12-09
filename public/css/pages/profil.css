@@ -5,7 +5,9 @@ body{
     color: white;
     overflow-x: hidden;
 }
+
 .profil_volet img{
+    margin-top: 5%;
     width: 60%;
     height: auto;
     position: absolute;
@@ -19,6 +21,7 @@ body{
 }
 
 span.profil_volet-title {
+    margin-top: 8%;
     z-index: 150;
     cursor: pointer;
     font-family: Montserrat-Reg;

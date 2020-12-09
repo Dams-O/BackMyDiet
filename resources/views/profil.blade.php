@@ -3,21 +3,8 @@
 @section('custom_css')
 <link rel="stylesheet" href="{{URL::asset('css/pages/profil.css')}}"/>
 @endsection
-
+@include('layout.header_layout')
 @section('content')
-    <div id="headerWrap">
-        <nav class="navbar navbar-light navbar-expand-md navigation-clean">
-            <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navcol-1"><img id="logo" src="{{URL::asset('img/logo-master.png')}}">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="addRecette">Créer une recette</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="addFood">Ajout d'aliment</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-
     <div class="profil_mainContain">
         <div class="profilContent d-flex justify-content-center justify-content-between">
             <div class="profContain userInfo d-flex flex-column">
@@ -49,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="profContain diagram">
+            <div class="profil_Contain diagram">
                 <div class="profil_volet-title-container d-flex justify-content-around">
                     <span class="profil_volet-title bgVolet1">Les 6 derniers mois</span>
                     <span class="profil_volet-title bgVolet2">Le mois dernier</span>

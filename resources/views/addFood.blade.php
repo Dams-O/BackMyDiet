@@ -4,21 +4,9 @@
     <link rel="stylesheet" href="{{ URL::asset("css/pages/addFood.css")}}" />
 @endsection
 
+@include('layout.header_layout')
 
 @section('content')
-  <div id="headerWrap">
-      <nav class="navbar navbar-light navbar-expand-md navigation-clean">
-          <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-              <div class="collapse navbar-collapse" id="navcol-1"><img id="logo" src="{{URL::asset('img/logo-master.png')}}">
-                  <ul class="nav navbar-nav ml-auto">
-                      <li class="nav-item" role="presentation"><a class="nav-link active" href="addRecette">Créer une recette</a></li>
-                      <li class="nav-item" role="presentation"><a class="nav-link active" href="addFood">Ajout d'aliment</a></li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-  </div>
-
         <div class="container">
             <div class="foodFormContainer">
               <form class="text-center" method="POST" action="addFoodForm">
