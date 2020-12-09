@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('custom_css')
-<link rel="stylesheet" href="{{URL::asset("css/passRecovery.css")}}" />   
+<link rel="stylesheet" href="{{URL::asset("css/pages/passRecovery.css")}}" />   
 @endsection
 
 @section('content')

@@ -4,6 +4,13 @@
     </IfModule>
 
     RewriteEngine On
+	
+	# Redirect HTTP to HTTPS
+    RewriteCond %{HTTP_HOST} !=core-system.test
+    RewriteCond %{HTTP_HOST} !=localhost
+    RewriteCond %{HTTP_HOST} !=127.0.0.1
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^(.*)$ https://%{HTTP:Host}%{REQUEST_URI} [L,R=301]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

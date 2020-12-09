@@ -1,0 +1,70 @@
+body {
+    padding: 50px;
+    background: url(../img/login/forme.png) no-repeat right center;
+    background-size: 500px;
+    background-position: 100% 0%;
+}
+
+input.mail, input.pass{
+    background-position: 5% 45%, left center;
+    background-repeat: no-repeat, no-repeat;
+    background-color: transparent;
+    background-size: 20px, 500px;
+}
+
+
+input.mail{
+    background:url(../img/login/email-icon.png), url(../img/login/login-input-barre.png);
+}
+input.pass {
+    background:url(../img/login/pass-icon.png), url(../img/login/login-input-barre.png);
+}
+
+#loginTitle {
+    font-family: Montserrat-Bold;
+    font-size: 80px
+}
+
+#sub-loginTitle {
+    font-family: Montserrat-Reg;
+    font-size: 30px
+}
+
+#loginTitleContainer {
+   margin-bottom: 50px; 
+}
+
+.radioRemember {
+    font-family: Montserrat-Reg;
+    padding-left: 100px;
+    color: lightgrey;
+}
+
+.radioRemember > label {
+    margin-right: 10px;
+}
+
+.radioRemember > input {
+   display: none;
+}
+
+.radioRemember > label > img {
+    width: 20px;
+}
+
+#submitLog{
+    width: 250px;
+    height: 30px;
+    background: url(../img/login/connect-icon.png) no-repeat right center;
+    background-size: 40px;
+    font-family: Montserrat-Bold;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+#forgetLink {
+    color: lightgrey;
+    text-decoration: none;
+}

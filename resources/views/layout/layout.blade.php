@@ -8,7 +8,7 @@
         <meta name="description" content="@yield('metaDescription')" />
         <meta name="author" content="" />
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
-        <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet" />  
+        <link href="{{URL::asset('css/bootstrap/bootstrap.min.css')}}" rel="stylesheet" />  
         <link href="{{URL::asset('assets/front/bower_components/bootstrap/dist/css/style.css')}}" rel="stylesheet" />
         <link href="{{URL::asset('assets/front/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
         <link rel="stylesheet" href="{{ URL::asset('assets/front/css/pages/add_pages.css') }}" />

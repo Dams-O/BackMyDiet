@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('custom_css')
-    <link rel="stylesheet" href="{{ URL::asset("css/addRecette.css")}}" />
+    <link rel="stylesheet" href="{{ URL::asset("css/pages/addRecette.css")}}" />
 @endsection
 @include('layout.header_layout')
 @section('content')
