@@ -1,5 +1,5 @@
 body{
-    background: url(../img/recovery/forme.png) no-repeat bottom center;
+    background: url(../../img/recovery/forme.png) no-repeat bottom center;
     background-attachment: fixed;
     background-size: 100%;
 }
@@ -9,7 +9,7 @@ input {
 }
 
 input.field {
-    background:url(../img/login/email-icon.png), url(../img/login/login-input-barre.png);
+    background:url(../../img/login/email-icon.png), url(../../img/login/login-input-barre.png);
     background-position: 5% 45%, left center;
     background-repeat: no-repeat, no-repeat;
     background-color: transparent;
@@ -42,7 +42,7 @@ input.field {
 #submitLog{
     width: 250px;
     height: 30px;
-    background: url(../img/recovery/recovery-icon.png) no-repeat bottom center;
+    background: url(../../img/recovery/recovery-icon.png) no-repeat bottom center;
     background-size: 40px;
     font-family: Montserrat-Bold;
     font-size: 20px;
