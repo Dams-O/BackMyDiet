@@ -1,0 +1,52 @@
+/* header */
+header
+{
+    height: 10vh;
+    width: 100vw;
+    font-size: 18px;
+}
+
+.header_navlist
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_img
+{
+    width: 50%;
+    height: 18vh;
+}
+
+header img
+{
+    margin-top: 2%;
+    margin-left: 16%;
+    background: none;
+    height: 70%;
+    width: 16%;
+}
+
+.header_navlist ul
+{
+    width: 40%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+.header_navlist ul a
+{
+    text-decoration: none;
+    color: black;
+    transition: 0.7s;
+}
+.header_navlist ul a:hover
+{
+    color: rgb(104, 104, 104);
+}
+
+
+/*header end */

@@ -13,6 +13,7 @@
         <link href="{{URL::asset('assets/front/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
         <link rel="stylesheet" href="{{ URL::asset('assets/front/css/pages/add_pages.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('assets/front/css/pages/general_pages.css') }}" />
+        <link href="{{URL::asset('css/header.css')}}" rel="stylesheet">
         @yield('custom_css')
 
         <script src="{{URL::asset('js/jquery-3.4.1.min.js')}}"></script>
