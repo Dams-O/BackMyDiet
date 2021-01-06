@@ -5,6 +5,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stats extends Model
 {
+
+    /**
+     * Retourne l'utilisateur associé à ces statistiques
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo;
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     //Tout les champs associés
     protected $fillable = [
     'id_user',

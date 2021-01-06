@@ -2,8 +2,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class MealLibraryHasFood extends Model
+class MealLibraryHasFood extends Pivot
 {
     //Tout les champs associés
     protected $fillable = [

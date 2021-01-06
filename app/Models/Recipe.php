@@ -5,6 +5,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
+
+    /**
+     * Retourne les aliments utilisés dans cette recette
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\BelongsToMany;
+     */
+    public function foods()
+    {
+        return $this->belongsToMany(FoodLibrary::class)
+                    ->using(RecipeHasFood::class)
+                    ->withPivot('id_food')
+                    ->withTimestamps();
+    }
+
+
     //Tout les champs associés
     protected $fillable = [
     'picture',

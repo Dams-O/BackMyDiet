@@ -13,6 +13,45 @@ class User extends Authenticatable
 
     protected $primaryKey = 'id_user';
 
+
+    /**
+     * Retourne une liste de donnée sur un mois
+     * @return Illuminate\Database\Eloquent\Relations\HasMany;
+     */
+    public function dataIces()
+    {
+        return $this->hasMany(DataIcecube::class, 'id_data_icecube');
+    }
+
+    /**
+     * Retourne les statistiques de l'utilisateur
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasOne;
+     */
+    public function stats()
+    {
+        return $this->hasOne(Stats::class);
+    }
+
+    /**
+     * Retourne la liste des menus Type de cet user
+     * @return Illuminate\Database\Eloquent\Relations\HasMany;
+     */
+    public function menuTypes()
+    {
+        return $this->hasMany(MealType::class, 'id_meal_type');
+    }
+
+    /**
+     * retourne la liste des entrées utilisateur
+     * @return Illuminate\Database\Eloquent\Relations\HasMany;
+     */
+    public function dataUser()
+    {
+        return $this->hasMany(DataUser::class, 'id_data_user');
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *
