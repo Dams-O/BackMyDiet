@@ -5,10 +5,63 @@ body {
     background-color: #D4AFA7;
 }
 
-span.input-title {
-    font-size: 30px 
-  }
+/*   ADDFOOD   */
+.form-add-food {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+}
 
-  .foodFormContainer {
-    margin-top: 200px; 
-  }
+.input-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 10px;
+    width: 100%;
+}
+
+.input-bar > input:focus {
+    outline: none;
+}
+
+#input-title {
+    user-select: none;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px rgba(32, 32, 32, 0.30);
+    font-size: 30px;
+    margin: 10px;
+}
+
+#food {
+    border: none;
+    padding: 15px;
+    margin: 10px;
+    width: 100%;
+    border-radius: 100px;
+    box-shadow: 5px 5px 5px rgba(32, 32, 32, 0.3);
+}
+
+#submit-img {
+    user-select: none;
+    border: none;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+
+
+/*   FOOD-SELECTOR   */
+
+.select-food {
+    user-select: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.select-food > label {
+    margin: 10px;
+    cursor: pointer;
+}
