@@ -1,110 +1,111 @@
-body{
-    background: url(../../img/profil/fond.jpg) no-repeat center;
-    background-size: 100%;
-    background-position: 50% 10%;
-    color: white;
-    overflow-x: hidden;
-}
-
-.profil_volet img{
-    margin-top: 5%;
-    width: 60%;
-    height: auto;
-    position: absolute;
-    z-index: 99;
-    left: 38%;
-}
-
-.profil_mainContain {
-    padding-left: 2%;
-    width: 50%;
-}
-
-span.profil_volet-title {
-    margin-top: 8%;
-    z-index: 150;
-    cursor: pointer;
-    font-family: Montserrat-Reg;
-    color: red;
-    font-size: 20px;
-}
-
-.profil_sixPast img, .profil_onePast img {
-    opacity: 0.1;
-}
-
-.profil_volet-title-container {
-    left:36%;
-    position: absolute;
-    margin-top: 20px; 
-    width: 760px;
-    font-size: 20px;
-}
-
-.profil_userImg {
-    background: url(../../img/defUserPic.jpg) center no-repeat;
-    background-size: 100%;
-    width: 200px;
-    height: 200px;
-    border-radius: 80px;
-
-}
-
-.profil_theUser {
-    font-family: Montserrat-Reg;
-    font-size: 40px;
-}
-
-#profil_userName {
-    font-family: Montserrat-Bold;
-    position: absolute;
-    margin-top: -60px;
-}
-
-.profil_name {
-    margin: 80px 0 0 0;
-}
-
-.profil_infos {
-    padding-left: 50px;
-    flex-wrap: nowrap;
-}
-
-.profil_accountInfo {
-    font-size: 30px;
-}
-
-#profil_lvl {
-    font-size: 20px;
-}
-
-.profil_volet-content {
-    position: absolute;
-}
-
-.profil_volet-content {
-    width: 800px;
+html, body{
+    background: linear-gradient(#9198e5, #e66465);
     height: 100%;
-    padding-top: 35px;
-    z-index: 100;
+    width: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-.profil_followContain {
-    font-family: Montserrat-Reg;
+
+/*  MAIN    */
+
+main {
+    margin-top: 100px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.card {
+    border: 1px solid rgba(255, 255, 255, 0.863);
+    border-radius: 10px;
+    margin: 20px;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    filter: drop-shadow(2px 10px 10px #0000005b);
+
+}
+
+.card > img {
+    max-width: 250px;
+    max-height: 250px;
+    filter: drop-shadow(2px 10px 10px #aaaaaa);
+}
+
+.info {
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+}
+
+.info > span {
+    flex: 1;
     margin-top: 20px;
-    margin-bottom: 180px;
-}
-#profil_continueImg{
-    width: 50px;
 }
 
-div#profil_textBtn a {
-    margin-left: 20px;
+@media only screen and (max-width: 650px) {
+    .card {
+        min-width: 275px;
+    }
+    .card > img {
+        max-width: 150px;
+        max-height: 150px;
+    }
 }
 
-.profil_statusCheck {
-    width: 30px;
+@media only screen and (max-width: 800px) {
+    main {
+        flex-flow: column nowrap;
+    }
+    .info {
+        text-align: start;
+    }
 }
 
-#profil_lvl {
-    margin-left: 40px; 
+/*  TABLE   */
+
+.tabContainer {
+    flex: 1;
+    margin: 20px;
+    filter: drop-shadow(2px 10px 10px #0000005b);
+}
+
+.tabPanel {
+    display: flex;
+    padding: 10px;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+}
+
+.containt {
+    background: black;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    background: white;
+    height: 35px;
+}
+
+.buttonContainer > button {
+    flex: 1;
+    cursor: pointer;
+    border: none;
+    height: 100%;
+}
+
+.buttonContainer > button:hover {
+    background-color: #dbdbdb;
+}
+
+.tabContainer .tabPanel {
+    height: 85%;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+    font-family: sans-serif;
+    font-size: 22px;
+    display: none;
 }
