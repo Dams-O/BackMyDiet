@@ -8,7 +8,7 @@
             <div id="loginTitleContainer">
                 <span id="loginTitle">Bonjour</span><br />
                 <span id="sub-loginTitle">Tu peux te connecter</span>
-            </div>
+            </div> 
             <form autocomplete="off" class="text-center"method="POST" action="auth"> 
                 <div class="form-group">                      
                     <input class="big mail" type="email" name="mail" id="email" required placeholder="Email"/> 
