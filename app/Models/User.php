@@ -2,50 +2,55 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use HasFactory;
     use Notifiable;
 
+    protected $primaryKey = 'id_user';
+
     /**
+     * The attributes that are mass assignable.
      *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [
+        'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
-    //Tout les champs associés
-    protected $fillable = [
-    'first_name',
-    'last_name',
-    'pseudo',
-    'mail',
-    'password',
-    ];
-    
     /**
-    * Nom de la table.
-    *
-    * @var string
-    */
-    protected $table = 'users';
-
-    /**
-     * Clé primaire.
+     * The attributes that should be cast to native types.
      *
-     * @var string
+     * @var array
      */
-    protected $primaryKey = 'id_user';
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
     /**
-    * Active le timestamped automatique.
-    * 
-    * @var bool
-    */
-    public $timestamps = true;
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
 }
