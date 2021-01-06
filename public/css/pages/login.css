@@ -1,9 +1,9 @@
-                body {
-                    padding: 50px;
-                    background: url(../../img/login/forme.png) no-repeat right center;
-                    background-size: 500px;
-                    background-position: 100% 0%;
-                }
+body {
+    padding: 50px;
+    background: url(../../img/login/forme.png) no-repeat right center;
+    background-size: 500px;
+    background-position: 100% 0%;
+}
 
 
                 
@@ -13,13 +13,16 @@
                     background-repeat: no-repeat, no-repeat;
                     background-color: transparent;
                     background-size: 20px, 500px;
+                   
                 }
 
-                #loginTitle {
-                    font-family: Montserrat-Bold;
-                    font-size: 80px
-                }
-
+input.mail{ 
+    background:url(../../img/login/email-icon.png), url(../../img/login/login-input-barre.png);
+    background-position: 5% 45%, left center;
+    background-repeat: no-repeat, no-repeat;
+    background-color: transparent;
+    background-size: 20px, 500px;
+}
                 #sub-loginTitle {
                     font-family: Montserrat-Reg;
                     font-size: 30px
@@ -37,8 +40,8 @@
 
                 .radioRemember > label {
                     margin-right: 10px;
+                
                 }
-
                 .radioRemember > input {
                    display: none;
                 }
@@ -59,7 +62,65 @@
                     padding: 0;
                 }
 
-                #forgetLink {
-                    color: lightgrey;
-                    text-decoration: none;
-                }
+#submitLog{
+    width: 250px;
+    height: 30px;
+    background: url(../../img/login/connect-icon.png) no-repeat right center;
+    background-size: 40px;
+    font-family: Montserrat-Bold;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+#forgetLink {
+    color: lightgrey;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media screen and (max-width: 414px){
+    body
+    {
+        background-size: 200px;
+    }
+    input.mail
+    {
+        padding-left: 15%;
+        border-radius: 20px;
+    }
+    input.mail 
+    {
+        background-size: 20px, 500px;
+    }
+    input.pass 
+    {
+        background-size: 20px, 500px;
+        padding-left: 15%;
+        border-radius: 20px;
+    }
+    #loginTitleContainer
+    {
+        width: 100vw;
+        padding-top: 10%;
+        padding-bottom: 20%;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+    #submitLog
+    {
+        font-size: 18px;
+    }
+    #sub-loginTitle
+    {
+        font-size: 25px;
+    }
+    #loginTitle
+    {
+        font-size: 60px;
+    }
+}

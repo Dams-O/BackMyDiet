@@ -20,11 +20,12 @@ header
 
 header img
 {
+
     margin-top: 2%;
     margin-left: 16%;
     background: none;
-    height: 70%;
-    width: 16%;
+    height: 80px;
+    width: 125px;
 }
 
 .header_navlist ul

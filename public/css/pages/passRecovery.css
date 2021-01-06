@@ -2,15 +2,16 @@ body{
     background: url(../../img/recovery/forme.png) no-repeat bottom center;
     background-attachment: fixed;
     background-size: 100%;
+    overflow-x: hidden;
 }
 
 input {
     outline: none;
 }
 
-input.field {
+input.field { 
     background:url(../../img/login/email-icon.png), url(../../img/login/login-input-barre.png);
-    background-position: 5% 45%, left center;
+    background-position: 5%, 45%, left center;
     background-repeat: no-repeat, no-repeat;
     background-color: transparent;
     background-size: 20px, 500px;
@@ -54,4 +55,38 @@ input.field {
 div > span.submitText {
     font-family: Montserrat-Bold;
     font-size: 30px;
+}
+@media all and (max-width: 414px){
+    #recoveryTitleContainer
+    {
+        width: 100vw;
+        padding-top: 20%;
+        padding-bottom: 10%;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+    #recoveryTitle
+    {
+        padding-top: 10%;
+        white-space: nowrap;
+        font-size: 60px;
+    }
+    #sub-recoveryTitle
+    {
+        font-size: 20px;
+    }
+    input.field
+    {
+        width: 380px;
+        background-size: 20px, 380px;
+    }
+    .form-group1
+    {
+        padding-bottom: 8%;
+    }
+    div > span.submitText
+    {
+        font-size: 25px;
+    }
 }
