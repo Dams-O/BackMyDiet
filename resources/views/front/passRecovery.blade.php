@@ -14,8 +14,8 @@
                     <input class="field" type="email" name="mail" id="email" required placeholder="Email"/> 
                 </div>
                 <div class="form-group2">
-                    <span class="submitText1">Envoyer un nouveau</span><br />
-                    <span class="submitText1">mot de passe</span> <br />
+                    <span class="submitText">Envoyer un nouveau</span><br />
+                    <span class="submitText">mot de passe</span> <br />
                     <input id="submitLog" type="submit" value="" /> <br />  
                 </div>  
             </form> 
