@@ -48,6 +48,22 @@ class LoginController extends Controller
             'email' => 'Les informations fournies sont fausses'
         ]);
     }
+    /**
+     * Déconnecte l'utilisateur
+     *
+     * @param Illuminate\Http\Request $request;
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+
+    // API
 
     public function api_login(Request $request)
     {
@@ -66,19 +82,22 @@ class LoginController extends Controller
         ]);
     }
 
-
-    /**
-     * Déconnecte l'utilisateur
-     *
-     * @param Illuminate\Http\Request $request;
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function logout(Request $request)
+    public function api_logout(Request $request)
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+       $user = User::where('api_token', $request->input('api_token'))->first();
 
-        return redirect('/');
+       if(isset($user) && $user->api_token != null)
+       {
+           $user->api_token = null;
+           $user->save();
+
+           return response()->json([
+                "success" => "disconnected",
+           ]);
+       }
+
+       return response()->json([
+            'error' => 'invalid token',
+       ]);
     }
 }

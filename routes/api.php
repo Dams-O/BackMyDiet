@@ -40,6 +40,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/login', [LoginController::class, 'api_login']);
+Route::post('/logout', [LoginController::class, 'api_logout']);
 
 // -------- User --------
 
