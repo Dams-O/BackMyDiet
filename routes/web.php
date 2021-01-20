@@ -3,6 +3,7 @@
 use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\FoodLibraryController;
 use App\Http\Controllers\MealLibraryController;
+use App\Http\Controllers\OpenFoodFactsController;
 use App\Http\Controllers\RecetteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::get('addRecette', [RecetteController::class, 'showPage']);
 Route::get('forget', [ConnexionController::class, 'passRecoveryPage']);
 Route::get('menuType', [RecetteController::class, 'showMenuPage']);
 Route::get('search', [UserController::class, 'showSearchPage']);
+Route::get('getAllProducts', [OpenFoodFactsController::class, 'getAllProducts']);
+
 // Route::get('profil', [UserController::class, 'showProfilPage']);
 Route::get('/', function(Request $request) {
     if(!Auth::check()) return redirect()->route('login.login');
