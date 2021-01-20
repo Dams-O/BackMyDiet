@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DataUserResource;
 use App\Models\DataUser;
 use App\Models\DataUserHasFood;
 
@@ -11,30 +12,27 @@ use Illuminate\Http\Request;
 
 class DataUserController extends Controller
 {
-    public function getDataUser(Request $request)
-    {
-        $input = $request->all();
-        $dataUser = DataUser::where('id_user', $input["iduser"])->first();
-        return response()->json($dataUser);
-    }
-
+    /**
+     * @param Request $request
+     * @return DataUserResource
+     */
     public function getDataUserById(Request $request)
     {
-        $input = $request->all();
-        $dataUser = DataUser::where('id_data_user', $input["iddatauser"])->first();
-        return response()->json($dataUser);
+        return new DataUserResource(DataUser::where('id_data_user', $request->input("iddatauser"))->first());
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getDataUserByIdADay(Request $request)
     {
         $input = $request->all();
         $dateNow = date('Y-m-d');
-        var_dump($dateNow);
         //$dataUser = DataUser::where('id_user', $input["iduser"])->where('created_at', '>',$dateNow)->first();
         $dataUser = DataUser::where('id_user', $input["iduser"])->get();
         $dataUserAday[]= NULL;
         foreach($dataUser as &$data){
-            var_dump($data->created_at->format('Y-m-d'));
             if($data->created_at->format('Y-m-d') == $dateNow){
                 array_push($dataUserAday,$data);
             }
@@ -42,32 +40,35 @@ class DataUserController extends Controller
         return response()->json($dataUserAday);
     }
 
-      /**
+
+    /**
      * Renvoie tous les DataUsers d'un User
+     * @param Request $request
+     * @return DataUserResource
      */
     public function getAllDataUsersByUser(Request $request)
     {
-        $input = $request->all();
-        $dataUsers = DataUser::where('id_user', $input["iduser"])->get();
-        return response()->json($dataUsers);
+        return new DataUserResource(DataUser::where('id_user',$request->input("iduser"))->first());
     }
 
 
     /**
      * Renvoie tous les DataUsers
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function getAllDataUsers()
     {
-        $dataUsers = DataUser::all();
-        return response()->json($dataUsers);
+        return DataUserResource::collection(DataUser::all());
     }
 
-
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function createDataUser(Request $request)
     {
         $dataUser = new DataUser();
         $input = $request->all();
-        var_dump($input);exit;
         //On left field name in DB and on right field name in Form/view
         $dataUser->id_user = $request->input('iduser');
         $dataUser->id_meal_category = $request->input('idmealcategory');
@@ -79,17 +80,30 @@ class DataUserController extends Controller
             $dataUserHF->id_food = $food;
             $dataUserHF->save();
         }
-        /*$dataUserHF->id_data_user = $dataUser->id_data_user; 
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Data user created"
+        ]);
+        /*$dataUserHF->id_data_user = $dataUser->id_data_user;
         $dataUserHF->id_food = $request->input('idfood');
         var_dump($dataUserHF->id_data_user);
         var_dump($dataUserHF->id_food);
         $dataUserHF->save();*/
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function deleteDataUser(Request $request)
     {
-        $input = $request->all();
-        $dataUser = DataUser::where('id_data_user', $input["iddatauser"])->first();
+        $dataUser = DataUser::where('id_data_user', $request->input("iddatauser"))->first();
         $dataUser->delete();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Data user deleted"
+        ]);
     }
 }

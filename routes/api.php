@@ -44,9 +44,9 @@ Route::post('/logout', [LoginController::class, 'api_logout']);
 
 // -------- User --------
 
-// '/api/getAllUsers' Retourne toutes les entités User 
+// '/api/getAllUsers' Retourne toutes les entités User
 Route::middleware('auth:api')->get('/getAllUsers', [UserController::class, 'getAllUsers']);
-// '/api/getUser' Retourne une entité User 
+// '/api/getUser' Retourne une entité User
 Route::middleware('auth:api')->post('/getUser', [UserController::class, 'getUser']);
 // '/api/getUserById' Retourne une  entité User en renseignant son ID
 Route::middleware('auth:api')->post('/getUserById', [UserController::class, 'getUserById']);
@@ -59,9 +59,9 @@ Route::middleware('auth:api')->post('/deleteUser', [UserController::class, 'dele
 
 // -------- Stats --------
 
-// '/api/getAllStats' Retourne toutes les entités Stats 
+// '/api/getAllStats' Retourne toutes les entités Stats
 Route::middleware('auth:api')->get('/getAllStats', [StatsController::class,  'getAllStats']);
-// '/api/getStats' Retourne une entité Stats 
+// '/api/getStats' Retourne une entité Stats
 Route::middleware('auth:api')->post('/getStats', [StatsController::class,  'getStats']);
 // '/api/getStatsById' Retourne une  entité Stats en renseignant son ID
 Route::middleware('auth:api')->post('/getStatsById', [StatsController::class,  'getStatsById']);
@@ -73,9 +73,9 @@ Route::middleware('auth:api')->post('/deleteStats', [StatsController::class,  'd
 
 // -------- FoodLibrary --------
 
-// '/api/getAllFoods' Retourne toutes les entités Food 
+// '/api/getAllFoods' Retourne toutes les entités Food
 Route::middleware('auth:api')->get('/getAllFoods', [FoodLibraryController::class, 'getAllFoods']);
-// '/api/getFood' Retourne une entité Food 
+// '/api/getFood' Retourne une entité Food
 Route::middleware('auth:api')->post('/getFood', [FoodLibraryController::class, 'getFood']);
 // '/api/getFoodById' Retourne une  entité Food en renseignant son ID
 Route::middleware('auth:api')->post('/getFoodById', [FoodLibraryController::class, 'getFoodById']);
@@ -91,8 +91,6 @@ Route::middleware('auth:api')->post('/deleteFood', [FoodLibraryController::class
 Route::middleware('auth:api')->post('/getAllDataUsersByUser', [DataUserController::class, 'getAllDataUsersByUser']);
 // '/api/getAllDataUsers' Retourne toutes les entités DataUsers
 Route::middleware('auth:api')->get('/getAllDataUsers', [DataUserController::class, 'getAllDataUsers']);
-// '/api/getDataUser' Retourne une entité DataUser
-Route::middleware('auth:api')->post('/getDataUser', [DataUserController::class, 'getDataUser']);
 // '/api/getDataUserById' Retourne une entité DataUser en renseignant son ID
 Route::middleware('auth:api')->post('/getDataUserById', [DataUserController::class, 'getDataUserById']);
 // '/api/getDataUserById' Retourne les entités DataUser en renseignant son ID et le jour
@@ -107,7 +105,7 @@ Route::middleware('auth:api')->post('/deleteDataUser', [DataUserController::clas
 
 // -------- DataUserHasFood --------
 
-// '/api/getAllDataUserHasFood' Retourne toutes les entités DataUserHasFood 
+// '/api/getAllDataUserHasFood' Retourne toutes les entités DataUserHasFood
 Route::middleware('auth:api')->get('/getAllDataUserHasFood', [DataUserHasFoodController::class, 'getAllDataUserHasFood']);
 // '/api/getDataUserHasFoodById' Retourne une  entité MealLibraryHasFood en renseignant son ID
 Route::middleware('auth:api')->post('/getDataUserHasFoodById', [DataUserHasFoodController::class, 'getDataUserHasFoodById']);
@@ -122,8 +120,6 @@ Route::middleware('auth:api')->post('/deleteDataUserHasFood', [DataUserHasFoodCo
 
 // '/api/getAllDataIcecubes' Retourne toutes les entités DataIceCube
 Route::middleware('auth:api')->get('/getAllDataIcecubes', [DataIcecubeController::class, 'getAllDataIcecubes']);
-// '/api/getDataIcecube' Retourne une entité DataIceCube
-Route::middleware('auth:api')->post('/getDataIcecube', [DataIcecubeController::class, 'getDataIcecube']);
 // '/api/getDataIcecubeById' Retourne une entité DataIceCube en renseignant son ID
 Route::middleware('auth:api')->post('/getDataIcecubeById', [DataIcecubeController::class, 'getDataIcecubeById']);
 // '/api/createDataIcecube' Crée une entité DataIceCube
@@ -135,9 +131,9 @@ Route::middleware('auth:api')->post('/deleteDataIcecube', [DataIcecubeController
 
 // -------- MealLibrary --------
 
-// '/api/getAllMeals' Retourne toutes les entités Meal 
+// '/api/getAllMeals' Retourne toutes les entités Meal
 Route::middleware('auth:api')->get('/getAllMeals', [MealLibraryController::class, 'getAllMeals']);
-// '/api/getMeal' Retourne une entité Meal 
+// '/api/getMeal' Retourne une entité Meal
 Route::middleware('auth:api')->post('/getMeal', [MealLibraryController::class, 'getMeal']);
 // '/api/getMealById' Retourne une  entité Meal en renseignant son ID
 Route::middleware('auth:api')->post('/getMealById', [MealLibraryController::class, 'getMealById']);
@@ -152,7 +148,7 @@ Route::middleware('auth:api')->post('/deleteMeal', [MealLibraryController::class
 
 // -------- MealLibraryHasFood --------
 
-// '/api/getAllMealLibraryHasFood' Retourne toutes les entités MealLibraryHasFood 
+// '/api/getAllMealLibraryHasFood' Retourne toutes les entités MealLibraryHasFood
 Route::middleware('auth:api')->get('/getAllMealLibraryHasFood', [MealLibraryHasFoodController::class, 'getAllMealLibraryHasFood']);
 // '/api/getMealLibraryHasFoodById' Retourne une  entité MealLibraryHasFood en renseignant son ID
 Route::middleware('auth:api')->post('/getMealLibraryHasFoodById', [MealLibraryHasFoodController::class, 'getAllMealLibraryHasFoodById']);
@@ -165,9 +161,9 @@ Route::middleware('auth:api')->post('/deleteMealLibraryHasFood', [MealLibraryHas
 
 // -------- Recipe --------
 
-// '/api/getAllRecipes' Retourne toutes les entités Recipe 
+// '/api/getAllRecipes' Retourne toutes les entités Recipe
 Route::middleware('auth:api')->get('/getAllRecipes', [RecipeController::class, 'getAllRecipes']);
-// '/api/getRecipe' Retourne une entité Recipe 
+// '/api/getRecipe' Retourne une entité Recipe
 Route::middleware('auth:api')->post('/getRecipe', [RecipeController::class, 'getRecipe']);
 // '/api/getRecipeById' Retourne une  entité Recipe en renseignant son ID
 Route::middleware('auth:api')->post('/getRecipeById', [RecipeController::class, 'getRecipeById']);
@@ -180,7 +176,7 @@ Route::middleware('auth:api')->post('/deleteRecipe', [RecipeController::class, '
 
 // -------- RecipeHasFood --------
 
-// '/api/getAllRecipeHasFood' Retourne toutes les entités RecipeHasFood 
+// '/api/getAllRecipeHasFood' Retourne toutes les entités RecipeHasFood
 Route::middleware('auth:api')->get('/getAllRecipeHasFood', [RecipeHasFoodController::class, 'getAllRecipeHasFood']);
 // '/api/getRecipeHasFoodById' Retourne une  entité RecipeHasFood en renseignant son ID
 Route::middleware('auth:api')->post('/getRecipeHasFoodById', [RecipeHasFoodController::class, 'getRecipeHasFoodById']);
@@ -194,9 +190,9 @@ Route::middleware('auth:api')->post('/deleteRecipeHasFood', [RecipeHasFoodContro
 
 // -------- Advice --------
 
-// '/api/getAllAdvices' Retourne toutes les entités Advice 
+// '/api/getAllAdvices' Retourne toutes les entités Advice
 Route::middleware('auth:api')->get('/getAllAdvices', [AdviceController::class, 'getAllAdvices']);
-// '/api/getAdvice' Retourne une entité Advice 
+// '/api/getAdvice' Retourne une entité Advice
 Route::middleware('auth:api')->post('/getAdvice', [AdviceController::class, 'getAdvice']);
 // '/api/getAdviceById' Retourne une  entité Advice en renseignant son ID
 Route::middleware('auth:api')->post('/getAdviceById', [AdviceController::class, 'getAdviceById']);
@@ -210,9 +206,9 @@ Route::middleware('auth:api')->post('/deleteAdvice', [AdviceController::class, '
 
 // -------- RecipeSteps --------
 
-// '/api/getAllRecipeSteps' Retourne toutes les entités RecipeSteps 
+// '/api/getAllRecipeSteps' Retourne toutes les entités RecipeSteps
 Route::middleware('auth:api')->get('/getAllRecipeSteps', [RecipeStepsController::class, 'getAllRecipeSteps']);
-// '/api/getRecipeSteps' Retourne une entité RecipeSteps 
+// '/api/getRecipeSteps' Retourne une entité RecipeSteps
 Route::middleware('auth:api')->post('/getRecipeSteps',  [RecipeStepsController::class, 'getRecipeSteps']);
 // '/api/getRecipeStepsById' Retourne une  entité RecipeSteps en renseignant son ID
 Route::middleware('auth:api')->post('/getRecipeStepsById',  [RecipeStepsController::class, 'getRecipeStepsById']);
