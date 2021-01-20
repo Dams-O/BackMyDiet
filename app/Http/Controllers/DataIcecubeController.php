@@ -1,36 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Resources\DataIcecubeResource;
 use App\Models\DataIcecube;
 
 use Illuminate\Http\Request;
 
 class DataIcecubeController extends Controller
 {
-    public function getDataIcecube(Request $request)
-    {
-        $input = $request->all();
-        $dataIcecube = DataIcecube::where('id_user',$input["iduser"])->first();
-        return response()->json($dataIcecube);
-    }
-
-    public function getDataIcecubeById(Request $request)
-    {
-        $input = $request->all();
-        $dataIcecube = DataIcecube::where('id_data_icecube', $input["iddataicecube"])->first();
-        return response()->json($dataIcecube);
-    }
-
     /**
      * Renvoie tous les DataIcecubes
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function getAllDataIcecubes()
     {
-        $dataIcecubes = DataIcecube::all();
-        return response()->json($dataIcecubes);
+        return DataIcecubeResource::collection(DataIcecube::all());
     }
 
+    /**
+     * @param Request $request
+     * @return DataIcecubeResource
+     */
+    public function getDataIcecubeById(Request $request)
+    {
+        return new DataIcecubeResource(DataIcecube::where('id_data_icecube', $request->input("iddataicecube"))->first());
+    }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function createDataIcecube(Request $request)
     {
         $dataIcecube = new DataIcecube();
@@ -46,18 +45,25 @@ class DataIcecubeController extends Controller
         $dataIcecube->sucre = $request->input('sucre');
         $dataIcecube->score = $request->input('score');
         $dataIcecube->save();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Data Ice cube created"
+        ]);
     }
 
     /**
-     * Delete a DataIceCube
-     * 
-     * 
-     * 
-    */
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function deleteDataIcecube(Request $request)
     {
-        $input = $request->all();
-        $dataIcecube = DataIcecube::where('id_data_icecube', $input["iddataicecube"])->first();
+        $dataIcecube = DataIcecube::where('id_data_icecube', $request->input("iddataicecube"))->first();
         $dataIcecube->delete();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Data Ice cube deleted"
+        ]);
     }
 }
