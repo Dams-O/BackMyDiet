@@ -14,6 +14,10 @@ class RecipeStepsResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id_recipe_steps' => $this->id_recipe_steps,
+            'recipe_id_recipe' => $this->recipe->title,
+            'step_number' => $this->step_number,
+        ];
     }
 }
