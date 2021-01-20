@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -44,6 +46,23 @@ class LoginController extends Controller
         }
         return back()->withErrors([
             'email' => 'Les informations fournies sont fausses'
+        ]);
+    }
+
+    public function api_login(Request $request)
+    {
+        if(Auth::attempt(['mail' => $request->input('mail'), 'password' => $request->input('password')]))
+        {
+            $user = User::where('mail', $request->input('mail'))->first();
+            
+            $user->api_token = Str::random(64);
+            $user->save();
+            
+            return new UserResource($user);
+        }
+        
+        return response()->json([
+            'error' => "incorrect credentials",
         ]);
     }
 

@@ -17,6 +17,12 @@ class MealType extends Model
         return $this->belongsTo(MealCategories::class, 'id_meal_category');
     }
 
+
+    /**
+     * Retourne l'utilisateur associe à ce menu type
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
