@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\RecipeStepsResource;
 use App\Models\RecipeSteps;
 
 use Illuminate\Http\Request;
@@ -21,21 +22,13 @@ class RecipeStepsController extends Controller
     |
      */
 
-    /**
-     * Renvoie un RecipeSteps
-     */
-    public function getRecipeSteps(Request $request)
-    {
-        $input = $request->all();
-        $recipeSteps = RecipeSteps::where('id_recipe_steps',$input["idrecipesteps"])->first();
-        return response()->json($recipeSteps);
-    }
 
+     /**
+      * Renvoie une étape de recette par son id
+      */
     public function getRecipeStepsById(Request $request)
     {
-        $input = $request->all();
-        $recipeSteps = RecipeSteps::where('id_recipe_steps', $input["idrecipesteps"])->first();
-        return response()->json($recipeSteps);
+        return new RecipeStepsResource(RecipeSteps::where('id_recipe_steps', $request->input('idrecipesteps'))->first());
     }
 
     /**
@@ -43,28 +36,38 @@ class RecipeStepsController extends Controller
      */
     public function getAllRecipeSteps()
     {
-        $recipeSteps = RecipeSteps::all();
-        return response()->json($recipeSteps);
+        return RecipeStepsResource::collection(RecipeSteps::all());
     }
 
 
-
+    /**
+     * Créer une étape de recette
+     */
     public function createRecipeSteps(Request $request)
     {
-        $recipe = new RecipeSteps();
+        $recipeSteps = new RecipeSteps();
         //On left field name in DB and on right field name in Form/view
-        $recipeSteps->id_recipe_steps = $request->input('idrecipesteps');
-        $recipeSteps->id_recipe = $request->input('idrecipe');
+        $recipeSteps->id_recipe = $request->input('id_recipe');
         $recipeSteps->step_number = $request->input('stepnumber');
         $recipeSteps->save();
+
+        return new RecipeStepsResource($recipeSteps);
     }
 
 
 
+    /**
+     * Supprime une étape de recette
+     */
     public function deleteRecipeSteps(Request $request)
     {
         $input = $request->all();
-        $recipeSteps = RecipeSteps::where('id_recipe_steps', $input["idrecipesteps"])->first();
+        $recipeSteps = RecipeSteps::where('id_recipe_steps', $input["id_recipe_steps"])->first();
         $recipeSteps->delete();
+
+        return response()->json([
+            'code' => 200,
+            'message' => 'Recipe step deleted !'
+        ]);
     }
 }

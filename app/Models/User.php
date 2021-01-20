@@ -48,7 +48,7 @@ class User extends Authenticatable
      */
     public function dataUser()
     {
-        return $this->hasMany(DataUser::class, 'id_data_user');
+        return $this->hasMany(DataUser::class, 'id_user');
     }
 
 

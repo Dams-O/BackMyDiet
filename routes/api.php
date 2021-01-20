@@ -107,8 +107,6 @@ Route::middleware('auth:api')->post('/deleteDataUser', [DataUserController::clas
 
 // -------- DataUserHasFood --------
 
-// '/api/getAllDataUserHasFood' Retourne toutes les entités DataUserHasFood 
-Route::middleware('auth:api')->get('/getAllDataUserHasFood', [DataUserHasFoodController::class, 'getAllDataUserHasFood']);
 // '/api/getDataUserHasFoodById' Retourne une  entité MealLibraryHasFood en renseignant son ID
 Route::middleware('auth:api')->post('/getDataUserHasFoodById', [DataUserHasFoodController::class, 'getDataUserHasFoodById']);
 // '/api/deleteDataUserHasFood' Supprime une entité MealLibraryHasFood
@@ -152,8 +150,6 @@ Route::middleware('auth:api')->post('/deleteMeal', [MealLibraryController::class
 
 // -------- MealLibraryHasFood --------
 
-// '/api/getAllMealLibraryHasFood' Retourne toutes les entités MealLibraryHasFood 
-Route::middleware('auth:api')->get('/getAllMealLibraryHasFood', [MealLibraryHasFoodController::class, 'getAllMealLibraryHasFood']);
 // '/api/getMealLibraryHasFoodById' Retourne une  entité MealLibraryHasFood en renseignant son ID
 Route::middleware('auth:api')->post('/getMealLibraryHasFoodById', [MealLibraryHasFoodController::class, 'getAllMealLibraryHasFoodById']);
 // '/api/deleteMealLibraryHasFood' Supprime une entité MealLibraryHasFood
@@ -180,8 +176,6 @@ Route::middleware('auth:api')->post('/deleteRecipe', [RecipeController::class, '
 
 // -------- RecipeHasFood --------
 
-// '/api/getAllRecipeHasFood' Retourne toutes les entités RecipeHasFood 
-Route::middleware('auth:api')->get('/getAllRecipeHasFood', [RecipeHasFoodController::class, 'getAllRecipeHasFood']);
 // '/api/getRecipeHasFoodById' Retourne une  entité RecipeHasFood en renseignant son ID
 Route::middleware('auth:api')->post('/getRecipeHasFoodById', [RecipeHasFoodController::class, 'getRecipeHasFoodById']);
 // '/api/deleteRecipeHasFood' Supprime une entité RecipeHasFood

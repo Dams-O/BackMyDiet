@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\RecipeResource;
 use App\Models\Recipe;
 use App\Models\RecipeHasFood;
 
@@ -23,21 +24,9 @@ class RecipeController extends Controller
     |
      */
 
-    /**
-     * Renvoie un Recipe
-     */
-    public function getRecipe(Request $request)
-    {
-        $input = $request->all();
-        $recipe = Recipe::where('title',$input["title"])->first();
-        return response()->json($recipe);
-    }
-
     public function getRecipeById(Request $request)
     {
-        $input = $request->all();
-        $recipe = Recipe::where('id_recipe', $input["idrecipe"])->first();
-        return response()->json($recipe);
+        return new RecipeResource(Recipe::where('id_recipe', $request->input('idrecipe'))->first());
     }
 
     /**
@@ -45,8 +34,7 @@ class RecipeController extends Controller
      */
     public function getAllRecipes()
     {
-        $recipes = Recipe::all();
-        return response()->json($recipes);
+        return RecipeResource::collection(Recipe::all());
     }
 
 
@@ -65,13 +53,10 @@ class RecipeController extends Controller
         $recipe->parts_number = $request->input('partsnumber');
         $recipe->save();
 
-
-
-        $recipeHF = new RecipeHasFood();
-        $recipeHF->id_recipe = $recipe->id_recipe; 
-        $recipeHF->id_food = $request->input('idfood');
-        $recipeHF->description = $request->input('description');
-        $recipeHF->save();
+        return response()->json([
+            'code' => '200',
+            'message' => "Recipe created"
+        ]);
     }
 
 
@@ -80,7 +65,12 @@ class RecipeController extends Controller
     {
         $input = $request->all();
         var_dump($input);
-        $recipe = Recipe::where('id_recipe', $input["idrecipe"])->first();
+        $recipe = Recipe::where('id_recipe', $input["id_recipe"])->first();
         $recipe->delete();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Recipe deleted"
+        ]);
     }
 }

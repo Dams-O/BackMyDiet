@@ -10,30 +10,34 @@ use Illuminate\Http\Request;
 
 class MealLibraryHasFoodController extends Controller
 {
-
-    public function getMealLibraryHasFoodById(Request $request)
-    {
-        $input = $request->all();
-        $meallibraryhf = MealLibraryHasFood::where('id_meal_library_hf',$input["idmeallibraryhf"])->first();
-        return response()->json($meallibraryhf);
-    }
-
-
     /**
      * Renvoie tous les MealLibraryHasFood
      */
-    public function getAllMealLibraryHasFood()
+    public function createMealLibraryHasFood(Request $request)
     {
-        $meallibraryhf = MealLibraryHasFood::all();
-        return response()->json($meallibraryhf);
+        $mealfood = new MealLibraryHasFood();
+        $mealfood->id_food = $request->input('id_food');
+        $mealfood->id_meal = $request->input('id_meal');
+        $mealfood->save();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Meal library has food link created"
+        ]);
     }
 
 
+    
 
     public function deleteMealLibraryHasFood(Request $request)
     {
         $input = $request->all();
-        $meallibraryhf = MealLibraryHasFood::where('id_meal_library_hf',$input["idmeallibraryhf"])->first();
+        $meallibraryhf = MealLibraryHasFood::where('id_meal_library_hf',$input["id_meal_library_hf"])->first();
         $meallibraryhf->delete();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Meal library has food link deleted"
+        ]);
     }
 }

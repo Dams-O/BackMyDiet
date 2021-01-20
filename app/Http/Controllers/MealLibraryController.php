@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MealLibraryResource;
 use App\Models\MealLibrary;
 use App\Models\MealLibraryHasFood;
 
@@ -19,38 +20,10 @@ class MealLibraryController extends Controller
         return view('addFood');
     }
 
-    public function search(Request $request) {
-        function connect() {
-            return new PDO('mysql:host=mysql-dams.alwaysdata.net;dbname=dams_mydiet', 'dams_adminwebser', '3rTx35CR9kTy', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-        }
-        
-        $pdo = connect();
-        $keyword = '%'.$_POST['keyword'].'%';
-        $sql = "SELECT * FROM food_library WHERE name LIKE (:keyword) ORDER BY id_food ASC LIMIT 0, 10";
-        $query = $pdo->prepare($sql);
-        $query->bindParam(':keyword', $keyword, PDO::PARAM_STR);
-        $query->execute();
-        $list = $query->fetchAll();
-        foreach ($list as $rs) {
-            // put in bold the written text
-            $country_name = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rs['name']);
-            // add new option
-            echo '<li onclick="set_item(\''.$rs['name'].'\')">'.$country_name.'</li>';
-        }
-    }
-
-    public function getMeal(Request $request)
-    {
-        $input = $request->all();
-        $meal = MealLibrary::where('name',$input["name"])->first();
-        return response()->json($meal);
-    }
 
     public function getMealById(Request $request)
     {
-        $input = $request->all();
-        $meal = MealLibrary::where('id_meal', $input["idmeal"])->first();
-        return response()->json($meal);
+        return new MealLibraryResource(MealLibrary::where('id_meal', $request->input('id_meal'))->first());
     }
 
     /**
@@ -58,8 +31,7 @@ class MealLibraryController extends Controller
      */
     public function getAllMeals()
     {
-        $meals = MealLibrary::all();
-        return response()->json($meals);
+        return MealLibraryResource::collection(MealLibrary::all());
     }
 
 
@@ -67,17 +39,15 @@ class MealLibraryController extends Controller
     {
         $meal = new MealLibrary();
         //On left field name in DB and on right field name in Form/view
-        $meal->id_meal_category = $request->input('idmealcategory');
+        $meal->id_meal_category = $request->input('id_meal_category');
         $meal->name = $request->input('name');
         $meal->save();
 
-
-        $mealhf = new MealLibraryHasFood();
-        $mealhf->id_meal = $meal->id_meal; 
-        $mealhf->id_food = $request->input('idfood');
-        $mealhf->save();
-
-        //Todo boucle 
+        return response()->json([
+            'code' => '200',
+            'message' => "Meal created"
+        ]);
+        
 
     }
 
@@ -86,5 +56,11 @@ class MealLibraryController extends Controller
         $input = $request->all();
         $meal = MealLibrary::where('id_meal', $input["idmeal"])->first();
         $meal->delete();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Meal deleted"
+        ]);
+    
     }
 }
