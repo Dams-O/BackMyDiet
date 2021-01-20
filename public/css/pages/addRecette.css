@@ -15,5 +15,35 @@ textarea#steps {
     padding: 10px;
     width: 450px;
     height: 159px;
-    resize: none;
+    resize: none; 
+}
+
+@media all and (max-width: 414px){
+  
+    .input-title
+    {
+        width: 300px;
+        font-size: 14px;
+        margin-left: 38%;
+    }
+    #receip_name
+    {
+        margin-top: 100%;
+    }
+    .alimentLibrary img
+    {
+        margin-left: 60%;
+        width: 100px;
+        height: 100px;
+    }
+    .addRecette_submit_btn
+    {
+        margin-top: 10%;
+        margin-left: 38%;
+    }
+    textarea#steps
+    {
+        margin-left: 6%;
+    }
+    
 }

@@ -33,12 +33,21 @@ div.inSelect input {
     background: url(../../img/menu/forme.png) no-repeat bottom left;
     background-size: 100% 100%;
     width: 350px;
-    height: 500px;
+    height: 500px; 
 }
 
-.criteres { margin-right: 200px; }
-    .addFood { margin-left: 200px; }
-    .criteres span, .criteres div { margin-top: 30px; }
+    .criteres 
+    { 
+     margin-right: 200px;
+    }
+    .addFood 
+    { 
+        margin-left: 200px; 
+    }
+    .criteres span, .criteres div 
+    { 
+        margin-top: 30px; 
+    }
     .criteres div input { display: none; }
     .criteres div > span{ margin-right: 120px; font-family: Montserrat-Reg; font-weight: bold; color: grey;}
     .criteres div  img { width: 30px; } 
@@ -58,3 +67,28 @@ div.inSelect input {
         width: 180px;
         height: 50px;
     }
+
+    @media all and (max-width: 414px){
+        .vignettes
+        {
+            display: flex;
+            justify-content: center;
+        }
+        .criteres
+        {
+            margin-right: 0px;
+            margin-bottom: 10%;
+        }
+        input.submit
+        {
+            margin-top: 25px;
+            width: 300px;
+            height: 75px;
+            font-size: 30px;
+            background-size: 75px;
+            background-position: right;
+            text-align: center;
+            padding-right: 75px;
+        }
+    }
+    

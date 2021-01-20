@@ -12,11 +12,11 @@
                     <form action="addRecetteForm" method="POST">
                         <div class="row mt-3">
                             <div class="col">
-                                <span class="input-title">Quelle recette ?</span> <br />
+                                <span class="input-title addrecette-input-title" >Quelle recette ?</span> <br />
                                 <input id="recipe" class="normal txt_input" type="text" required name="recipeName" />
                             </div>
                         </div>
-
+                        <div class="alimentLibrary">
                         <label for="egg"><img class="type unselect" src="{{URL::asset('img/addrecette/type/unselected/oeuf.png')}}" /><img class="type select" src="{{URL::asset('img/addrecette/type/selected/selected_egg.png')}}" /></label>
                         <label for="apple"><img class="type unselect" src="{{URL::asset('img/addrecette/type/unselected/pomme.png')}}" /><img class="type select" src="{{URL::asset('img/addrecette/type/selected/selected_pomme.png')}}" /></label>
                         <label for="ble"><img class="type unselect" src="{{URL::asset('img/addrecette/type/unselected/ble.png')}}" /><img class="type select" src="{{URL::asset('img/addrecette/type/selected/selected_ble.png')}}" /></label>
@@ -30,7 +30,7 @@
                         <input class="add hidden-radio" id="yaourt" type="radio" name="type" value="laitier" required />
                         <input class="add hidden-radio" id="choco" type="radio" name="type" value="sucré" required />
                         <input class="add hidden-radio" id="huile" type="radio" name="type" value="graisse" required />
-                        
+                        </div>
 
                         <div class="row mt-3">
                             <div class="col">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <input type="hidden" name="type" />
-                        <input type="image" width="100" value="submit" src="{{URL::asset('img/addrecette/check-blue.png')}}" alt="submit Button" />
+                        <input class="addRecette_submit_btn" type="image" width="100" value="submit" src="{{URL::asset('img/addrecette/check-blue.png')}}" alt="submit Button" />
                     </form>
                
                 
