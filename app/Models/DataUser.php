@@ -5,6 +5,33 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataUser extends Model
 {
+
+    /**
+     * Retourne l'utilisateur affilié à ces données
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo;
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
+
+    /**
+     * Retourne les aliments liés à ce jeu de donnée
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\BelongsToMany;
+     */
+    public function foods()
+    {
+        return $this->belongsToMany(FoodLibrary::class)
+                    ->using(DataUserHasFood::class)
+                    ->withPivot('id_food')
+                    ->withTimestamps();
+    }
+
+    
+
+
     //Tout les champs associés
     protected $fillable = [
     'id_user',

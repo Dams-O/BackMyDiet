@@ -2,13 +2,36 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class MealLibraryHasFood extends Model
+class MealLibraryHasFood extends Pivot
 {
+
+    /**
+     * Retourne le repas concerné par ce lien
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function meal()
+    {
+        return $this->belongsTo(MealCategories::class, 'id_meal');
+    }
+
+
+    /**
+     * Retourne l'aliment concerné par ce lien
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function food()
+    {
+        return $this->belongsTo(FoodLibrary::class, 'id_food');
+    }
+
     //Tout les champs associés
     protected $fillable = [
-    'id_meal',
-    'id_food',
+        'id_meal',
+        'id_food',
     ];
 
     /**

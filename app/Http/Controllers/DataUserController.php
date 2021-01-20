@@ -14,7 +14,7 @@ class DataUserController extends Controller
     public function getDataUser(Request $request)
     {
         $input = $request->all();
-        $dataUser = DataUser::where('id_user',$input["iduser"])->first();
+        $dataUser = DataUser::where('id_user', $input["iduser"])->first();
         return response()->json($dataUser);
     }
 
