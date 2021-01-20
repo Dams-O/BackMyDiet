@@ -29,6 +29,8 @@ class DataUser extends Model
                     ->withTimestamps();
     }
 
+    
+
 
     //Tout les champs associés
     protected $fillable = [

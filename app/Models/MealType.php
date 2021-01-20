@@ -6,6 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 class MealType extends Model
 {
 
+
+    /**
+     * Retourne la catégorie de repas de ce menu type
+     *
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function meal_category()
+    {
+        return $this->belongsTo(MealCategories::class, 'id_meal_category');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
     
 
     //Tout les champs associés

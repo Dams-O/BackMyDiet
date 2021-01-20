@@ -20,6 +20,28 @@ class Recipe extends Model
     }
 
 
+    /**
+     * Retourne les étapes de cette recette
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function steps()
+    {
+        return $this->hasMany(RecipeSteps::class);
+    }
+
+
+    /**
+     * Retourne le repas associé à cette recette
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function meal()
+    {
+        return $this->belongsTo(MealLibrary::class, 'id_meal');
+    }
+
+
     //Tout les champs associés
     protected $fillable = [
     'picture',

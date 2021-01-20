@@ -9,6 +9,17 @@ class Category extends Model
 {
     use HasFactory;
 
+
+    /**
+     * Retourne les aliments associés à cette catégorie
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany;
+     */
+    public function foods()
+    {
+        return $this->hasMany(FoodLibrary::class);
+    }
+
     /**
     * Nom de la table.
     *

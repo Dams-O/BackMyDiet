@@ -55,9 +55,9 @@ class FoodLibrary extends Model
     }
     
     protected $fillable = [
-    'id_food',
-    'id_category',
-    'name',
+        'id_food',
+        'id_category',
+        'name',
     ];
 
     /**
