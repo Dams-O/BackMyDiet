@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class MealTypeResource extends JsonResource
+class DataIcecubeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,9 +15,15 @@ class MealTypeResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id_meal_type' => $this->id,
+            'id_data_icecube' => $this->id_data_icecube,
             'user_pseudo' => $this->users->pseudo,
-            'meal_categories_name' => $this->meal_categories->name,
+            'calcium' => $this->calcium,
+            'prot' => $this->prot,
+            'GL' => $this->GL,
+            'FVSM' => $this->FVSM,
+            'MG' => $this->MG,
+            'sucre' => $this->sucre,
+            'score' => $this->score,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

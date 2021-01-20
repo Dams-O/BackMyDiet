@@ -14,6 +14,10 @@ class MealLibraryResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id_meal' => $this->id_meal,
+            'meal_categories_name' => $this->meal_categories->name,
+            'name' => $this->name,
+        ];
     }
 }
