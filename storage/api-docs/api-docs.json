@@ -1,0 +1,73 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Mydiet",
+        "version": "1"
+    },
+    "servers": [
+        {
+            "url": "https://webmydiet-env.eba-bmajpt3n.eu-west-3.elasticbeanstalk.com",
+            "description": "Api MyDiet"
+        }
+    ],
+    "paths": {
+        "api/login": {
+            "post": {
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "Sign in",
+                "description": "Logging by email, password",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "mail",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "mail": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@exemple.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "passEx123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong credentials"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
