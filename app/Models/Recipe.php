@@ -13,10 +13,7 @@ class Recipe extends Model
      */
     public function foods()
     {
-        return $this->belongsToMany(FoodLibrary::class)
-                    ->using(RecipeHasFood::class)
-                    ->withPivot('id_food')
-                    ->withTimestamps();
+        return $this->belongsToMany(FoodLibrary::class, 'recipe_has_food', 'id_recipe', 'id_food');
     }
 
 
@@ -27,7 +24,7 @@ class Recipe extends Model
      */
     public function steps()
     {
-        return $this->hasMany(RecipeSteps::class);
+        return $this->hasMany(RecipeSteps::class, 'id_recipe');
     }
 
 

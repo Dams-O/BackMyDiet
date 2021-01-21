@@ -16,8 +16,9 @@ class MealLibraryResource extends JsonResource
     {
         return [
             'id_meal' => $this->id_meal,
-            'meal_categories_name' => $this->meal_categories->name,
             'name' => $this->name,
+            'meal_category' => $this->meal_category,
+            'foods' => $this->foods,
         ];
     }
 }

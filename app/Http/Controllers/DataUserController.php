@@ -18,7 +18,7 @@ class DataUserController extends Controller
      */
     public function getDataUserById(Request $request)
     {
-        return new DataUserResource(DataUser::where('id_data_user', $request->input("iddatauser"))->first());
+        return new DataUserResource(DataUser::where('id_data_user', $request->input("id_data_user"))->first());
     }
 
     /**
@@ -29,15 +29,14 @@ class DataUserController extends Controller
     {
         $input = $request->all();
         $dateNow = date('Y-m-d');
-        //$dataUser = DataUser::where('id_user', $input["iduser"])->where('created_at', '>',$dateNow)->first();
-        $dataUser = DataUser::where('id_user', $input["iduser"])->get();
+        $dataUser = DataUser::where('id_user', $input["id_user"])->get();
         $dataUserAday[]= NULL;
         foreach($dataUser as &$data){
             if($data->created_at->format('Y-m-d') == $dateNow){
                 array_push($dataUserAday,$data);
             }
         }
-        return response()->json($dataUserAday);
+        return DataUserResource::collection($dataUserAday);
     }
 
 
@@ -48,7 +47,7 @@ class DataUserController extends Controller
      */
     public function getAllDataUsersByUser(Request $request)
     {
-        return new DataUserResource(DataUser::where('id_user',$request->input("iduser"))->first());
+        return DataUserResource::collection(DataUser::where('id_user', $request->input("id_user"))->all());
     }
 
 
@@ -68,18 +67,11 @@ class DataUserController extends Controller
     public function createDataUser(Request $request)
     {
         $dataUser = new DataUser();
-        $input = $request->all();
         //On left field name in DB and on right field name in Form/view
-        $dataUser->id_user = $request->input('iduser');
-        $dataUser->id_meal_category = $request->input('idmealcategory');
+        $dataUser->id_user = $request->input('id_user');
+        $dataUser->id_meal_category = $request->input('id_meal_category');
         $dataUser->save();
 
-        foreach($request->input('idfood') as &$food){
-            $dataUserHF = new DataUserHasFood();
-            $dataUserHF->id_data_user = $dataUser->id_data_user;
-            $dataUserHF->id_food = $food;
-            $dataUserHF->save();
-        }
 
         return response()->json([
             'code' => '200',

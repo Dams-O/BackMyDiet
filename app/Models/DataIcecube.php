@@ -14,7 +14,7 @@ class DataIcecube extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     //Tout les champs associés

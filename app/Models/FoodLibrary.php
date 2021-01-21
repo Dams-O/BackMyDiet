@@ -11,7 +11,7 @@ class FoodLibrary extends Model
      */
     public function categorie()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'id_category');
     }
     
     /**
@@ -21,10 +21,8 @@ class FoodLibrary extends Model
      */
     public function datas()
     {
-        return $this->belongsToMany(DataUser::class)
-                    ->using(DataUserHasFood::class)
-                    ->withPivot('id_data_user')
-                    ->withTimestamps();
+        return $this->belongsToMany(DataUser::class, 'data_user_has_food', 'id_food', 'id_data_user');
+                    
     }
 
     /**
@@ -34,10 +32,8 @@ class FoodLibrary extends Model
      */
     public function meals()
     {
-        return $this->belongsToMany(MealLibrary::class)
-                    ->using(MealLibraryHasFood::class)
-                    ->withPivot('id_meal')
-                    ->withTimestamps();
+        return $this->belongsToMany(MealLibrary::class, 'meal_library_has_food', 'id_food', 'id_meal');
+                    
     }
 
 
@@ -48,10 +44,7 @@ class FoodLibrary extends Model
      */
     public function recipes()
     {
-        return $this->belongsToMany(Recipe::class)
-                    ->using(RecipeHasFood::class)
-                    ->withPivot('id_recipe')
-                    ->withTimestamps();
+        return $this->belongsToMany(Recipe::class, 'recipe_has_food', 'id_food', 'id_recipe');
     }
     
     protected $fillable = [

@@ -8,14 +8,6 @@ use Illuminate\Http\Request;
 
 class AdviceController extends Controller
 {
-    /**
-     * @param Request $request
-     * @return AdviceResource
-     */
-    public function getAdvice(Request $request)
-    {
-        return new AdviceResource(Advice::where('id_advice', $request->input("idadvice"))->first());
-    }
 
     /**
      * @param Request $request
@@ -23,9 +15,7 @@ class AdviceController extends Controller
      */
     public function getAdvicebyId(Request $request)
     {
-        $input = $request->all();
-        $advice = Advice::where('id_advice', $input["idadvice"])->first();
-        return response()->json($advice);
+        return new AdviceResource(Advice::where('id_advice', $request->input('id_advice'))->first());
     }
 
     /**

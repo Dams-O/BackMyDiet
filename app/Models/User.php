@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     public function dataIces()
     {
-        return $this->hasMany(DataIcecube::class, 'id_data_icecube');
+        return $this->hasMany(DataIcecube::class, 'id_user');
     }
 
     /**
@@ -30,7 +30,7 @@ class User extends Authenticatable
      */
     public function stats()
     {
-        return $this->hasOne(Stats::class);
+        return $this->hasOne(Stats::class, 'id_user');
     }
 
     /**
@@ -39,7 +39,7 @@ class User extends Authenticatable
      */
     public function menuTypes()
     {
-        return $this->hasMany(MealType::class, 'id_meal_type');
+        return $this->hasMany(MealType::class, 'id_user');
     }
 
     /**
@@ -83,14 +83,5 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
-
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array
-     */
-    protected $appends = [
-        'profile_photo_url',
     ];
 }

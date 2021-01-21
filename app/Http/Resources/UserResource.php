@@ -23,7 +23,10 @@ class UserResource extends JsonResource
             'api_token' => $this->api_token,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'datas_user' => $this->dataUser
+            'datas_user' => $this->dataUser,
+            'menus_type' => $this->menuTypes,
+            'stats' => $this->stats,
+            'data_icecube' => $this->dataIces,
         ];
     }
 }

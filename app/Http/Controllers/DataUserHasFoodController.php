@@ -18,7 +18,7 @@ class DataUserHasFoodController extends Controller
         $datauserhf = new DataUserHasFood();
         $datauserhf->id_data_user = $request->input('id_data_user');
         $datauserhf->id_food = $request->input('id_food');
-        $datauserhf->save;
+        $datauserhf->save();
 
         return response()->json([
             'code' => '200',

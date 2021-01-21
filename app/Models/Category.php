@@ -17,7 +17,7 @@ class Category extends Model
      */
     public function foods()
     {
-        return $this->hasMany(FoodLibrary::class);
+        return $this->hasMany(FoodLibrary::class, 'id_category');
     }
 
     /**
@@ -39,12 +39,4 @@ class Category extends Model
         'name',
     ];
 
-    /**
-     * Retourne l'aliment concerné par ce lien
-     * @return Illuminate\Database\Eloquent\Relations\BelongsTo;
-     */
-    public function foodLibrary()
-    {
-        return $this->hasMany(FoodLibrary::class, 'id_food');
-    }
 }

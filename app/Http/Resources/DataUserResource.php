@@ -16,10 +16,11 @@ class DataUserResource extends JsonResource
     {
         return [
             'id_data_user' => $this->id_data_user,
-            'user_pseudo' => $this->users->pseudo,
-            'meal_categories_name' => $this->meal_categories->name,
+            'id_user' => $this->user->id_user,
+            //'meal_categories_name' => $this->meal_categories->name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'foods' => $this->foods
         ];
     }
 }

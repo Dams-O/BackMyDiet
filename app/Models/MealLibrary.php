@@ -13,10 +13,8 @@ class MealLibrary extends Model
      */
     public function foods()
     {
-        return $this->belongsToMany(FoodLibrary::class)
-                    ->using(MealLibraryHasFood::class)
-                    ->withPivot('id_food')
-                    ->withTimestamps();
+        return $this->belongsToMany(FoodLibrary::class, 'meal_library_has_food', 'id_meal', 'id_food');
+                    
     }
 
     /**
@@ -26,7 +24,7 @@ class MealLibrary extends Model
      */
     public function meal_category()
     {
-        return $this->belongsTo(MealCategories::class);
+        return $this->belongsTo(MealCategories::class, 'id_meal_category');
     }
 
     /**
@@ -36,7 +34,7 @@ class MealLibrary extends Model
      */
     public function recipes()
     {
-        return $this->hasMany(Recipe::class);
+        return $this->hasMany(Recipe::class, 'id_meal');
     }
 
     //Tout les champs associés

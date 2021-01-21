@@ -23,13 +23,9 @@ class DataUser extends Model
      */
     public function foods()
     {
-        return $this->belongsToMany(FoodLibrary::class)
-                    ->using(DataUserHasFood::class)
-                    ->withPivot('id_food')
-                    ->withTimestamps();
-    }
+        return $this->belongsToMany(FoodLibrary::class, 'data_user_has_food', 'id_data_user', 'id_food');
 
-    
+    }
 
 
     //Tout les champs associés

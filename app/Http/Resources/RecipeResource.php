@@ -19,11 +19,11 @@ class RecipeResource extends JsonResource
             'picture' => $this->picture,
             'title' => $this->title,
             'hashtag' => $this->hashtag,
-            'meal_library_name' => $this->meal_library_name,
-            'meal_categories_name' => $this->meal_categories->name,
+            'meal_category' => $this->meal->meal_category,
             'preparation_time' => $this->preparation_time,
             'cooking_time' => $this->cooking_time,
             'parts_number' => $this->parts_number,
+            'meal' => $this->meal,
         ];
     }
 }
