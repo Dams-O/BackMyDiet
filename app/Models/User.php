@@ -2,50 +2,86 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use HasFactory;
     use Notifiable;
 
+    protected $primaryKey = 'id_user';
+
+
     /**
+     * Retourne une liste de donnée sur un mois
+     * @return Illuminate\Database\Eloquent\Relations\HasMany;
+     */
+    public function dataIces()
+    {
+        return $this->hasMany(DataIcecube::class, 'id_user');
+    }
+
+    /**
+     * Retourne les statistiques de l'utilisateur
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasOne;
+     */
+    public function stats()
+    {
+        return $this->hasOne(Stats::class, 'id_user');
+    }
+
+    /**
+     * Retourne la liste des menus Type de cet user
+     * @return Illuminate\Database\Eloquent\Relations\HasMany;
+     */
+    public function menuTypes()
+    {
+        return $this->hasMany(MealType::class, 'id_user');
+    }
+
+    /**
+     * retourne la liste des entrées utilisateur
+     * @return Illuminate\Database\Eloquent\Relations\HasMany;
+     */
+    public function dataUser()
+    {
+        return $this->hasMany(DataUser::class, 'id_user');
+    }
+
+
+    /**
+     * The attributes that are mass assignable.
      *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'api_token',
+        'password',
+    ];
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [
+        'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
-    //Tout les champs associés
-    protected $fillable = [
-    'first_name',
-    'last_name',
-    'pseudo',
-    'mail',
-    'password',
-    ];
-    
     /**
-    * Nom de la table.
-    *
-    * @var string
-    */
-    protected $table = 'users';
-
-    /**
-     * Clé primaire.
+     * The attributes that should be cast to native types.
      *
-     * @var string
+     * @var array
      */
-    protected $primaryKey = 'id_user';
-
-    /**
-    * Active le timestamped automatique.
-    * 
-    * @var bool
-    */
-    public $timestamps = true;
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\FoodLibraryResource;
 use App\Models\FoodLibrary;
 
 
@@ -10,18 +11,10 @@ use Illuminate\Http\Request;
 
 class FoodLibraryController extends Controller
 {
-    public function getFood(Request $request)
-    {
-        $input = $request->all();
-        $food = FoodLibrary::where('name',$input["name"])->first();
-        return response()->json($food);
-    }
 
     public function getFoodById(Request $request)
     {
-        $input = $request->all();
-        $food = FoodLibrary::where('id_food', $input["idfood"])->first();
-        return response()->json($food);
+        return new FoodLibraryResource(FoodLibrary::where('id_food', $request->input('id_food'))->first());
     }
 
     /**
@@ -29,8 +22,7 @@ class FoodLibraryController extends Controller
      */
     public function getAllFoods()
     {
-        $foods = FoodLibrary::all();
-        return response()->json($foods);
+        return FoodLibraryResource::collection(FoodLibrary::all());
     }
 
 
@@ -38,15 +30,26 @@ class FoodLibraryController extends Controller
     {
         $food = new FoodLibrary();
         //On left field name in DB and on right field name in Form/view
-        $food->id_category = $request->input('idcategory');
+        $food->id_category = $request->input('id_category');
         $food->name = $request->input('name');
         $food->save();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Food created"
+        ]);
+    
     }
 
     public function deleteFood(Request $request)
     {
         $input = $request->all();
-        $food = FoodLibrary::where('id_food', $input["idfood"])->first();
+        $food = FoodLibrary::where('id_food', $input["id_food"])->first();
         $food->delete();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Food deleted"
+        ]);
     }
 }

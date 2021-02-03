@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -24,21 +25,10 @@ class UserController extends Controller
     |
      */
 
-    /**
-     * Renvoie un User
-     */
-    public function getUser(Request $request)
-    {
-        $input = $request->all();
-        $user = User::where('mail',$input["mail"])->where('password',$input["password"])->first();
-        return response()->json($user);
-    }
 
     public function getUserById(Request $request)
     {
-        $input = $request->all();
-        $user = User::where('id_user', $input["iduser"])->first();
-        return response()->json($user);
+        return new UserResource(User::where('id_user', $request->input('id_user'))->first());
     }
 
     /**
@@ -46,8 +36,7 @@ class UserController extends Controller
      */
     public function getAllUsers()
     {
-        $users = User::all();
-        return response()->json($users);
+        return UserResource::collection(User::all());
     }
 
 
@@ -60,22 +49,22 @@ class UserController extends Controller
         $user->first_name = $request->input('firstname');
         $user->pseudo = $request->input('pseudo');
         $user->mail = $request->input('mail');
-        $user->password = $request->input('password');
-        //var_dump($user);
-        /*$user->remember_token = $request->input('remembertoken');
-        $user->created_at = $request->input('createdat');
-        $user->updated_at = $request->input('updatedat');*/
+        $user->password = Hash::make($request->input('password'));
         $user->save();
+
+        return new UserResource($user);
     }
 
 
 
     public function deleteUser(Request $request)
     {
-        $input = $request->all();
-        var_dump($input);
-        $user = User::where('id_user', $input["iduser"])->first();
+        $user = User::where('id_user', $request->input('id_user'))->first();
         $user->delete();
+
+        return response()->json([
+            "success" => "User deleted"
+        ]);
     }
 
 
@@ -83,12 +72,13 @@ class UserController extends Controller
     /**
      * Envoie d'un User Web
      */
+    /*
     public function setUserWeb(Request $request)
     {
         var_dump($request->nom);
         exit;
         return view('front.validationformulaire', array());
-    }
+    }*/
 
     /**
      * Envoie d'un User en passant par le mobile

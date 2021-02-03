@@ -1,0 +1,5 @@
+{
+    "favorites.resources": [
+        "resources\\views\\front\\login.blade.php"
+    ]
+}

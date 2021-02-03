@@ -8,12 +8,12 @@
             <div id="recoveryTitleContainer">
                 <span id="recoveryTitle">Un oubli ?</span><br />
                 <span id="sub-recoveryTitle">On te renvoie ton mot de passe</span>
-            </div>
+            </div> 
             <form autocomplete="off" class="text-center"method="POST" action="recovery">
-                <div class="form-group">                      
+                <div class="form-group1">                      
                     <input class="field" type="email" name="mail" id="email" required placeholder="Email"/> 
                 </div>
-                <div class="form-group">
+                <div class="form-group2">
                     <span class="submitText">Envoyer un nouveau</span><br />
                     <span class="submitText">mot de passe</span> <br />
                     <input id="submitLog" type="submit" value="" /> <br />  

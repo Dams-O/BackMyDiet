@@ -2,9 +2,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class RecipeHasFood extends Model
+class RecipeHasFood extends Pivot
 {
+
+    public function food()
+    {
+        return $this->belongsTo(FoodLibrary::class, 'id_food');
+    }
+
+    public function recipe()
+    {
+        return $this->belongTo(Recipe::class, 'id_recipe');
+    }
+
+
+
+
     //Tout les champs associés
     protected $fillable = [
     'id_recipe',

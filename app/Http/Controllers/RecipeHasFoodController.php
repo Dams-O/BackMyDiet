@@ -22,35 +22,31 @@ class RecipeHasFoodController extends Controller
     |
      */
 
-    /**
-     * Renvoie un RecipeHasFood
-     */
-
-
-    public function getRecipeHasFoodById(Request $request)
+    public function createRecipeHasFood(Request $request)
     {
-        $input = $request->all();
-        $recipeHF = RecipeHasFood::where('id_recipe_hf', $input["idrecipehf"])->first();
-        return response()->json($recipeHF);
+        $rechasfood = new RecipeHasFood();
+        $rechasfood->id_food = $request->input('id_food');
+        $rechasfood->id_recipe = $request->input('id_recipe');
+        $rechasfood->save();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Recipe has food link created"
+        ]);
     }
 
-    /**
-     * Renvoie tout les RecipeHasFood
-     */
-    public function getAllRecipeHasFood()
-    {
-        $recipeHF = RecipeHasFood::all();
-        return response()->json($recipeHF);
-    }
-
-
-
+ 
 
 
     public function deleteRecipeHasFood(Request $request)
     {
         $input = $request->all();
-        $recipeHF = RecipeHasFood::where('id_recipe_hf', $input["idrecipehf"])->first();
+        $recipeHF = RecipeHasFood::where('id_recipe_hf', $input["id_recipe_hf"])->first();
         $recipeHF->delete();
+
+        return response()->json([
+            'code' => '200',
+            'message' => "Recipe has food link deleted"
+        ]);
     }
 }

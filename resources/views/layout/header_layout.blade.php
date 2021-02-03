@@ -8,6 +8,7 @@
         <div class="menu">
             <a href="/menuType" class="menu-item">Créer une recette</a>
             <a href="/addFood" class="menu-item">Ajout d'aliment</a>
+            <a href="/logout" class="menu-item">Deconnexion</a>
         </div>
     </div>
 </header>
