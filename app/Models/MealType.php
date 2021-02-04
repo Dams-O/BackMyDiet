@@ -33,12 +33,12 @@ class MealType extends Model
     protected $fillable = [
         'id_user',
         'id_meal_category',
-        'calcium',
-        'prot',
-        'GL',
-        'FVSM',
-        'MG',
-        'sucre',
+        'Calcium',
+        'Proteines',
+        'Glucides',
+        'Legumes',
+        'Lipides',
+        'Sucre',
         'score',
         'created_at'
     ];

@@ -16,6 +16,7 @@ use App\Http\Controllers\MealLibraryHasFoodController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RecipeHasFoodController;
 use App\Http\Controllers\AdviceController;
+use App\Http\Controllers\AlgoController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\RecipeStepsController;
 use App\Http\Controllers\Stats\MessageController;
@@ -41,6 +42,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/login', [LoginController::class, 'api_login']);
 Route::post('/logout', [LoginController::class, 'api_logout']);
+
+
+
+Route::middleware('auth:api')->get('/getDataMealScore', [AlgoController::class, "getStatsByMonth"]);
 
 // -------- User --------
 

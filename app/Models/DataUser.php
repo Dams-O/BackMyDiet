@@ -27,6 +27,11 @@ class DataUser extends Model
 
     }
 
+    public function meal_category()
+    {
+        return $this->belongsTo(MealCategories::class, 'id_meal_category');
+    }
+
 
     //Tout les champs associés
     protected $fillable = [
