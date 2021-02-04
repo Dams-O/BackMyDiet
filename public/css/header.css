@@ -1,53 +1,149 @@
-/* header */
-header
-{
-    height: 10vh;
-    width: 100vw;
+/*  HEADER  */
+
+header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.header-right {
+    flex: 1;
+    text-align: right;
+    padding: 20px;
+    align-self: flex-start;
+}
+
+.header-left {
+    padding: 20px;
+    align-self: baseline;
+}
+
+.menu-item {
+    color: white;
+    transition: .3s;
+}
+
+.menu-item:hover {
     font-size: 18px;
+    transition: .3s;
 }
 
-.header_navlist
-{
-    display: flex;
-    justify-content: space-between;
+#logo {
+    width: 100px;
+    height: 100px;
+    user-select: none;
+    filter: drop-shadow(2px 10px 10px #0000005b);
+    transition: 1s;
 }
 
-.header_img
-{
-    width: 50%;
-    height: 18vh;
+#logo:hover {
+    transform: rotate(360deg);
 }
 
-header img
-{
-
-    margin-top: 2%;
-    margin-left: 16%;
-    background: none;
-    height: 80px;
-    width: 125px;
-}
-
-.header_navlist ul
-{
-    width: 40%;
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-}
-.header_navlist ul a
-{
+.menu > a {
     text-decoration: none;
-    color: black;
-    transition: 0.7s;
-}
-.header_navlist ul a:hover
-{
-    color: rgb(104, 104, 104);
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 70px;
+    user-select: none;
+    filter: drop-shadow(2px 10px 10px #0000005b);
 }
 
+label {
+    margin: 0;
+    font-size: 26px;
+    line-height: 70px;
+    display: none;
+}
 
-/*header end */
+#toggle {
+    display: none;
+}
+
+#toggle-hamburger {
+    color: linear-gradient(#ee4040, #04c52d);
+    user-select: none;
+    font-size: 60px;
+    filter: drop-shadow(2px 10px 10px #4e4e4e5b);
+}
+
+@media only screen and (max-width: 650px) {
+    header {
+        display: inline-block;
+    }
+
+    .header-right {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 0px;
+    }
+
+    .header-left {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 20;
+    }
+
+    label {
+        display: block;
+        cursor: pointer;
+
+    }
+    .menu {
+        text-align: center;
+        width: 100%;
+        display: none;
+        background-color: #2ecc71;
+        z-index: 9;
+    }
+    .menu a {
+        display: block;
+        color: white;
+        margin: 0;
+    }
+
+    #toggle-hamburger {
+        z-index: 11;
+        position: fixed;
+        top: 0;
+        right: 20;
+        transition: 0.3s;
+    }
+
+    #toggle-hamburger:hover {
+        font-size: 65px;
+        transition: 0.3s;
+    }
+
+    #toggle:checked + .menu {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        animation-duration: 0.3s;
+        animation-name: fadeIn;
+    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

@@ -10,7 +10,7 @@ html, body{
 /*  MAIN    */
 
 main {
-    margin-top: 100px;
+    margin-top: 150px;
     display: flex;
     flex-flow: row nowrap;
 }
@@ -50,6 +50,9 @@ main {
     .card > img {
         max-width: 150px;
         max-height: 150px;
+    }
+    .buttonContainer, .info {
+        font-size: 14px;
     }
 }
 
@@ -93,6 +96,7 @@ main {
     cursor: pointer;
     border: none;
     height: 100%;
+    padding: 4px;
 }
 
 .buttonContainer > button:hover {
