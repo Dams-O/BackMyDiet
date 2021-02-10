@@ -43,13 +43,19 @@ class UserController extends Controller
 
     public function createUser(Request $request)
     {
+        $validateData = $request->validate([
+            'email' => 'required|email|unique:users,mail'
+        ]);
+
         $user = new User();
         //On left field name in DB and on right field name in Form/view
         $user->last_name = $request->input('lastname');
         $user->first_name = $request->input('firstname');
         $user->pseudo = $request->input('pseudo');
-        $user->mail = $request->input('mail');
+        $user->mail = $validateData['email'];
         $user->password = Hash::make($request->input('password'));
+        $user->birthday = $request->input('birthday');
+        $user->email_verified = 0;
         $user->save();
 
         return new UserResource($user);

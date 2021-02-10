@@ -43,6 +43,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/login', [LoginController::class, 'api_login']);
 Route::post('/logout', [LoginController::class, 'api_logout']);
 
+Route::post('/createUser', [UserController::class, 'createUser']);
+
 
 
 Route::middleware('auth:api')->get('/getDataMealScore', [AlgoController::class, "getStatsByMonth"]);
@@ -54,7 +56,7 @@ Route::middleware('auth:api')->get('/getAllUsers', [UserController::class, 'getA
 // '/api/getUserById' Retourne une  entité User en renseignant son ID
 Route::middleware('auth:api')->post('/getUserById', [UserController::class, 'getUserById']);
 // '/api/createUser' Crée une entité User
-Route::middleware('auth:api')->post('/createUser', [UserController::class, 'createUser']);
+
 // '/api/deleteUser' Supprime une entité User
 Route::middleware('auth:api')->post('/deleteUser', [UserController::class, 'deleteUser']);
 
