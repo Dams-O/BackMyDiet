@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\ProfilController;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\FoodLibraryController;
 use App\Http\Controllers\MealLibraryController;
@@ -24,6 +25,10 @@ use App\Models\User;
 */
 
 // à update en laravel
+// Route::get('chart', [ProfilController::class, 'showGraph']);
+// Route::get('chart', function () {
+   
+// }); 
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login.login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
@@ -41,7 +46,32 @@ Route::get('/', function(Request $request) {
     if(!Auth::check()) return redirect()->route('login.login');
     else {
         $user = User::where('id_user', $request->session()->get('id_user'))->first();
-        return view('profil', ['user'=>$user]);
-    }
+        $chart = (new LarapexChart)->setType('line')
+        ->setSubtitle('Kilogrammes')
+        ->setXAxis([
+            'Lundi', 'Mardi', 'Mercredi','Jeudi','Vendredi','Samedi','Dimanche'
+        ])
+        ->setColors(['#FF5759'])
+        ->setDataset([
+            [
+                'name'  =>  'Kg',
+                'data'  =>  [80, 80, 79.8, 79.7, 79.4, 79.5, 79.4]
+            ]
+        ]);
+        $chart2 = (new LarapexChart)
+        ->setDataset([150, 120, 50, 300, 200, 100])
+        ->setColors(['#46F068', '#FF0035','#4D8CE3','#BF00E6','#FFF759','#AB0022'])
+        ->setLabels(['Published', 'No Published','testadd1', 'testadd2','testadd3', 'testadd4']);
+        $chart3 = (new LarapexChart)
+        ->setDataset([150, 100, 150, 80, 90, 30])
+        ->setColors(['#46F068', '#FF0035','#4D8CE3','#BF00E6','#FFF759','#AB0022'])
+        ->setLabels(['Published', 'No Published','testadd1', 'testadd2','testadd3', 'testadd4']);
+        $chart4 = (new LarapexChart)
+        ->setDataset([100, 20, 200, 250, 100, 180])
+        ->setColors(['#46F068', '#FF0035','#4D8CE3','#BF00E6','#FFF759','#AB0022'])
+        ->setLabels(['Published', 'No Published','testadd1', 'testadd2','testadd3', 'testadd4']);
+        // return view('chart', compact('chart'), compact('chart2'));
+        return view('profil', ['user'=>$user],compact('chart','chart2','chart3','chart4'));
+    } 
 }
 );
