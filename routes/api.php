@@ -40,14 +40,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Vérification du mail
+Route::get('/account/verify/{token}', [UserController::class, 'verifyMail']);
+
 Route::post('/login', [LoginController::class, 'api_login']);
 Route::post('/logout', [LoginController::class, 'api_logout']);
 
 Route::post('/createUser', [UserController::class, 'createUser']);
 
 
+//Algorithmes de stats
+Route::middleware('auth:api')->post('/getDataMealScore', [AlgoController::class, "getStatsByMonthByUser"]);
 
-Route::middleware('auth:api')->get('/getDataMealScore', [AlgoController::class, "getStatsByMonth"]);
+Route::middleware('auth:api')->post('/getStatsByDay', [AlgoController::class, "getStatsByDayByUser"]);
 
 // -------- User --------
 

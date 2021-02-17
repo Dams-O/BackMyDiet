@@ -71,14 +71,22 @@ class LoginController extends Controller
         {
             $user = User::where('mail', $request->input('mail'))->first();
             
-            $user->api_token = Str::random(64);
-            $user->save();
+            if($user->email_verified == 1)
+            {
+                $user->api_token = Str::random(64);
+                $user->save();
+                
+                return new UserResource($user);
+            } else {
+                return response()->json([
+                    'erreur' => 'merci de bien vouloir confirmer votre adresse email avant de vous connecter !'
+                ]);
+            }
             
-            return new UserResource($user);
         }
         
         return response()->json([
-            'error' => "incorrect credentials",
+            'error' => "Informations invalides",
         ]);
     }
 

@@ -66,10 +66,15 @@ class DataUserController extends Controller
      */
     public function createDataUser(Request $request)
     {
+        $validateData = $request->validate([
+            'date' => 'string'
+        ]);
+
         $dataUser = new DataUser();
         //On left field name in DB and on right field name in Form/view
         $dataUser->id_user = $request->input('id_user');
         $dataUser->id_meal_category = $request->input('id_meal_category');
+        if(isset($validateData['date'])) $dataUser->created_at = $validateData['date'];
         $dataUser->save();
 
 

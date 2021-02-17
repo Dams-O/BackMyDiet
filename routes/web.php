@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MailController;
 use App\Models\User;
 
 /*
@@ -29,6 +30,7 @@ use App\Models\User;
 // Route::get('chart', function () {
    
 // }); 
+
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login.login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');

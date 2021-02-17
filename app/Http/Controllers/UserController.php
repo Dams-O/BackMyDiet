@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use App\Mail\AccountVerifyMail;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -44,21 +47,58 @@ class UserController extends Controller
     public function createUser(Request $request)
     {
         $validateData = $request->validate([
-            'email' => 'required|email|unique:users,mail'
+            'email' => 'required|email|unique:users,mail',
+            'pseudo' => 'required|unique:users,pseudo',
+            'birthday' => 'string'
         ]);
 
         $user = new User();
         //On left field name in DB and on right field name in Form/view
         $user->last_name = $request->input('lastname');
         $user->first_name = $request->input('firstname');
-        $user->pseudo = $request->input('pseudo');
+        $user->pseudo = $validateData['pseudo'];
         $user->mail = $validateData['email'];
         $user->password = Hash::make($request->input('password'));
-        $user->birthday = $request->input('birthday');
+
+        if(isset($validateData['birthday']))
+        {
+            $user->birthday = $request->input('birthday');
+        }
+        
+        $user->api_token = Str::random(64);
         $user->email_verified = 0;
         $user->save();
 
-        return new UserResource($user);
+        $details = [
+            'user_name' => $user->first_name,
+            'token' => $user->api_token
+        ];
+
+        Mail::to($user->mail)->send(new AccountVerifyMail($details));
+
+
+        return response()->json([
+            "success" => "Compte créé, un email de vérification à été envoyé à $user->email"
+        ]);
+    }
+
+    public function verifyMail($token)
+    {
+        $user = User::where('api_token', $token)->first();
+        if(isset($user))
+        {
+            $user->email_verified = 1;
+            $user->api_token = null;
+            $user->save();
+
+            return response()->json([
+                "success" => "Votre compte à bien été vérifié, merci de vous connecter"
+            ]);
+        }
+
+        return response()->json([
+            "error" => "token de vérification inconnu"
+        ]);
     }
 
 
