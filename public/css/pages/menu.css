@@ -183,11 +183,11 @@ div.inSelect input {
     {
         background-image: url(../../img/menu/check-validate.png) no-repeat right center;
         background-size: 50px;
-        margin-top: 40%;
+        margin-top: 4%;
         margin-left: 4%;
         margin-right: 4%;
         font-size: 24px;
-        color: rgba(241, 241, 241, 0.884);
+        color: rgba(121, 121, 121, 0.884);
         min-height: 4vh;
         max-height: 6vh;
         min-width: 10vw;
