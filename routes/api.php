@@ -46,6 +46,10 @@ Route::get('/account/verify/{token}', [UserController::class, 'verifyMail']);
 Route::post('/login', [LoginController::class, 'api_login']);
 Route::post('/logout', [LoginController::class, 'api_logout']);
 
+Route::post('/login-jwt', [LoginController::class, 'api_login_jwt']);
+Route::middleware('jwt')->get('/getAllUsers', [UserController::class, 'getAllUsers']);
+
+
 Route::post('/createUser', [UserController::class, 'createUser']);
 
 
@@ -57,7 +61,7 @@ Route::middleware('auth:api')->post('/getStatsByDay', [AlgoController::class, "g
 // -------- User --------
 
 // '/api/getAllUsers' Retourne toutes les entités User
-Route::middleware('auth:api')->get('/getAllUsers', [UserController::class, 'getAllUsers']);
+//Route::middleware('auth:api')->get('/getAllUsers', [UserController::class, 'getAllUsers']);
 // '/api/getUserById' Retourne une  entité User en renseignant son ID
 Route::middleware('auth:api')->post('/getUserById', [UserController::class, 'getUserById']);
 // '/api/createUser' Crée une entité User

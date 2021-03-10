@@ -16,7 +16,8 @@
         "laravel/framework": "^8.12",
         "laravel/passport": "^10.0.1",
         "laravel/tinker": "^2.5",
-        "openfoodfacts/openfoodfacts-php": "^0.2.4"
+        "openfoodfacts/openfoodfacts-php": "^0.2.4",
+        "web-token/jwt-framework": "^2.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
