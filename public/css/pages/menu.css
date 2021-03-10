@@ -1,9 +1,20 @@
 body { 
     background: url(../../img/menu/fond.jpg) no-repeat center bottom;
-    background-size: 100%; 
+    background-size: cover; 
     background-position: 50% 45%;
     background-attachment: fixed;
- }
+}
+.overlay{
+    z-index:98;
+    display: none;
+    justify-content:center;
+    position: fixed;
+    width:100vw;
+    height: 100vh;
+    padding-top: 34vh;
+    padding-bottom:34vh;
+    background-color:rgba(0,0,0,0.6);
+  }
 
  #critTitle {
     font-family: Montserrat-Reg;
@@ -54,6 +65,47 @@ div.inSelect input {
     div.decal { margin-right: 50px; }
     div.content { margin-top: 100px; }
 
+    .button_style{
+        margin-top: 36%;
+        background: url(../../img/menu/check-validate.png) no-repeat right center;
+        background-size: 50px; 
+        background-position: 100px;
+        width: 20vw;
+        height: 10vh;
+        text-align: left;
+        color: rgba(255, 255, 255, 0.836);
+        font-size: 20px;
+        border: none;
+        
+      }
+      .button_style_success{
+        margin-top: 20px;
+        width: 100%;
+        color: white;
+        background-color: #2CEB3B;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        border: none;
+        box-shadow: 1px 1px 1px 1px black;
+        font-size: 18px;
+      }
+      
+      .popup{
+        z-index:99;
+        border-radius: 5px;
+        background-color: #FFFFFF;  
+        border: black solid 1px;
+        display: none;
+        justify-content: center;
+        text-align:center;
+        padding: 20px;
+      }
+
+    
+    
+      
     input.submit{
         font-family: Montserrat-Bold;
         color: white;
@@ -66,7 +118,7 @@ div.inSelect input {
         background-position: 100px;
         width: 180px;
         height: 50px;
-    }
+    } 
 
     @media all and (max-width: 414px){
         .vignettes
@@ -91,4 +143,71 @@ div.inSelect input {
             padding-right: 75px;
         }
     }
+    
+    #cross {
+        width: 10px;
+        height: 10px;
+        background: linear-gradient(to bottom, transparent 35%, rgb(0, 0, 0) 35%, rgb(0, 0, 0) 65%,  transparent 65%),linear-gradient(to right, transparent 35%, rgb(0, 0, 0) 35%, rgb(0, 0, 0) 65%, transparent 65%);
+        transform: rotate(45deg);
+      }
+      #cross:hover{
+        background: linear-gradient(to bottom, transparent 35%, rgb(94, 94, 94) 35%, rgb(94, 94, 94) 65%,  transparent 65%),linear-gradient(to right, transparent 35%, rgb(94, 94, 94) 35%, rgb(94, 94, 94) 65%, transparent 65%);
+        
+      }
+
+    #envoyer_input
+    {
+        background-image: url(../../img/menu/check-validate.png) no-repeat right center;
+        background-size: 50px;
+        margin-top: 40%;
+        font-size: 24px;
+        color: rgba(241, 241, 241, 0.884);
+        min-height: 4vh;
+        max-height: 6vh;
+        min-width: 10vw;
+        background: none;
+        border: none;
+    }
+    @media all and (max-width: 1012px){
+        #envoyer_input{
+            margin-top: 4%;
+        }
+    }
+
+    #pop_organiser
+    {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .popup{
+        margin-top: 20%;
+        border-radius: 5px;
+        background-color: #FFFFFF;  
+        border: black solid 1px;
+        min-width:18vw;
+        min-height: 10vh;
+        max-height: 20vh;
+        display: block;
+        justify-content: center;
+        text-align:center;
+        padding-bottom:4vh;
+    }
+    @media all and (max-width: 1000px){
+        .popup{
+            width: 40vw;
+            height: 10vh;
+        }
+    }
+    #overlay
+    {
+        top: 0;
+        display: none;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.548);
+        position: fixed;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    
     

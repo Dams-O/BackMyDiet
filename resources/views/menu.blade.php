@@ -7,7 +7,7 @@
 @include('layout.header_layout')
 
 @section('content')
-
+<div id="overlay"></div>
 <div class="content">   
     <form class="text-center" autocomplete="on" method="GET">
         <div class="vignettes d-inline-flex flex-row justify-content-center flex-wrap">
@@ -71,11 +71,32 @@
                     </div>
                 </div>
             </div>
-            <input class="submit align-self-end" type="submit" />
+             <input id="envoyer_input" value="Envoyer" type="submit" onclick="pop_up()">
+           
         </div>
     </form>
+    
 </div>
 
+<script>
+    var one_pop_only = 0
+    function pop_up(){
+        if (one_pop_only == 0){
+            one_pop_only++
+            pop = document.createElement('div');
+            pop.className += 'popup';
+            pop.id += 'remove_me'
+            document.getElementById('overlay').style.display = 'flex';
+            pop.innerHTML = '<div id="pop_organiser"><p>Success !</p><div onclick=pop_up() id="cross"></div></div> ';
+            document.getElementById('overlay').appendChild(pop)
+        } else if(one_pop_only == 1){
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('remove_me').remove()
+            one_pop_only--
+        }
+    }   
+    
+</script>
 <script src="{{URL::asset('js/checkbox.js')}}" ></script>
 
 
