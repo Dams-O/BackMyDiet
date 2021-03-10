@@ -10,15 +10,16 @@ use Illuminate\Http\Request;
 
 class InscriptionController extends Controller
 {
-    public function form(){
+    public function form()
+    {
         return view('front.formulaire');
+    }
 
-    } 
-
-    public function register(Request $request){
+    public function register(Request $request)
+    {
         $input = $request->all();
-        $hashed = Hash::make($input['pass']); 
-        $user = new User; 
+        $hashed = Hash::make($input['pass']);
+        $user = new User;
         $user->last_name = $input['last_name'];
         $user->first_name = $input['first_name'];
         $user->pseudo = $input['user'];

@@ -25,6 +25,8 @@ class AlgoController extends Controller
             ]);
         }
 
+
+        //Selection du mois concerné
         if(isset($validatedData['date']))
         {
             $month_target = date("m", strtotime($validatedData['date']));
@@ -54,12 +56,15 @@ class AlgoController extends Controller
 
         $user_score = 0;
 
+        //Nombre de jours dans le mois
         $dim = cal_days_in_month(CAL_GREGORIAN, $month_target, $year_target);
         
         foreach($datas_user as $data)
         {  
+            //On sélectionne les data user du mois concerné
             if(date("m", strtotime($data->created_at)) == $month_target)
             {
+                //Attribution des points selon la categorie des aliments présents dans le dataUser
                 foreach($data->foods as $food)
                 {
                     $data_report[$data->meal_category->name][$food->categorie->name] += 1;
@@ -71,9 +76,11 @@ class AlgoController extends Controller
 
         $goal_score = 0;
             
+        //Sélection de tous les menus type de l'utilisateur
         foreach($user->menuTypes as $menu)
         {
                 
+            //Attribution des points par catégorie d'aliments, multipliés par le nombre de jours dans le mois
             $mealTypeOneMonth[$menu->meal_category->name]["Calcium"] += $menu->Calcium * $dim;
             $mealTypeOneMonth[$menu->meal_category->name]["Proteines"] += $menu->Proteines * $dim;
             $mealTypeOneMonth[$menu->meal_category->name]["Glucides"] += $menu->Glucides * $dim;
@@ -92,7 +99,7 @@ class AlgoController extends Controller
             "user_score" => $user_score,
             "goal_score" => $goal_score
         ];
-        
+
         return response()->json($stats);
     }
 
@@ -140,8 +147,6 @@ class AlgoController extends Controller
             }
         }
         
-        
-
         foreach($user->menuTypes as $menu)
         {
                 
