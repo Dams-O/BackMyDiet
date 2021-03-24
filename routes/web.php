@@ -16,6 +16,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\Stats\StatsController;
 use App\Models\User;
 use App\Http\Controllers\AlgoController;
+use \App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ use App\Http\Controllers\AlgoController;
 // Route::get('chart', [ProfilController::class, 'showGraph']);
 // Route::get('chart', function () {
 
-// }); 
+// });
 
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login.login');
@@ -45,6 +46,8 @@ Route::get('forget', [ConnexionController::class, 'passRecoveryPage']);
 Route::get('menuType', [RecetteController::class, 'showMenuPage']);
 Route::get('search', [UserController::class, 'showSearchPage']);
 Route::get('getAllProducts', [OpenFoodFactsController::class, 'getAllProducts']);
+Route::get('generate-pdf', [PdfController::class, 'pdfView'])->name('generate-pdf');
+
 Route::get('/', function () {
     if (!Auth::check()) return redirect('/login');
     return view('front.dashboard', ['users' => User::all()]);
