@@ -46,6 +46,7 @@ Route::get('/account/verify/{token}', [UserController::class, 'verifyMail']);
 Route::post('/login', [LoginController::class, 'api_login']);
 Route::post('/logout', [LoginController::class, 'api_logout']);
 
+// '/api/createUser' Crée une entité User
 Route::post('/createUser', [UserController::class, 'createUser']);
 
 
@@ -60,8 +61,6 @@ Route::middleware('auth:api')->post('/getStatsByDay', [AlgoController::class, "g
 Route::middleware('auth:api')->get('/getAllUsers', [UserController::class, 'getAllUsers']);
 // '/api/getUserById' Retourne une  entité User en renseignant son ID
 Route::middleware('auth:api')->post('/getUserById', [UserController::class, 'getUserById']);
-// '/api/createUser' Crée une entité User
-
 // '/api/deleteUser' Supprime une entité User
 Route::middleware('auth:api')->post('/deleteUser', [UserController::class, 'deleteUser']);
 
@@ -85,6 +84,8 @@ Route::middleware('auth:api')->post('/deleteStats', [StatsController::class,  'd
 Route::middleware('auth:api')->get('/getAllFoods', [FoodLibraryController::class, 'getAllFoods']);
 // '/api/getFoodById' Retourne une  entité Food en renseignant son ID
 Route::middleware('auth:api')->post('/getFoodById', [FoodLibraryController::class, 'getFoodById']);
+// '/api/getFoodByName' Retourne des entités Food en renseignant son Name
+Route::middleware('auth:api')->post('/getFoodByName', [FoodLibraryController::class, 'getFoodByLikeName']);
 // '/api/createFood' Crée une entité Food
 Route::middleware('auth:api')->post('/createFood', [FoodLibraryController::class, 'createFood']);
 // '/api/deleteFood' Supprime une entité Food

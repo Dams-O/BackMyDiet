@@ -17,6 +17,12 @@ class FoodLibraryController extends Controller
         return FoodLibraryResource::collection(FoodLibrary::where('id_food', $request->input('id_food'))->get());
     }
 
+    public function getFoodByLikeName(Request $request)
+    {
+        return FoodLibraryResource::collection(FoodLibrary::where('name', $request->input('name'))->orWhere('name', 'like', $request->input('name') . '%')->get());
+        //->orWhere('name', 'like', $request->input('name') . '%')->get()
+    }
+    
     /**
      * Renvoie tous les Food
      */
