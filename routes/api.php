@@ -16,7 +16,7 @@ use App\Http\Controllers\MealLibraryHasFoodController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RecipeHasFoodController;
 use App\Http\Controllers\AdviceController;
-use App\Http\Controllers\AlgoController;
+use App\Http\Controllers\AlgoStatsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\RecipeStepsController;
 use App\Http\Controllers\Stats\MessageController;
@@ -51,9 +51,12 @@ Route::post('/createUser', [UserController::class, 'createUser']);
 
 
 //Algorithmes de stats
-Route::middleware('auth:api')->post('/getDataMealScore', [AlgoController::class, "getStatsByMonthByUser"]);
+Route::middleware('auth:api')->post('/getDataMealScore', [AlgoStatsController::class, "getStatsByMonthByUser"]);
+Route::middleware('auth:api')->post('/getStatsByUserWeekDay', [AlgoStatsController::class, "getStatsByUser"]);
 
-Route::middleware('auth:api')->post('/getStatsByDay', [AlgoController::class, "getStatsByDayByUser"]);
+//Algos Data DataIceCube
+Route::middleware('auth:api')->post('/getDataIceScore', [DataIceCubeController::class, "getIceByMonthByUser"]);
+
 
 // -------- User --------
 
