@@ -18,7 +18,7 @@ class DataUserController extends Controller
      */
     public function getDataUserById(Request $request)
     {
-        return new DataUserResource(DataUser::where('id_data_user', $request->input("id_data_user"))->first());
+        return DataUserResource::collection(DataUser::where('id_data_user', $request->input("id_data_user"))->get());
     }
 
     /**
@@ -30,10 +30,10 @@ class DataUserController extends Controller
         $input = $request->all();
         $dateNow = date('Y-m-d');
         $dataUser = DataUser::where('id_user', $input["id_user"])->get();
-        $dataUserAday[]= NULL;
-        foreach($dataUser as &$data){
-            if($data->created_at->format('Y-m-d') == $dateNow){
-                array_push($dataUserAday,$data);
+        $dataUserAday[] = NULL;
+        foreach ($dataUser as &$data) {
+            if ($data->created_at->format('Y-m-d') == $dateNow) {
+                array_push($dataUserAday, $data);
             }
         }
         return DataUserResource::collection($dataUserAday);
@@ -74,7 +74,7 @@ class DataUserController extends Controller
         //On left field name in DB and on right field name in Form/view
         $dataUser->id_user = $request->input('id_user');
         $dataUser->id_meal_category = $request->input('id_meal_category');
-        if(isset($validateData['date'])) $dataUser->created_at = $validateData['date'];
+        if (isset($validateData['date'])) $dataUser->created_at = $validateData['date'];
         $dataUser->save();
 
 

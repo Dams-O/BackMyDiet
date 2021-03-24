@@ -14,7 +14,7 @@ class FoodLibraryController extends Controller
 
     public function getFoodById(Request $request)
     {
-        return new FoodLibraryResource(FoodLibrary::where('id_food', $request->input('id_food'))->first());
+        return FoodLibraryResource::collection(FoodLibrary::where('id_food', $request->input('id_food'))->get());
     }
 
     /**
@@ -38,7 +38,6 @@ class FoodLibraryController extends Controller
             'code' => '200',
             'message' => "Food created"
         ]);
-    
     }
 
     public function deleteFood(Request $request)

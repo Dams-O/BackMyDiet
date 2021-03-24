@@ -31,7 +31,7 @@ class UserController extends Controller
 
     public function getUserById(Request $request)
     {
-        return new UserResource(User::where('id_user', $request->input('id_user'))->first());
+        return UserResource::collection(User::where('id_user', $request->input('id_user'))->get());
     }
 
     /**
@@ -60,11 +60,10 @@ class UserController extends Controller
         $user->mail = $validateData['email'];
         $user->password = Hash::make($request->input('password'));
 
-        if(isset($validateData['birthday']))
-        {
+        if (isset($validateData['birthday'])) {
             $user->birthday = $request->input('birthday');
         }
-        
+
         $user->api_token = Str::random(64);
         $user->email_verified = 0;
         $user->save();
@@ -85,8 +84,7 @@ class UserController extends Controller
     public function verifyMail($token)
     {
         $user = User::where('api_token', $token)->first();
-        if(isset($user))
-        {
+        if (isset($user)) {
             $user->email_verified = 1;
             $user->api_token = null;
             $user->save();
@@ -114,7 +112,7 @@ class UserController extends Controller
     }
 
 
-    
+
     /**
      * Envoie d'un User Web
      */
@@ -154,7 +152,7 @@ class UserController extends Controller
         return view('front.dashboard', array('users' => $usersAll, 'username' => $users));
     }
 
-    
+
     public function viewDashboardFiltre($nom)
     {
         $user = User::where('nom', $nom)->first();
@@ -162,19 +160,18 @@ class UserController extends Controller
         return view('front.dashboard', array('users' => $user));
     }
 
-    public function showSearchPage() {
+    public function showSearchPage()
+    {
         return view('search');
     }
 
-    public function showProfilPage() {
+    public function showProfilPage()
+    {
 
-        if (!Auth::check()){
+        if (!Auth::check()) {
             return view('front.login');
-            }
-        else{
+        } else {
             return view('profil');
         }
     }
-
-   
 }

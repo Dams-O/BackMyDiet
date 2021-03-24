@@ -16,7 +16,7 @@ class FoodLibraryResource extends JsonResource
     {
         return [
             'id_food' => $this->id_food,
-            'category' => $this->category->id,
+            'category' => $this->categorie->id,
             'name' => $this->name,
         ];
     }

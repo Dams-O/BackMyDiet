@@ -26,7 +26,7 @@ class RecipeController extends Controller
 
     public function getRecipeById(Request $request)
     {
-        return new RecipeResource(Recipe::where('id_recipe', $request->input('idrecipe'))->first());
+        return RecipeResource::collection(Recipe::where('id_recipe', $request->input('idrecipe'))->get());
     }
 
     /**

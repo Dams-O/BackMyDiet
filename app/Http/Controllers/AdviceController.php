@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Resources\AdviceResource;
 use App\Models\Advice;
 
@@ -15,7 +16,7 @@ class AdviceController extends Controller
      */
     public function getAdvicebyId(Request $request)
     {
-        return new AdviceResource(Advice::where('id_advice', $request->input('id_advice'))->first());
+        return AdviceResource::collection(Advice::where('id_advice', $request->input('id_advice'))->get());
     }
 
     /**
@@ -51,7 +52,7 @@ class AdviceController extends Controller
      */
     public function deleteAdvice(Request $request)
     {
-        $advice = Advice::where('id_advice', $request->input('idadvice'))->first();
+        $advice = Advice::where('id_advice', $request->input('idadvice'))->get();
         $advice->delete();
 
         response()->json([

@@ -23,12 +23,12 @@ class RecipeStepsController extends Controller
      */
 
 
-     /**
-      * Renvoie une étape de recette par son id
-      */
+    /**
+     * Renvoie une étape de recette par son id
+     */
     public function getRecipeStepsById(Request $request)
     {
-        return new RecipeStepsResource(RecipeSteps::where('id_recipe_steps', $request->input('idrecipesteps'))->first());
+        return RecipeStepsResource::collection(RecipeSteps::where('id_recipe_steps', $request->input('idrecipesteps'))->get());
     }
 
     /**

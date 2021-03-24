@@ -16,14 +16,15 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class MealLibraryController extends Controller
 {
 
-    public function addFoodPage() {
+    public function addFoodPage()
+    {
         return view('addFood');
     }
 
 
     public function getMealById(Request $request)
     {
-        return new MealLibraryResource(MealLibrary::where('id_meal', $request->input('id_meal'))->first());
+        return MealLibraryResource::collection(MealLibrary::where('id_meal', $request->input('idmeal'))->get());
     }
 
     /**
@@ -47,8 +48,6 @@ class MealLibraryController extends Controller
             'code' => '200',
             'message' => "Meal created"
         ]);
-        
-
     }
 
     public function deleteMeal(Request $request)
@@ -61,6 +60,5 @@ class MealLibraryController extends Controller
             'code' => '200',
             'message' => "Meal deleted"
         ]);
-    
     }
 }

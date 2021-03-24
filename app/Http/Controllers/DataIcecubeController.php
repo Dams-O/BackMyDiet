@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Resources\DataIcecubeResource;
 use App\Models\DataIcecube;
 
@@ -23,7 +24,7 @@ class DataIcecubeController extends Controller
      */
     public function getDataIcecubeById(Request $request)
     {
-        return new DataIcecubeResource(DataIcecube::where('id_data_icecube', $request->input("iddataicecube"))->first());
+        return DataIcecubeResource::collection(DataIcecube::where('id_data_icecube', $request->input("iddataicecube"))->get());
     }
 
     /**
@@ -38,11 +39,11 @@ class DataIcecubeController extends Controller
         $dataIcecube->id_user = $request->input('iduser');
         //$dataIcecube->date = $request->input('date');
         $dataIcecube->calcium = $request->input('calcium');
-        $dataIcecube->prot = $request->input('prot');
-        $dataIcecube->GL = $request->input('GL');
-        $dataIcecube->FVSM = $request->input('FVSM');
-        $dataIcecube->MG = $request->input('MG');
-        $dataIcecube->sucre = $request->input('sucre');
+        $dataIcecube->prot = $request->input('proteines');
+        $dataIcecube->GL = $request->input('glucides');
+        $dataIcecube->FVSM = $request->input('legumes');
+        $dataIcecube->MG = $request->input('lipides');
+        $dataIcecube->sucre = $request->input('sucres');
         $dataIcecube->score = $request->input('score');
         $dataIcecube->save();
 

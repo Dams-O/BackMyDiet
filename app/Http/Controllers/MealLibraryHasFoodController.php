@@ -27,12 +27,12 @@ class MealLibraryHasFoodController extends Controller
     }
 
 
-    
+
 
     public function deleteMealLibraryHasFood(Request $request)
     {
         $input = $request->all();
-        $meallibraryhf = MealLibraryHasFood::where('id_meal_library_hf',$input["id_meal_library_hf"])->first();
+        $meallibraryhf = MealLibraryHasFood::where('id_meal_library_hf', $input["id_meal_library_hf"])->first();
         $meallibraryhf->delete();
 
         return response()->json([
