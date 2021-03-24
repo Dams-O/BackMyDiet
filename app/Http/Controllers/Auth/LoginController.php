@@ -34,8 +34,7 @@ class LoginController extends Controller
             'password' => 'string|required',
         ]);
 
-        if(Auth::attempt(['mail' => $validatedData['mail'], 'password' => $validatedData['password']]))
-        {
+        if (Auth::attempt(['mail' => $validatedData['mail'], 'password' => $validatedData['password']])) {
             $user = User::where('mail', $validatedData['mail'])->first();
             Auth::login($user);
             //on recréer la session, (si elle n'existait pas par défaut)
@@ -67,24 +66,21 @@ class LoginController extends Controller
 
     public function api_login(Request $request)
     {
-        if(Auth::attempt(['mail' => $request->input('mail'), 'password' => $request->input('password')]))
-        {
+        if (Auth::attempt(['mail' => $request->input('mail'), 'password' => $request->input('password')])) {
             $user = User::where('mail', $request->input('mail'))->first();
-            
-            if($user->email_verified == 1)
-            {
+
+            if ($user->email_verified == 1) {
                 $user->api_token = Str::random(64);
                 $user->save();
-                
+
                 return new UserResource($user);
             } else {
                 return response()->json([
                     'erreur' => 'merci de bien vouloir confirmer votre adresse email avant de vous connecter !'
                 ]);
             }
-            
         }
-        
+
         return response()->json([
             'error' => "Informations invalides",
         ]);
@@ -92,20 +88,19 @@ class LoginController extends Controller
 
     public function api_logout(Request $request)
     {
-       $user = User::where('api_token', $request->input('api_token'))->first();
+        $user = User::where('api_token', $request->input('api_token'))->first();
 
-       if(isset($user) && $user->api_token != null)
-       {
-           $user->api_token = null;
-           $user->save();
+        if (isset($user) && $user->api_token != null) {
+            $user->api_token = null;
+            $user->save();
 
-           return response()->json([
+            return response()->json([
                 "success" => "disconnected",
-           ]);
-       }
+            ]);
+        }
 
-       return response()->json([
+        return response()->json([
             'error' => 'invalid token',
-       ]);
+        ]);
     }
 }

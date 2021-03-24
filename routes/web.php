@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\ProfilController;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use App\Http\Controllers\ConnexionController;
@@ -12,7 +13,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\Stats\StatsController;
 use App\Models\User;
+use App\Http\Controllers\AlgoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +31,7 @@ use App\Models\User;
 // à update en laravel
 // Route::get('chart', [ProfilController::class, 'showGraph']);
 // Route::get('chart', function () {
-   
+
 // }); 
 
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
@@ -42,38 +45,56 @@ Route::get('forget', [ConnexionController::class, 'passRecoveryPage']);
 Route::get('menuType', [RecetteController::class, 'showMenuPage']);
 Route::get('search', [UserController::class, 'showSearchPage']);
 Route::get('getAllProducts', [OpenFoodFactsController::class, 'getAllProducts']);
+Route::get('/', function () {
+    if (!Auth::check()) return redirect('/login');
+    return view('front.dashboard', ['users' => User::all()]);
+})->name('home');
+
+Route::get('viewProfilStats/{id}', [StatsController::class, 'viewProfilStats']);
 
 // Route::get('profil', [UserController::class, 'showProfilPage']);
-Route::get('/', function(Request $request) {
-    if(!Auth::check()) return redirect()->route('login.login');
-    else {
-        $user = User::where('id_user', $request->session()->get('id_user'))->first();
-        $chart = (new LarapexChart)->setType('line')
-        ->setSubtitle('Kilogrammes')
-        ->setXAxis([
-            'Lundi', 'Mardi', 'Mercredi','Jeudi','Vendredi','Samedi','Dimanche'
-        ])
-        ->setColors(['#FF5759'])
-        ->setDataset([
-            [
-                'name'  =>  'Kg',
-                'data'  =>  [80, 80, 79.8, 79.7, 79.4, 79.5, 79.4]
-            ]
-        ]);
-        $chart2 = (new LarapexChart)
-        ->setDataset([150, 120, 50, 300, 200, 100])
-        ->setColors(['#46F068', '#FF0035','#4D8CE3','#BF00E6','#FFF759','#AB0022'])
-        ->setLabels(['Published', 'No Published','testadd1', 'testadd2','testadd3', 'testadd4']);
-        $chart3 = (new LarapexChart)
-        ->setDataset([150, 100, 150, 80, 90, 30])
-        ->setColors(['#46F068', '#FF0035','#4D8CE3','#BF00E6','#FFF759','#AB0022'])
-        ->setLabels(['Published', 'No Published','testadd1', 'testadd2','testadd3', 'testadd4']);
-        $chart4 = (new LarapexChart)
-        ->setDataset([100, 20, 200, 250, 100, 180])
-        ->setColors(['#46F068', '#FF0035','#4D8CE3','#BF00E6','#FFF759','#AB0022'])
-        ->setLabels(['Published', 'No Published','testadd1', 'testadd2','testadd3', 'testadd4']);
-        // return view('chart', compact('chart'), compact('chart2'));
-        return view('profil', ['user'=>$user],compact('chart','chart2','chart3','chart4'));
-    } 
-}
+Route::get(
+    '/profil/{id}',
+    function ($id) {
+        if (!Auth::check()) return redirect()->route('login.login');
+        else {
+            $algoRequest = new Request(['id_user' => $id]);
+            $stats = AlgoController::getStatsByMonthByUserByUser($algoRequest);
+            $stats = $stats->getData();
+            $user = User::where('id_user', $id)->first();
+
+            $stats_labels = [];
+            $stats_datas = [];
+
+            $colors = [];
+
+            $goals_labels = [];
+            $goals_datas = [];
+
+
+            foreach ($stats->month_stats->all as $label => $value) {
+                array_push($stats_labels, $label);
+                array_push($stats_datas, $value);
+            }
+
+            foreach ($stats->goal->all as $label => $value) {
+                array_push($goals_labels, $label);
+                array_push($goals_datas, $value);
+            }
+
+            $stats_chart = (new LarapexChart)->donutChart()
+                ->setTitle('Statistiques du mois')
+                ->setDataset($stats_datas)
+                ->setColors(['#355b9f', '#e13131', '#fab749', '#629b33', '#ef7a3d', '#91398d'])
+                ->setLabels($stats_labels);
+            $goals_chart = (new LarapexChart)->donutChart()
+                ->setTitle('Objectifs du mois')
+                ->setDataset($goals_datas)
+                ->setColors(['#355b9f', '#e13131', '#fab749', '#629b33', '#ef7a3d', '#91398d'])
+                ->setLabels($goals_labels);
+
+            // return view('chart', compact('chart'), compact('chart2'));
+            return view('profil', compact('goals_chart', 'stats_chart'), ['user_score' => $stats->user_score, 'goal_score' => $stats->goal_score, 'user' => $user]);
+        }
+    }
 );

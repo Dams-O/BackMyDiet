@@ -1,6 +1,6 @@
 <header>
     <div class="header-left">
-        <a href="/profil"><img id="logo" src="{{URL::asset('img/logo-master.png')}}"></a>
+        <a href="/dashboard"><img id="logo" src="{{URL::asset('img/logo-master.png')}}"></a>
     </div>
     <div class="header-right">
         <label for="toggle" id="toggle-hamburger">&#9776;</label>

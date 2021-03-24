@@ -9,7 +9,16 @@
         <section class="card">
             <img src="user.png"/>
             <div class="info">
-                <span>User Info</span>
+                <span>{{$user->first_name}}</span>
+                <span>{{$user->last_name}}</span>
+                <span>{{$user->mail}}</span>
+                <span> Email vérifié : 
+                    @if($user->email_verified == 1)
+                        Oui
+                    @else
+                        Non
+                    @endif
+                </span>
                 <span>20 ans - Homme</span>
             </div>
         </section>
@@ -20,72 +29,40 @@
                 <button onclick="showPanel(2, 'rgba(255, 255, 255')">1 ANNÉE</button>
             </div>
             <div class="tabPanel">
-            <div class="chartpie">
-            <div class="chart2">
-                {!! $chart2->container() !!}
-             
-                <script src="{{ $chart2->cdn() }}"></script>
-            
-                <!-- Or use the cdn directly -->
-            
-                <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
-            
-                <!-- Or use the local library as asset the package already provides a publication with this file *see below -->
-            
-                <!-- <script src="{{ asset('vendor/larapex-charts/apexchart.js') }}"></script> -->
-             
-                {{ $chart2->script() }}
-            </div>
-            <div class="chart3">
-                {!! $chart3->container() !!}
- 
-                <script src="{{ $chart3->cdn() }}"></script>
-            
-                <!-- Or use the cdn directly -->
-            
-                <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
-            
-                <!-- Or use the local library as asset the package already provides a publication with this file *see below -->
-            
-                <!-- <script src="{{ asset('vendor/larapex-charts/apexchart.js') }}"></script> -->
-             
-                {{ $chart3->script() }}
-            </div> 
-             <div class="chart4">
-                {!! $chart4->container() !!}
- 
-                <script src="{{ $chart4->cdn() }}"></script>
-            
-                <!-- Or use the cdn directly -->
-            
-                <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
-            
-                <!-- Or use the local library as asset the package already provides a publication with this file *see below -->
-            
-                <!-- <script src="{{ asset('vendor/larapex-charts/apexchart.js') }}"></script> -->
-             
-                {{ $chart4->script() }}
-            </div>    
-            </div> 
-              <div class="chart1">
-                {!! $chart->container() !!}
- 
-                <script src="{{ $chart->cdn() }}"></script>
-            
-                <!-- Or use the cdn directly -->
-            
-                <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
-            
-                <!-- Or use the local library as asset the package already provides a publication with this file *see below -->
-            
-                <!-- <script src="{{ asset('vendor/larapex-charts/apexchart.js') }}"></script> -->
-             
-                {{ $chart->script() }}
-            </div>    
-                <div class="containt">
-                    Value 1
+                <div class="chartpie">
+                    <div class="chart2">
+                        {!! $stats_chart->container() !!}
+                    
+                        <script src="{{ $stats_chart->cdn() }}"></script>
+                    
+                        {{ $stats_chart->script() }}
+                    </div>
+                     
+                    <div class="chart3">
+                        {!! $goals_chart->container() !!}
+        
+                        <script src="{{ $goals_chart->cdn() }}"></script>
+                    
+                        {{ $goals_chart->script() }}
+                    </div>  
                 </div>
             </div>
+
+            <div id="progression">
+                    <ul>
+                        <li>Score mensuel : {{$user_score}}</li>
+                        <li>Objectif de score : {{$goal_score}}</li>
+                        <li>Progression : 
+                            
+                            @if($goal_score > 0)
+                                {{ round(($user_score*100)/$goal_score, 1).'%'}}
+                            @else
+                                Pas de goal !
+                            @endif
+                        </li>
+                    </ul>
+                </div>
+
             <div class="tabPanel">
                 <div class="containt">
                     Value 2
