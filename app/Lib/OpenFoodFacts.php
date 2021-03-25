@@ -289,6 +289,9 @@ class OpenFoodFacts extends Api
             $data['auth'] = array_values($this->auth);
         }
 
+        // Correction de l'erreur -> cURL error 60: SSL certificate: unable to get local issuer certificate
+        $data['verify'] = base_path('cacert.pem');
+
         try {
             $response = $this->httpClient->request('get', $url, $data);
         } catch (GuzzleException $guzzleException) {

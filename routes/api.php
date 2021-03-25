@@ -23,6 +23,7 @@ use App\Http\Controllers\Stats\MessageController;
 use App\Http\Controllers\Stats\ConversationController;
 use App\Http\Controllers\Stats\MenuController;
 use App\Http\Controllers\Stats\DonneeSuiviController;
+use App\Http\Controllers\OpenFoodFactsController;
 
 
 /*
@@ -207,6 +208,11 @@ Route::middleware('auth:api')->post('/createRecipeSteps',  [RecipeStepsControlle
 // '/api/deleteRecipeSteps' Supprime une entité RecipeSteps
 Route::middleware('auth:api')->post('/deleteRecipeSteps',  [RecipeStepsController::class, 'deleteRecipeSteps']);
 
+// -------- OpenFoodFacts --------
+
+Route::get('viewCategories', [OpenFoodFactsController::class, 'viewCategories']);
+Route::get('searchCategory', [OpenFoodFactsController::class, 'searchCategory']);
+Route::get('getNutriments', [OpenFoodFactsController::class, 'getNutriments']);
 
 
 Route::group(['prefix' => 'stats'], function () {
