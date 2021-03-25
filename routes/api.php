@@ -215,8 +215,8 @@ Route::middleware('auth:api')->post('/deleteRecipeSteps',  [RecipeStepsControlle
 // -------- OpenFoodFacts --------
 
 Route::get('viewCategories', [OpenFoodFactsController::class, 'viewCategories']);
-Route::get('searchCategory', [OpenFoodFactsController::class, 'searchCategory']);
-Route::get('getNutriments', [OpenFoodFactsController::class, 'getNutriments']);
+Route::middleware('jwt')->get('searchCategory', [OpenFoodFactsController::class, 'searchCategory']);
+Route::middleware('jwt')->get('getNutriments', [OpenFoodFactsController::class, 'getNutriments']);
 
 
 Route::group(['prefix' => 'stats'], function () {

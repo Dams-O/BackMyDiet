@@ -113,9 +113,9 @@ class LoginController extends Controller
     public function api_login_jwt(Request $request)
     {
         // Récupération de l'email et du mot de passe reçus dans le corps de la requête
-        $credentials = array("mail" => $request->json('mail'), 'password' => $request->json('password'));
+        $credentials = array("mail" => $request->input('mail'), 'password' => $request->input('password'));
 
-        if (Auth::attempt($credentials) || 1) {
+        if (Auth::attempt($credentials)) {
             // Authentification réussie (l'utilisateur existe dans la BDD)
             $user = User::where('mail', $request->input('mail'))->first();
 
