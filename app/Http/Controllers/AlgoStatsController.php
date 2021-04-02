@@ -6,18 +6,14 @@ use App\Models\DataUser;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class AlgoController extends Controller
+class AlgoStatsController extends Controller
 {
     public static function getStatsByMonthByUserByUser(Request $request)
     {
-
-
         $validatedData = $request->validate([
             'id_user' => 'required|exists:users,id_user|integer',
             'date' => 'string'
         ]);
-
-
 
         $user = User::where('id_user', $validatedData['id_user'])->first();
 
@@ -54,7 +50,7 @@ class AlgoController extends Controller
             "Dejeune" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0, "Score" => 0],
             "Diner" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0, "Score" => 0],
             "Colation" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0, "Score" => 0],
-            "all" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0]
+            "all" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0, "Score" => 0]
         ];
 
         $user_score = 0;
@@ -96,6 +92,10 @@ class AlgoController extends Controller
 
             $mealTypeOneMonth[$menu->meal_category->name]["Score"] = $menu->Sucre * $dim + $menu->Sucre * $dim + $menu->Lipides * $dim + $menu->Legumes * $dim + $menu->Glucides * $dim + $menu->Proteines * $dim + $menu->Calcium * $dim;
             $goal_score += $mealTypeOneMonth[$menu->meal_category->name]["Score"];
+
+            foreach ($$mealTypeOneMonth[$menu->meal_category->name] as $field) {
+                $mealTypeOneMonth['all']['Score'] += $field['Score'];
+            }
         }
 
         $stats = [
@@ -110,24 +110,62 @@ class AlgoController extends Controller
         return response()->json($stats);
     }
 
-    public function getStatsByDayByUser(Request $request)
+    public static function check_in_range($start_date, $end_date, $date_from_user)
     {
+        // Convert to timestamp
+        $start = strtotime($start_date);
+        $end = strtotime($end_date);
+        $check = strtotime($date_from_user);
 
+        // Check that user date is between start & end
+        return (($start <= $check) && ($check <= $end));
+    }
+
+    public function getStatsByUser(Request $request)
+    {
+        //On récupère les cibles des stats
         $validatedData = $request->validate([
             'id_user' => 'required|exists:users,id_user|integer',
-            'date' => 'string'
+            'date' => 'string',
+            'mode' => 'required|string'
         ]);
 
+        //on stocke le mode et l'id de l'user
         $id = $validatedData['id_user'];
+        $mode = $validatedData['mode'];
 
-        if (isset($validatedData['date'])) {
-            $date_target = date("Y-m-d", strtotime($validatedData['date']));
+        //si on veut les stats sur 1 semaine
+        if ($mode == "week") {
+            //Si une date est précisée
+            if (isset($validatedData['date'])) {
+                $date_target = strtotime($validatedData['date']);
+            } else {
+                $date_target = strtotime(now());
+            }
+
+            if (date("l", $date_target) == "Monday") {
+                $first_day_of_week = date('Y-m-d', strtotime("Last Monday", strtotime("+1 day", $date_target)));
+            } else $first_day_of_week = date('Y-m-d', strtotime("Last Monday", $date_target));
+
+            //on récupère le dernier jour
+            $last_day_of_week = date('Y-m-d', strtotime("Next Sunday", $date_target));
+
+            //Sinon (mode day)
         } else {
-            $date_target = date("Y-m-d", strtotime(now()));
+            //On recupère la date du jour
+            if (isset($validatedData['date'])) {
+                $date_target = date("Y-m-d", strtotime($validatedData['date']));
+            } else {
+                $date_target = date("Y-m-d", strtotime(now()));
+            }
         }
 
+
+        //Utilisateur voulu
         $user = User::where('id_user', $id)->first();
 
+
+        //Tableau contenant le résultat de la recherche des datas user
         $data_report = [
             "Petit Dejeune" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0],
             "Dejeune" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0],
@@ -135,37 +173,75 @@ class AlgoController extends Controller
             "Colation" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0]
         ];
 
-        $mealTypeOneDay = [
+        //Tableau contenant les objectifs de cet Utilisateur
+        $mealType = [
             "Petit Dejeune" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0],
             "Dejeune" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0],
             "Diner" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0],
             "Colation" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0]
         ];
 
+        //Pour chaques datas User
         foreach ($user->dataUser as $data) {
-            if (date("Y-m-d", strtotime($data->created_at)) == $date_target) {
-                foreach ($data->foods as $food) {
-                    $data_report[$data->meal_category->name][$food->categorie->name] += 1;
+
+            if ($mode == "day") {
+                //On récupère les datas User entrés ce jour là
+                if (date("Y-m-d", strtotime($data->created_at)) == $date_target) {
+                    foreach ($data->foods as $food) {
+                        //On ajoute +1 sur le bon field du tableau
+                        $data_report[$data->meal_category->name][$food->categorie->name] += 1;
+                    }
+                }
+
+                //Sinon (mode week)
+            } else {
+                //on recupere les datas user situés dans l'intervalle de temps voulu
+                if (AlgoStatsController::check_in_range($first_day_of_week, $last_day_of_week, $data->created_at)) {
+                    foreach ($data->foods as $food) {
+                        $data_report[$data->meal_category->name][$food->categorie->name] += 1;
+                    }
                 }
             }
         }
 
-        foreach ($user->menuTypes as $menu) {
-
-            $mealTypeOneDay[$menu->meal_category->name]["Calcium"] += $menu->Calcium;
-            $mealTypeOneDay[$menu->meal_category->name]["Proteines"] += $menu->Proteines;
-            $mealTypeOneDay[$menu->meal_category->name]["Glucides"] += $menu->Glucides;
-            $mealTypeOneDay[$menu->meal_category->name]["Legumes"] += $menu->Legumes;
-            $mealTypeOneDay[$menu->meal_category->name]["Lipides"] += $menu->Lipides;
-            $mealTypeOneDay[$menu->meal_category->name]["Sucre"] += $menu->Sucre;
+        if ($mode == "week") {
+            $dim = 7;
+        } else {
+            $dim = 1;
         }
 
-        $stats = [
-            "date" => $date_target,
-            "user" => [$user->id_user, $user->mail],
-            "day_stats" => $data_report,
-            "day_goal" => $mealTypeOneDay
-        ];
+
+        //Ajout des objectifs (dim = nombre de jours)
+        foreach ($user->menuTypes as $menu) {
+
+            $mealType[$menu->meal_category->name]["Calcium"] += $menu->Calcium * $dim;
+            $mealType[$menu->meal_category->name]["Proteines"] += $menu->Proteines * $dim;
+            $mealType[$menu->meal_category->name]["Glucides"] += $menu->Glucides * $dim;
+            $mealType[$menu->meal_category->name]["Legumes"] += $menu->Legumes * $dim;
+            $mealType[$menu->meal_category->name]["Lipides"] += $menu->Lipides * $dim;
+            $mealType[$menu->meal_category->name]["Sucre"] += $menu->Sucre * $dim;
+        }
+
+
+        //Format de réponse
+        if ($mode == "week") {
+            $stats = [
+                "date" => [
+                    "from" => $first_day_of_week,
+                    "to" => $last_day_of_week
+                ],
+                "user" => [$user->id_user, $user->mail],
+                "week_stats" => $data_report,
+                "week_goal" => $mealType
+            ];
+        } else {
+            $stats = [
+                "date" => $date_target,
+                "user" => [$user->id_user, $user->mail],
+                "day_stats" => $data_report,
+                "day_goal" => $mealType
+            ];
+        }
 
         return response()->json($stats);
     }

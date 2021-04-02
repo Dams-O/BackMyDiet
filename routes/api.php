@@ -16,13 +16,14 @@ use App\Http\Controllers\MealLibraryHasFoodController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RecipeHasFoodController;
 use App\Http\Controllers\AdviceController;
-use App\Http\Controllers\AlgoController;
+use App\Http\Controllers\AlgoStatsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\RecipeStepsController;
 use App\Http\Controllers\Stats\MessageController;
 use App\Http\Controllers\Stats\ConversationController;
 use App\Http\Controllers\Stats\MenuController;
 use App\Http\Controllers\Stats\DonneeSuiviController;
+use App\Http\Controllers\OpenFoodFactsController;
 
 
 /*
@@ -46,14 +47,19 @@ Route::get('/account/verify/{token}', [UserController::class, 'verifyMail']);
 Route::post('/login', [LoginController::class, 'api_login']);
 Route::post('/logout', [LoginController::class, 'api_logout']);
 
+Route::post('/login-jwt', [LoginController::class, 'api_login_jwt']);
+
 // '/api/createUser' Crée une entité User
 Route::post('/createUser', [UserController::class, 'createUser']);
 
 
 //Algorithmes de stats
-Route::middleware('auth:api')->post('/getDataMealScore', [AlgoController::class, "getStatsByMonthByUser"]);
+Route::middleware('auth:api')->post('/getDataMealScore', [AlgoStatsController::class, "getStatsByMonthByUser"]);
+Route::middleware('auth:api')->post('/getStatsByUserWeekDay', [AlgoStatsController::class, "getStatsByUser"]);
 
-Route::middleware('auth:api')->post('/getStatsByDay', [AlgoController::class, "getStatsByDayByUser"]);
+//Algos Data DataIceCube
+Route::middleware('auth:api')->post('/getDataIceScore', [DataIceCubeController::class, "getIceByMonthByUser"]);
+
 
 // -------- User --------
 
@@ -84,8 +90,6 @@ Route::middleware('auth:api')->post('/deleteStats', [StatsController::class,  'd
 Route::middleware('auth:api')->get('/getAllFoods', [FoodLibraryController::class, 'getAllFoods']);
 // '/api/getFoodById' Retourne une  entité Food en renseignant son ID
 Route::middleware('auth:api')->post('/getFoodById', [FoodLibraryController::class, 'getFoodById']);
-// '/api/getFoodByName' Retourne des entités Food en renseignant son Name
-Route::middleware('auth:api')->post('/getFoodByName', [FoodLibraryController::class, 'getFoodByLikeName']);
 // '/api/createFood' Crée une entité Food
 Route::middleware('auth:api')->post('/createFood', [FoodLibraryController::class, 'createFood']);
 // '/api/deleteFood' Supprime une entité Food
@@ -208,6 +212,11 @@ Route::middleware('auth:api')->post('/createRecipeSteps',  [RecipeStepsControlle
 // '/api/deleteRecipeSteps' Supprime une entité RecipeSteps
 Route::middleware('auth:api')->post('/deleteRecipeSteps',  [RecipeStepsController::class, 'deleteRecipeSteps']);
 
+// -------- OpenFoodFacts --------
+
+Route::get('viewCategories', [OpenFoodFactsController::class, 'viewCategories']);
+Route::middleware('jwt')->get('searchCategory', [OpenFoodFactsController::class, 'searchCategory']);
+Route::middleware('jwt')->get('getNutriments', [OpenFoodFactsController::class, 'getNutriments']);
 
 
 Route::group(['prefix' => 'stats'], function () {
