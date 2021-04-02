@@ -16,7 +16,7 @@ class PdfController
             // pass view file
             $pdf = \PDF::loadView('pdf.recette');
             // download pdf
-            return $pdf->download('recette.pdf');
+            return $pdf->inline('recette.pdf');
         }
         return view('listeRecette');
     }
