@@ -6,7 +6,7 @@
     <title>Nom recette</title>
 </head>
     <body>
-        <div id="recette-img">photo recette</div>
+        <div id="recette-img"><img src="#">photo recette</div>
         <div id="titre_recette"><span id="nom-recette">Titre de la recette</span><img src="#">dessin blé<img src="#">dessin pain</div>
         <hr>
 
@@ -21,7 +21,8 @@
                     </div>
 
                     <div id="hashtags">
-                        <p><B>#Pain</B> 
+                        <p>
+                            <B>#Pain</B> 
                             <br/> <B>#FaitMaison</B>
                             <br/><B>#Boulangerie</B>
                             <br/><B>#MieDePain</B>
@@ -37,6 +38,7 @@
                         <li>1 cuillère à café de sel</li>
                         <li>1 cuillère à soupe d’huile d’olive</li>
                     </ul>
+                    <div id="logo">logo ici</div>
                 </div>
             </div>
             <div>
@@ -105,7 +107,7 @@
             width:100%;
             height: 100%;
             padding-left: 20px;
-            padding-right: 20px;
+            padding-right: 40px;
             padding-bottom: 20px;
         }
         #cuisson-hashtags
@@ -114,6 +116,10 @@
             display: -webkit-box;
             display: -webkit-flex;
         }
+        hr
+        {
+            border-top: dotted 4px black;
+        }
         #left_flex
         {
             padding: 20px;
@@ -121,16 +127,30 @@
             width: 42%;
             padding-left:0%; 
         }
-        #instructions ul
+        #right_flex
         {
             padding: 20px;
+            overflow: hidden;
+            width: 50%;
+            min-height: 100%;
+            border-left: dotted 4px black;  
+        }
+        #instructions ul
+        {
+            padding: 40px;
             list-style-type: decimal;
+            font-size: 20px;
+        }
+        #instructions ul li
+        {
+            padding-bottom: 20px;
         }
         #flex_info
         {
-           
+            
             display: -webkit-box;
             display: -webkit-flex;
+            min-height: 80%;
            
         }
         #hashtags
@@ -139,7 +159,7 @@
             padding: 20px;
             padding-left: 50px;
             padding-right: 50px;
-            border-right: solid rgb(189, 189, 189) 1px; 
+            border-right: dotted 4px black; 
             display: -webkit-box;
             display: -webkit-flex;
             margin-bottom: 10px
@@ -166,7 +186,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
-            border: solid 1px black;
+            border: solid 1px grey;
             text-align: center;
         }
         #nom-recette
@@ -174,7 +194,7 @@
             font-size: 40px;
             padding-top: 18px;
             font-weight: 500;
-            margin-right: 50%;
+            margin-right: 40%;
             padding-left: 20px;
             padding-bottom: 0px;
             text-align: left;
@@ -186,7 +206,28 @@
         }
         #ingredients
         {
-            border-top: solid rgb(189, 189, 189) 1px; 
+            font-size: 18px;
+            border-top: dotted 4px black; 
+        }
+        #ingredients ul
+        {
+            list-style-type: none;
+        }
+        #ingredients ul li 
+        {
+            padding-bottom: 10px
+        }
+
+        #logo
+        {
+            background-image: url('#') /* Logo MyDiet ici*/;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin-top:50%; 
+            width: 250px;
+            height: 150px;
+            border: red 1px solid;
         }
         </style>
 </body>
