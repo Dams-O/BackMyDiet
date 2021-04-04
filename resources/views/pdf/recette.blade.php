@@ -191,27 +191,34 @@
             top: 0%;
             width: 97%;
             height: 350px;
-            background-image: url('#'); /*On place l'image de la recette ici*/
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            border: solid 1px grey;
-            text-align: center;
+        }
+        #recette-img img 
+        {
+            width: 100%;
+            height: 350px;
         }
         #nom-recette
         {
             font-size: 40px;
             padding-top: 18px;
             font-weight: 500;
-            margin-right: 40%;
             padding-left: 20px;
             padding-bottom: 0px;
             text-align: left;
             width: 50%;
+            margin-right: 22%;
         }
         #titre_recette
         {
+            display: -webkit-box;
+            display: -webkit-flex;
             padding:20px;
+        }
+        #titre_recette img
+        {
+            padding-top: 32px;
+            width: 50px;
+            height: 50px;
         }
         #ingredients
         {
@@ -229,14 +236,14 @@
 
         #logo
         {
-            background-image: url('#') /* Logo MyDiet ici*/;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            margin-top:50%;
-            width: 250px;
+            margin-top:30%;
+            width: 200px;
             height: 150px;
-            border: red 1px solid;
+        }
+        #logo img 
+        {
+            width: 200px;
+            height: 150px;
         }
         </style>
 </body>
