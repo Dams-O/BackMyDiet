@@ -47,7 +47,7 @@ class UserController extends Controller
     public function createUser(Request $request)
     {
         $validateData = $request->validate([
-            'email' => 'required|email|unique:users,mail',
+            'mail' => 'required|email|unique:users,mail',
             'pseudo' => 'required|unique:users,pseudo',
             'birthday' => 'string'
         ]);
@@ -57,7 +57,7 @@ class UserController extends Controller
         $user->last_name = $request->input('lastname');
         $user->first_name = $request->input('firstname');
         $user->pseudo = $validateData['pseudo'];
-        $user->mail = $validateData['email'];
+        $user->mail = $validateData['mail'];
         $user->password = Hash::make($request->input('password'));
 
         if (isset($validateData['birthday'])) {
