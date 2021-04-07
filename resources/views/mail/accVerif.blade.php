@@ -12,7 +12,7 @@
 
     <p>Cliquez sur ce lien pour valider votre compte :</p>
 
-    <a href="http://127.0.0.1:8000/api/account/verify/{{$details['token']}}">Valider mon compte</a>
+    <a href="http://webmydiet-env.eba-bmajpt3n.eu-west-3.elasticbeanstalk.com/api/account/verify/{{$details['token']}}">Valider mon compte</a>
 
     <p>Merci !</p>
 </body>
