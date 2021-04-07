@@ -31,7 +31,7 @@ class DataUserController extends Controller
         $dateNow = date('Y-m-d');
         $dataUser = DataUser::where('id_user', $input["id_user"])->get();
         $dataUserAday[] = NULL;
-        foreach ($dataUser as &$data) {
+        foreach ($dataUser as $data) {
             if ($data->created_at->format('Y-m-d') == $dateNow) {
                 array_push($dataUserAday, $data);
             }
@@ -47,7 +47,7 @@ class DataUserController extends Controller
      */
     public function getAllDataUsersByUser(Request $request)
     {
-        return DataUserResource::collection(DataUser::where('id_user', $request->input("id_user"))->all());
+        return DataUserResource::collection(DataUser::where('id_user', $request->input("id_user"))->get());
     }
 
 

@@ -8,7 +8,7 @@ use App\Models\User;
 
 class AlgoStatsController extends Controller
 {
-    public static function getStatsByMonthByUserByUser(Request $request)
+    public static function getStatsByMonthByUser(Request $request)
     {
         $validatedData = $request->validate([
             'id_user' => 'required|exists:users,id_user|integer',
@@ -91,11 +91,9 @@ class AlgoStatsController extends Controller
             $mealTypeOneMonth['all']["Sucre"] += $menu->Sucre * $dim;
 
             $mealTypeOneMonth[$menu->meal_category->name]["Score"] = $menu->Sucre * $dim + $menu->Sucre * $dim + $menu->Lipides * $dim + $menu->Legumes * $dim + $menu->Glucides * $dim + $menu->Proteines * $dim + $menu->Calcium * $dim;
-            $goal_score += $mealTypeOneMonth[$menu->meal_category->name]["Score"];
 
-            foreach ($$mealTypeOneMonth[$menu->meal_category->name] as $field) {
-                $mealTypeOneMonth['all']['Score'] += $field['Score'];
-            }
+
+            $mealTypeOneMonth['all']['Score'] += $mealTypeOneMonth[$menu->meal_category->name]['Score'];
         }
 
         $stats = [
@@ -104,7 +102,7 @@ class AlgoStatsController extends Controller
             "month_stats" => $data_report,
             "goal" => $mealTypeOneMonth,
             "user_score" => $user_score,
-            "goal_score" => $goal_score
+            "goal_score" => $mealTypeOneMonth['all']['Score']
         ];
 
         return response()->json($stats);

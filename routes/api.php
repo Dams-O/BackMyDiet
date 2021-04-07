@@ -68,7 +68,7 @@ Route::middleware('auth:api')->post('/getUserById', [UserController::class, 'get
 Route::middleware('auth:api')->post('/deleteUser', [UserController::class, 'deleteUser']);
 
 
-
+/*
 // -------- Stats --------
 
 // '/api/getAllStats' Retourne toutes les entités Stats
@@ -79,7 +79,7 @@ Route::middleware('auth:api')->post('/getStatsById', [StatsController::class,  '
 Route::middleware('auth:api')->post('/createStats', [StatsController::class,  'createStats']);
 // '/api/deleteStats' Supprime une entité Stats
 Route::middleware('auth:api')->post('/deleteStats', [StatsController::class,  'deleteStats']);
-
+*/
 
 // -------- FoodLibrary --------
 
