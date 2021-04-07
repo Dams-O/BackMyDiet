@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container">
-            <form class="text-center" method="GET" action="getAllProducts" style="margin-top: 150px">
+            <form class="text-center" method="GET" action="viewCategories" style="margin-top: 150px">
                 {{ csrf_field() }}
                 <label>Sélectionnez une catégorie</label>
                 <div class="input-bar">

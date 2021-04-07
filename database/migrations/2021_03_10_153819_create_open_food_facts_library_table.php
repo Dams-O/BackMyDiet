@@ -17,7 +17,7 @@ class CreateOpenFoodFactsLibraryTable extends Migration
             $table->increments('id');
             $table->text('category_id');
             $table->text('name');
-            $table->string('nb_products');
+            $table->string('nb_products')->default(0);
             $table->string('moy_glucides')->nullable(true);
             $table->string('moy_lipides')->nullable(true);
             $table->string('moy_proteines')->nullable(true);

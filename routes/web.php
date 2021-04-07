@@ -45,8 +45,8 @@ Route::get('addRecette', [RecetteController::class, 'showPage']);
 Route::get('forget', [ConnexionController::class, 'passRecoveryPage']);
 Route::get('menuType', [RecetteController::class, 'showMenuPage']);
 Route::get('search', [UserController::class, 'showSearchPage']);
-Route::get('getAllProducts', [OpenFoodFactsController::class, 'getAllProducts']);
 Route::get('generate-pdf', [PdfController::class, 'pdfView'])->name('generate-pdf');
+Route::get('viewCategories', [OpenFoodFactsController::class, 'viewCategories']);
 
 Route::get('/', function () {
     if (!Auth::check()) return redirect('/login');
