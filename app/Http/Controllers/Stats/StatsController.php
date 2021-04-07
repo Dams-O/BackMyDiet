@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Stats;
 
-use App\Http\Controllers\AlgoController;
+use App\Http\Controllers\AlgoStatsController;
 use App\Http\Controllers\Controller;
 use App\Models\Stats;
 use App\Models\User;
@@ -33,7 +33,7 @@ class StatsController extends Controller
     {
         $request = new Request(['id_user' => $id]);
 
-        $stats = AlgoController::getStatsByMonthByUser($request);
+        $stats = AlgoStatsController::getStatsByMonthByUser($request);
         $user = User::where('id_user', $id)->first();
 
 

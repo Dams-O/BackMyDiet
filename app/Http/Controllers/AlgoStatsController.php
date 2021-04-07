@@ -37,6 +37,7 @@ class AlgoStatsController extends Controller
 
         $datas_user = $user->dataUser;
 
+
         $data_report = [
             "Petit Dejeune" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0, "Score" => 0],
             "Dejeune" => ["Calcium" => 0, "Proteines" => 0, "Glucides" => 0, "Legumes" => 0, "Lipides" => 0, "Sucre" => 0, "Score" => 0],
@@ -63,10 +64,10 @@ class AlgoStatsController extends Controller
             if (date("m", strtotime($data->created_at)) == $month_target) {
                 //Attribution des points selon la categorie des aliments présents dans le dataUser
                 foreach ($data->foods as $food) {
-                    $data_report[$data->meal_category->name][$food->categorie->name] += 1;
+                    $data_report[$data->meal_category->name][$food->category->name] += 1;
                     $data_report[$data->meal_category->name]["Score"] += 1;
                     $user_score += 1;
-                    $data_report['all'][$food->categorie->name] += 1;
+                    $data_report['all'][$food->category->name] += 1;
                 }
             }
         }

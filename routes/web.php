@@ -15,7 +15,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\Stats\StatsController;
 use App\Models\User;
-use App\Http\Controllers\AlgoController;
+use App\Http\Controllers\AlgoStatsController;
 use \App\Http\Controllers\PdfController;
 
 /*
@@ -62,7 +62,7 @@ Route::get(
         if (!Auth::check()) return redirect()->route('login.login');
         else {
             $algoRequest = new Request(['id_user' => $id]);
-            $stats = AlgoController::getStatsByMonthByUserByUser($algoRequest);
+            $stats = AlgoStatsController::getStatsByMonthByUser($algoRequest);
             $stats = $stats->getData();
             $user = User::where('id_user', $id)->first();
 
@@ -81,8 +81,10 @@ Route::get(
             }
 
             foreach ($stats->goal->all as $label => $value) {
-                array_push($goals_labels, $label);
-                array_push($goals_datas, $value);
+                if ($label != "Score") {
+                    array_push($goals_labels, $label);
+                    array_push($goals_datas, $value);
+                }
             }
 
             $stats_chart = (new LarapexChart)->donutChart()
