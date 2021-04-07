@@ -17,6 +17,10 @@ textarea#steps {
     height: 159px;
     resize: none; 
 }
+#pageContent
+{
+    margin-top: 14%;
+}
 
 @media all and (max-width: 414px){
   
@@ -45,5 +49,5 @@ textarea#steps {
     {
         margin-left: 6%;
     }
-    
+     
 }

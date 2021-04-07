@@ -19,7 +19,7 @@ body {
     flex-flow: row nowrap;
     align-items: center;
     margin: 10px;
-    width: 100%;
+    width: 100%; 
 }
 
 .input-bar > input:focus {
@@ -54,14 +54,24 @@ body {
 
 /*   FOOD-SELECTOR   */
 
-.select-food {
+#select-food {
+    min-width: 90vw;
+    min-height: 20vh;
     user-select: none;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
-.select-food > label {
+
+#select-food > div {
     margin: 10px;
     cursor: pointer;
+}
+
+@media screen and (max-width:480px){
+    .form-add-food
+    {
+        margin-top: 45%;
+    }
 }

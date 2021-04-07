@@ -3,6 +3,7 @@ body {
     background-size: cover; 
     background-position: 50% 45%;
     background-attachment: fixed;
+    overflow-y: auto;
 }
 .overlay{
     z-index:98;
@@ -40,11 +41,34 @@ div.inSelect input {
     font-family: Montserrat-Bold;
 }
 
-.background {
+.background1 {
     background: url(../../img/menu/forme.png) no-repeat bottom left;
     background-size: 100% 100%;
     width: 350px;
-    height: 500px; 
+    min-height: 500px;
+    padding-bottom: 2vh;
+
+}
+.vignettes
+{
+    margin-top: 4%;
+}
+@media all and (max-width: 900px){
+        
+    .background1
+    {
+        margin-top: 4%;
+        margin-left: 30%;
+        margin-right: 30%!important;
+    }
+}
+@media all and (max-width: 680px){
+    .background1{ 
+        margin-left: 10%;
+        margin-right: 10%!important;
+        width: 350px;
+        min-height: 500px;
+    }
 }
 
     .criteres 
@@ -106,11 +130,11 @@ div.inSelect input {
     
     
       
-    input.submit{
+    #envoyer_input{
         font-family: Montserrat-Bold;
         color: white;
         font-size: 20px;
-        text-align: left;
+        text-align: center;
         border: none;
         background-color: transparent;
         background: url(../../img/menu/check-validate.png) no-repeat right center;
@@ -131,16 +155,13 @@ div.inSelect input {
             margin-right: 0px;
             margin-bottom: 10%;
         }
-        input.submit
+        #envoyer_input
         {
-            margin-top: 25px;
             width: 300px;
             height: 75px;
             font-size: 30px;
             background-size: 75px;
             background-position: right;
-            text-align: center;
-            padding-right: 75px;
         }
     }
     
@@ -157,14 +178,17 @@ div.inSelect input {
 
     #envoyer_input
     {
-        background-image: url(../../img/menu/check-validate.png) no-repeat right center;
-        background-size: 50px;
-        margin-top: 40%;
+        /* background-image: url(../../img/menu/check-validate.png) no-repeat right center;
+        background-size: 50px; */
+        margin-top: 4%;
+        margin-left: 4%;
+        margin-right: 4%;
         font-size: 24px;
-        color: rgba(241, 241, 241, 0.884);
+        color: rgba(121, 121, 121, 0.884);
         min-height: 4vh;
         max-height: 6vh;
         min-width: 10vw;
+        text-align: center;
         background: none;
         border: none;
     }
