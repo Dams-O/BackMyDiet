@@ -130,11 +130,11 @@ div.inSelect input {
     
     
       
-    input.submit{
+    #envoyer_input{
         font-family: Montserrat-Bold;
         color: white;
         font-size: 20px;
-        text-align: left;
+        text-align: center;
         border: none;
         background-color: transparent;
         background: url(../../img/menu/check-validate.png) no-repeat right center;
@@ -155,16 +155,13 @@ div.inSelect input {
             margin-right: 0px;
             margin-bottom: 10%;
         }
-        input.submit
+        #envoyer_input
         {
-            margin-top: 25px;
             width: 300px;
             height: 75px;
             font-size: 30px;
             background-size: 75px;
             background-position: right;
-            text-align: center;
-            padding-right: 75px;
         }
     }
     
@@ -181,8 +178,8 @@ div.inSelect input {
 
     #envoyer_input
     {
-        background-image: url(../../img/menu/check-validate.png) no-repeat right center;
-        background-size: 50px;
+        /* background-image: url(../../img/menu/check-validate.png) no-repeat right center;
+        background-size: 50px; */
         margin-top: 4%;
         margin-left: 4%;
         margin-right: 4%;
@@ -191,6 +188,7 @@ div.inSelect input {
         min-height: 4vh;
         max-height: 6vh;
         min-width: 10vw;
+        text-align: center;
         background: none;
         border: none;
     }

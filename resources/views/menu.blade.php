@@ -9,7 +9,7 @@
 @section('content')
 <div id="overlay"></div>
 <div class="content">   
-    <form class="text-center" autocomplete="on" method="GET">
+    <form id="menu_form" class="text-center" autocomplete="on" method="GET">
         <div class="vignettes d-inline-flex flex-row justify-content-center flex-wrap">
             <div class="background1 criteres d-flex flex-column">
                 <span id="critTitle">Selon vous</span>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-             <input id="envoyer_input" value="Envoyer" type="submit" onclick="pop_up()">
+             <input id="envoyer_input" value="Envoyer" onclick="pop_up()">
            
         </div>
     </form>
@@ -92,8 +92,11 @@
         } else if(one_pop_only == 1){
             document.getElementById('overlay').style.display = 'none';
             document.getElementById('remove_me').remove()
+            document.forms[0].submit()
             one_pop_only--
         }
+
+
     }   
     
 </script>
