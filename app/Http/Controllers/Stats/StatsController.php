@@ -33,7 +33,7 @@ class StatsController extends Controller
     {
         $request = new Request(['id_user' => $id]);
 
-        $stats = AlgoController::getStatsByMonthByUserByUser($request);
+        $stats = AlgoController::getStatsByMonthByUser($request);
         $user = User::where('id_user', $id)->first();
 
 

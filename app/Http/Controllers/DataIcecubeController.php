@@ -81,6 +81,8 @@ class DataIcecubeController extends Controller
         if (isset($validatedData['date'])) $target_date = strtotime($validatedData['date']);
         else $target_date = strtotime(date('Y-m', strtotime(now())));
 
+        if ($validatedData['interval'] == 0) return response()->json(["error" => "interval doit etre > 0"]);
+
         //nombre de mois voulu
         $interval = $validatedData['interval'] - 1;
 
