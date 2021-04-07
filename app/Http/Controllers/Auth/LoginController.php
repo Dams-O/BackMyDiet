@@ -8,6 +8,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Jose\Component\Core\AlgorithmManager;
+use Jose\Component\Core\JWK;
+use Jose\Component\KeyManagement\JWKFactory;
+use Jose\Component\Signature\Algorithm\HS256;
+use Jose\Component\Signature\JWSBuilder;
+use Jose\Component\Signature\Serializer\CompactSerializer;
 
 class LoginController extends Controller
 {
@@ -102,5 +108,58 @@ class LoginController extends Controller
         return response()->json([
             'error' => 'invalid token',
         ]);
+    }
+
+    public function api_login_jwt(Request $request)
+    {
+        // Récupération de l'email et du mot de passe reçus dans le corps de la requête
+        $credentials = array("mail" => $request->input('mail'), 'password' => $request->input('password'));
+
+        if (Auth::attempt($credentials)) {
+            // Authentification réussie (l'utilisateur existe dans la BDD)
+            $user = User::where('mail', $request->input('mail'))->first();
+
+            // Récupération de la clé privée dans le fichier .env à la racine de /jwt-auth
+            $private_key = env('JWT_PRIVATE_KEY');
+
+            // On utilise la méthode de chiffrement HS256
+            $algorithmManager = new AlgorithmManager([
+                new HS256(),
+            ]);
+
+            // Création de la clé
+            $jwk = new JWK([
+                'kty' => 'oct',
+                'k' => $private_key,
+            ]);
+
+            // L'objet JWSBuilder qui va construire le token
+            $jwsBuilder = new JWSBuilder($algorithmManager);
+
+            // Création du payload
+            $payload = json_encode([
+                'iat' => time(),
+                'nbf' => time(),
+                'exp' => time() + 3600,
+                'iss' => 'My service',
+                'aud' => 'MYDIET',
+                'sub' => $user->id_user,
+            ]);
+
+            $jws = $jwsBuilder
+                ->create()                               // Création du token
+                ->withPayload($payload)                  // Ajout du payload
+                ->addSignature($jwk, ['alg' => 'HS256']) // Ajout de la signature
+                ->build();
+
+            $serializer = new CompactSerializer();
+            $token = $serializer->serialize($jws, 0);
+
+            return $token;
+        }
+        else {
+            // Authentification échouée (l'utilisateur n'existe pas dans la BDD)
+            return "Login invalide";
+        }
     }
 }

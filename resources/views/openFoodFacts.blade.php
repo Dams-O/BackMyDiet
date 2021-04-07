@@ -8,20 +8,17 @@
 
 @section('content')
     <div class="container">
-            <form class="text-center" method="GET" action="getAllProducts">
+            <form class="text-center" method="GET" action="getAllProducts" style="margin-top: 150px">
                 {{ csrf_field() }}
                 <label>Sélectionnez une catégorie</label>
-                <select name="category" class="form-control">
-                    <option value="">Aucune sélection</option>
-                    @foreach ($cats as $cat)
-                        {{--                          <option value="{{ $cat['id'] }}">{{ $cat['name'] }}</option>--}}
-                        <option value="{{ $cat['name'] }}">{{ $cat['name'] }} ({{ $cat['products'] }} produits)</option>
-                    @endforeach
-                </select>
-
-                <div class="form-group">
-                    <input type="image" width="100" value="submit" src="{{URL::asset('img/addFood/check-rose.png')}}"
-                           alt="submit Button"/>
+                <div class="input-bar">
+                    <select name="category" class="form-control">
+                        <option value="">Aucune sélection</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category['name'] }}">{{ $category['name'] }} ({{ $category['nb_products'] }} produits)</option>
+                        @endforeach
+                    </select>
+                    <input type="image" width="100" value="submit" src="{{URL::asset('img/addFood/check-rose.png')}}" alt="submit Button"/>
                 </div>
             </form>
             @isset($nutriments)
