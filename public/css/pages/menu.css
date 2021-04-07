@@ -3,6 +3,7 @@ body {
     background-size: cover; 
     background-position: 50% 45%;
     background-attachment: fixed;
+    overflow-y: auto;
 }
 .overlay{
     z-index:98;
@@ -40,11 +41,34 @@ div.inSelect input {
     font-family: Montserrat-Bold;
 }
 
-.background {
+.background1 {
     background: url(../../img/menu/forme.png) no-repeat bottom left;
     background-size: 100% 100%;
     width: 350px;
-    height: 500px; 
+    min-height: 500px;
+    padding-bottom: 2vh;
+
+}
+.vignettes
+{
+    margin-top: 4%;
+}
+@media all and (max-width: 900px){
+        
+    .background1
+    {
+        margin-top: 4%;
+        margin-left: 30%;
+        margin-right: 30%!important;
+    }
+}
+@media all and (max-width: 680px){
+    .background1{ 
+        margin-left: 10%;
+        margin-right: 10%!important;
+        width: 350px;
+        min-height: 500px;
+    }
 }
 
     .criteres 
@@ -159,9 +183,11 @@ div.inSelect input {
     {
         background-image: url(../../img/menu/check-validate.png) no-repeat right center;
         background-size: 50px;
-        margin-top: 40%;
+        margin-top: 4%;
+        margin-left: 4%;
+        margin-right: 4%;
         font-size: 24px;
-        color: rgba(241, 241, 241, 0.884);
+        color: rgba(121, 121, 121, 0.884);
         min-height: 4vh;
         max-height: 6vh;
         min-width: 10vw;

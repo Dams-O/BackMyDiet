@@ -11,7 +11,7 @@
 <div class="content">   
     <form class="text-center" autocomplete="on" method="GET">
         <div class="vignettes d-inline-flex flex-row justify-content-center flex-wrap">
-            <div class="background criteres d-flex flex-column">
+            <div class="background1 criteres d-flex flex-column">
                 <span id="critTitle">Selon vous</span>
                 <div><span>Critère 1</span><label class="critLbl" for="crit1"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit1" type="checkbox" class="check" name="critere" value="crit1" /></div> 
                 <div><span>Critère 2</span><label class="critLbl" for="crit2"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit2" type="checkbox" class="check" name="critere" value="crit2" /></div> 
@@ -21,7 +21,7 @@
                 <div><span>Critère 6</span><label class="critLbl" for="crit6"><img src="{{URL::asset('img/login/offCheck.png')}}" /><img style="display: none" src="{{URL::asset('img/login/onCheck.png') }}" /></label><input id="crit6" type="checkbox" class="check" name="critere" value="crit6" /></div> 
             </div>
 
-            <div class="background foodAdd d-flex flex-row flex-wrap justify-content-center">
+            <div class="background1 foodAdd d-flex flex-row flex-wrap justify-content-center">
                 <div class="decal food-selector">
                 <img class="foodImg" src="{{URL::asset('img/menu/oeuf.png')}}" alt="oeuf (proteines)" />
                     <div class="inSelect">
